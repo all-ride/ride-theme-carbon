@@ -1,0 +1,5 @@
+{
+    "theme.carbon.name": "Carbon",
+    "template.theme": "carbon",
+    "template.smarty.plugin.cms": "%path%/src/ride/web/template/smarty/plugin"
+}
