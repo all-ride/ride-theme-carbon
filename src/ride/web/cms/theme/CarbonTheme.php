@@ -16,6 +16,7 @@ class CarbonTheme extends CarbonTemplateTheme implements Theme {
      * @var unknown
      */
     protected $regions = array(
+        'content' => 'content',
         'header' => 'header',
         'title' => 'title',
         'footer' => 'footer',

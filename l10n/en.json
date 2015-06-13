@@ -1,1 +1,22 @@
-{}
+{
+    "label": {
+        "cta.type": {
+            "button": "Button",
+            "link.ext": "Link extended (with ›)"
+        }
+    },
+    "widget": {
+        "menu": {
+            "block": "As a block (title, image, description)",
+            "doormat": "Doormat menu",
+            "inline": "Inline menu",
+            "main": "Main menu",
+            "service": "Service menu",
+            "flyout": "Flyout menu"
+        },
+        "template": {
+            "logo": "Display logo.svg",
+            "images.gallery": "Image gallery (thumbs + colorbox)"
+        }
+    }
+}

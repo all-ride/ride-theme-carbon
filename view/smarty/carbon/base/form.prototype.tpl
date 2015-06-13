@@ -8,6 +8,10 @@
 
     To override, create a file and recreate the functions you wish to override.
     At the end of your file, include this one to define the missing functions.
+
+    TODO:
+
+    - Completely rewrite from the ground up!!
 *}
 
 {*
