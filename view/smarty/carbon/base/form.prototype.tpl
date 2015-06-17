@@ -1,8 +1,3 @@
-{$bodyComponent = $app.cms.node->get('body.components')}
-{if !$bodyComponent|strstr:'form'}
-    {$app.cms.node->set('body.components', "`$bodyComponent` form")}
-{/if}
-
 {*
     Prototype functions for the form rendering
 
@@ -32,6 +27,49 @@
                 {call formRow form=$form row=$row class=$rowClass}
             {/if}
         {/foreach}
+    {/if}
+{/function}
+
+{*
+    Renders the errors of a single widget of the form
+*}
+{function name="formWidgetErrors" form=null row=null part=null}
+    {if !$form && isset($block_form)}
+        {$form = $block_form}
+    {/if}
+
+    {if is_string($row) && $form}
+        {$row = $form->getRow($row)}
+    {/if}
+
+    {if $row}
+        {$widget = $row->getWidget()}
+
+        {if $widget}
+            {$errors = $form->getValidationErrors()}
+            {$errorsName = $widget->getName()}
+            {if $widget->isMultiple() && $part}
+                {$errorsName = "`$errorsName`[`$part`]"}
+            {/if}
+
+            {if isset($errors.$errorsName)}
+                {$errors = $errors.$errorsName}
+            {else}
+                {$errors = array()}
+            {/if}
+
+            {if $errors}
+                <ul class="errors form__help">
+                {foreach $errors as $error}
+                    <li>{$error->getCode()|translate:$error->getParameters()}</li>
+                {/foreach}
+                </ul>
+            {/if}
+        {else}
+            <div class="error">No widget set in row {$row->getName()}.</div>
+        {/if}
+    {else}
+        <div class="error">No row provided</div>
     {/if}
 {/function}
 
@@ -149,49 +187,6 @@
         {$row->setIsRendered(true)}
     {else}
         <div class="alert alert-danger">No row provided</div>
-    {/if}
-{/function}
-
-{*
-    Renders the errors of a single widget of the form
-*}
-{function name="formWidgetErrors" form=null row=null part=null}
-    {if !$form && isset($block_form)}
-        {$form = $block_form}
-    {/if}
-
-    {if is_string($row) && $form}
-        {$row = $form->getRow($row)}
-    {/if}
-
-    {if $row}
-        {$widget = $row->getWidget()}
-
-        {if $widget}
-            {$errors = $form->getValidationErrors()}
-            {$errorsName = $widget->getName()}
-            {if $widget->isMultiple() && $part}
-                {$errorsName = "`$errorsName`[`$part`]"}
-            {/if}
-
-            {if isset($errors.$errorsName)}
-                {$errors = $errors.$errorsName}
-            {else}
-                {$errors = array()}
-            {/if}
-
-            {if $errors}
-                <ul class="errors form__help">
-                {foreach $errors as $error}
-                    <li>{$error->getCode()|translate:$error->getParameters()}</li>
-                {/foreach}
-                </ul>
-            {/if}
-        {else}
-            <div class="error">No widget set in row {$row->getName()}.</div>
-        {/if}
-    {else}
-        <div class="error">No row provided</div>
     {/if}
 {/function}
 

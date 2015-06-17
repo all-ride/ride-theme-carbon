@@ -7,7 +7,7 @@
     },
     "widget": {
         "menu": {
-            "block": "As a block (title, image, description)",
+            "block": "As a block (title, image, description, more link)",
             "doormat": "Doormat menu",
             "inline": "Inline menu",
             "main": "Main menu",
