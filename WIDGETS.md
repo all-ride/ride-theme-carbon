@@ -1,21 +1,21 @@
 ## Ride widgets list
 
-### No templates
+### No templates (not necessary)
 * Redirect
 * Logout Action
 
 ### Only 1 template
-* Breadcrumbs
-* Contact Form
-* Embed
-* Files
-* Forgot Password
-* Intro text (text + cta's)
+* ~~Breadcrumbs~~
+* ~~Contact Form~~
+* ~~Embed~~
+* ~~Files~~
+* ~~Forgot Password (security)~~
+* ~~Intro text~~
 * Page Title
-* Reiko
+* ~~Reiko~~
 * Sociale media links (social-media)
 * Sociale media share widgets (social-media)
-* Login Form (security)
+* ~~Login Form (security)~~
 * Profile (security)
 * Table Of Contents
 * [widget.timer]

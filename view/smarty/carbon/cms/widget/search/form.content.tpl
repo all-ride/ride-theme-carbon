@@ -1,4 +1,4 @@
-<div class="widget widget-search-form block {$app.cms.properties->getWidgetProperty('style.container')}" id="widget-{$app.cms.widget}">
+<div class="block {$app.cms.properties->getWidgetProperty('style.container')}" id="widget-{$app.cms.widget}">
     <form id="cse-search-box" action="{$action}" role="search" class="form form--inline" method="post">
         <div class="form__item">
             <label class="visuallyhidden" for="form-search-query">{translate key="label.query.search"}</label>

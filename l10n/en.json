@@ -18,5 +18,7 @@
             "logo": "Display logo.svg",
             "images.gallery": "Image gallery (thumbs + colorbox)"
         }
-    }
+    },
+    "label.security.mail.hello": "Hello",
+    "label.security.mail.link": "You have requested to reset your password. Please click on the link below to change your password:"
 }
