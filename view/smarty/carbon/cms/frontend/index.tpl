@@ -53,44 +53,16 @@
         {include file=$layout->getFrontendResource() inline}
     {/foreach}
 
-    {function name="region" region=null class=null role=null element="div"}
-        {if isset($widgets.$region)}
-        <{$element} class="region {$class}"{if $role} role="{$role}"{/if}>
-            {foreach $regions.$region as $section => $layout}
-                {if isset($widgets.$region.$section)}
-                    {$functionName = "layout-`$layout`"|replace:"-":"_"}
-                    {$style = $app.cms.node->getSectionStyle($region, $section)}
-                    {$title = $app.cms.node->getSectionTitle($region, $section, $app.locale)}
-                    {$isFullWidth = $app.cms.node->isSectionFullWidth($region, $section)}
-                    <div class="section {$style}">
-                        {if $isFullWidth}
-                            {if $title}
-                                <div class="section__title">{$title}</div>
-                            {/if}
-                            {call $functionName section=$section widgets=$widgets.$region.$section style=$style}
-                        {else}
-                            <div class="container">
-                                {if $title}
-                                    <div class="section__title">{$title}</div>
-                                {/if}
-                                {call $functionName section=$section widgets=$widgets.$region.$section style=$style}
-                            </div>
-                        {/if}
-                    </div>
-                {/if}
-            {/foreach}
-        </{$element}>
-        {/if}
-    {/function}
+    {include 'cms/helper/region'}
 
     <div class="page-wrap">
-        {call region region="header" class="page-header" role="banner" element="header"}
+        {call regionSimple region="header" class="page-header" role="banner" element="header"}
 
-        {call region region="menu" class="page-menu"}
+        {call regionSimple region="menu" class="page-menu"}
 
-        {call region region="title" class="page-title"}
+        {call regionSimple region="title" class="page-title"}
 
-        {call region region="hero" class="page-hero"}
+        {call regionSimple region="hero" class="page-hero"}
 
         {call region region="content" class="page-main" role="main"}
 

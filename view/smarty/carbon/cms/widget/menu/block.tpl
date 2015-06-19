@@ -15,7 +15,7 @@
                 {if $node->getImage($app.locale)}
                     <div class="excerpt__aside">
                         <div class="excerpt__img">
-                            <img src="{image src=$node->getImage($app.locale)}" alt="" class="image image--full-width">
+                            <img src="{image src=$node->getImage($app.locale) width=140 height=105 transformation="crop"}" alt="" class="image image--full-width">
                         </div>
                     </div>
                 {/if}

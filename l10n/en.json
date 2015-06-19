@@ -1,24 +1,15 @@
 {
-    "label": {
-        "cta.type": {
-            "button": "Button",
-            "link.ext": "Link extended (with ›)"
-        }
-    },
-    "widget": {
-        "menu": {
-            "block": "As a block (title, image, description, more link)",
-            "doormat": "Doormat menu",
-            "inline": "Inline menu",
-            "main": "Main menu",
-            "service": "Service menu",
-            "flyout": "Flyout menu"
-        },
-        "template": {
-            "logo": "Display logo.svg",
-            "images.gallery": "Image gallery (thumbs + colorbox)"
-        }
-    },
+    "label.cta.type.button": "Button",
+    "label.cta.type.link.ext": "Link extended (with ›)",
     "label.security.mail.hello": "Hello",
-    "label.security.mail.link": "You have requested to reset your password. Please click on the link below to change your password:"
+    "label.security.mail.link": "You have requested to reset your password. Please click on the link below to change your password:",
+    "widget.menu.block": "As a block (title, image, description, more link)",
+    "widget.menu.doormat": "Doormat menu",
+    "widget.menu.flyout": "Flyout menu",
+    "widget.menu.inline": "Inline menu",
+    "widget.menu.main": "Main menu",
+    "widget.menu.service": "Service menu",
+    "widget.orm.overview.news": "News overview",
+    "widget.template.images.gallery": "Image gallery (thumbs + colorbox)",
+    "widget.template.logo": "Display logo.svg"
 }

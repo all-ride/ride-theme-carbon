@@ -1,5 +1,3 @@
-{include 'cms/helper/general'}
-
 {function renderTitle title=null}
     {if $title}
         <h2 class="toc {$app.cms.properties->getWidgetProperty('style.title')}">{$title}</h2>
@@ -25,7 +23,7 @@
 {function renderMore moreUrl=null moreLabel=null}
     {if $moreUrl}
         <div class="excerpt__more">
-            <a href="{$moreUrl}" class="excpert__more-link link--arrow">{$moreLabel}</a>
+            <a href="{$moreUrl}" class="excpert__more-link link--ext">{$moreLabel}</a>
         </div>
     {/if}
 {/function}
@@ -34,41 +32,24 @@
     <p class="excerpt__empty">{$emptyResultMessage|text}</p>
 {/function}
 
-{function renderOverviewBlock class="excerpt" url=null image=null title=null teaser=null more=true date=null meta=null}
-    {if $url}
-        <a href="{$url}" class="{$class}">
-    {else}
-        <div class="{$class}">
-    {/if}
-        {if $image}
-            <div class="excerpt__aside">
-                <div class="excerpt__img">
-                    <img src="{image src=$image width=125 height=125 transformation="resize"}" class="image image--full-width" />
-                </div>
-            </div>
-        {/if}
-        <div class="excerpt__main">
-            <div class="excerpt__header">
-                <h3 class="excerpt__title">{$title}</h3>
-                {if $date}
-                    <div class="excerpt__date">{call renderSimpleDate date=$date}</div>
-                {/if}
-                {if $meta}
-                    <div class="meta">
-                        {foreach $meta as $itemClass => $item}
-                            <div class="meta__item meta__item--{$itemClass}">{$item}</div>
-                        {/foreach}
-                    </div>
-                {/if}
-            </div>
-            <div class="excerpt__ct">
-                {$teaser}
-                {if $more && $url}<span class="excerpt__link">{translate key="label.readmore"} &rsaquo;</span>{/if}
-            </div>
-        </div>
-    {if $url}
-        </a>
-    {else}
-        </div>
-    {/if}
+{function renderMeta meta=null}
+    <div class="meta">
+        {foreach $meta as $itemClass => $item}
+            <div class="meta__item meta__item--{$itemClass}">{$item}</div>
+        {/foreach}
+    </div>
+{/function}
+
+{function renderTags tags=null}
+    <div class="excerpt__tags tags spacer--xsm">
+        {foreach $tags as $tag}
+            <div class="tag">{$tag->getName()}</div>
+        {/foreach}
+    </div>
+{/function}
+
+{function renderImage image=null}
+    <div class="excerpt__img">
+        <img src="{image src=$image width=140 height=105 transformation="crop"}" class="image image--responsive" />
+    </div>
 {/function}
