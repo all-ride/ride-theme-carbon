@@ -11,5 +11,11 @@
     "widget.menu.service": "Service menu",
     "widget.orm.overview.news": "News overview",
     "widget.template.images.gallery": "Image gallery (thumbs + colorbox)",
-    "widget.template.logo": "Display logo.svg"
+    "widget.template.logo": "Display logo.svg",
+    "widget.text.clickable": "Whole text clickable (first cta)",
+    "widget.text.simple": "Simple text widget (no img alignment, full-width image)"
+    "widget.text.lead": "Text only, and bigger text",
+    "widget.text": "Default text block",
+    "widget.text.panel": "Default text block and add panel class (extra padding)",
+    "widget.text.clickable.panel": "Whole text clickable (first cta) and add panel class (extra padding)"
 }

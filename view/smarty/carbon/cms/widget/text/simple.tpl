@@ -1,4 +1,4 @@
-{* widget: text; action: index; translation: widget.text *}
+{* widget: text; action: index; translation: widget.text.simple *}
 
 {include 'cms/helper/text'}
 
