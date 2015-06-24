@@ -29,6 +29,7 @@
     },
     "autoload": {
         "psr-0": {
+            "ride\\library\\template\\theme\\": ["src/"],
             "ride\\web\\cms\\": ["src/"]
         }
     }
