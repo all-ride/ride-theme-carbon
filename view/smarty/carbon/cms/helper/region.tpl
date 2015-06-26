@@ -1,6 +1,6 @@
 {function name="region" region=null class=null role=null element="div"}
     {if isset($widgets.$region)}
-    <{$element} class="region {$class}"{if $role} role="{$role}"{/if}>
+    {* <{$element} class="region {$class}"{if $role} role="{$role}"{/if}> *}
         {foreach $regions.$region as $section => $layout}
             {if isset($widgets.$region.$section)}
                 {$functionName = "layout-`$layout`"|replace:"-":"_"}
@@ -24,13 +24,13 @@
                 </div>
             {/if}
         {/foreach}
-    </{$element}>
+    {* </{$element}> *}
     {/if}
 {/function}
 
 {function name="regionSimple" region=null class=null role=null element="div"}
     {if isset($widgets.$region)}
-    <{$element} class="region {$class}"{if $role} role="{$role}"{/if}>
+    {* <{$element} class="region {$class}"{if $role} role="{$role}"{/if}> *}
         {foreach $regions.$region as $section => $layout}
             {if isset($widgets.$region.$section)}
                 {$functionName = "layout-`$layout`"|replace:"-":"_"}
@@ -42,6 +42,6 @@
                 </div>
             {/if}
         {/foreach}
-    </{$element}>
+    {* </{$element}> *}
     {/if}
 {/function}
