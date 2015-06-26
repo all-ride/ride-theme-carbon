@@ -56,29 +56,30 @@
     {include 'cms/helper/region'}
 
     <div class="page-wrap">
-        {call regionSimple region="header" class="page-header" role="banner" element="header"}
+        <header role="banner" class="page-header">
+            {call regionSimple region="header" class="page-header"}
+            {call regionSimple region="menu" class="page-menu"}
+        </header>
 
-        {call regionSimple region="menu" class="page-menu"}
+        <div class="page-main" role="main">
+            {call regionSimple region="title" class="page-title"}
+            {call region region="hero" class="page-hero"}
+            {call region region="content"}
+        </div>
 
-        {call regionSimple region="title" class="page-title"}
-
-        {call regionSimple region="hero" class="page-hero"}
-
-        {call region region="content" class="page-main" role="main"}
-
-        {call region region="doormat" class="page-doormat"}
-
-        {call region region="footer" class="page-footer" role="contentinfo" element="footer"}
+        <footer class="page-footer" role="contentinfo">
+            {call region region="doormat" class="page-doormat"}
+            {call region region="footer"}
+        </footer>
 
         {if isset($widgets.flyout)}
             <div class="flyout region" id="flyout">
                 <button class="btn flyout__close"><i class="icon icon--times"></i> {translate key="label.close"}</button>
-                {call region region="flyout"}
+                {call regionSimple region="flyout"}
             </div>
             <div class="flyout__overlay"></div>
         {/if}
     </div> <!-- /.page-wrap -->
-
 {/block}
 
 {block "scripts"}
