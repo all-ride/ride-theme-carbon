@@ -62,7 +62,7 @@
         </header>
 
         <div class="page-main" role="main">
-            {call regionSimple region="title" class="page-title"}
+            {call region region="title" class="page-title"}
             {call region region="hero" class="page-hero"}
             {call region region="content"}
         </div>
