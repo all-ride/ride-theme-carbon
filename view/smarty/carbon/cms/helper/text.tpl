@@ -68,9 +68,15 @@
             {/if}
         {else}
             {$html|text}
-            {foreach $callToActions as $callToAction}
-                <a href="{$callToAction->getUrl()}" class="text__cta cta{if $callToAction->getType()} cta-{$callToAction->getType()}{/if} {$app.cms.properties->getWidgetProperty('style.cta')}">{$callToAction->getLabel()|text}</a>
-            {/foreach}
+            {if $callToActions}
+                <ul class="list--unstyled">
+                    {foreach $callToActions as $callToAction}
+                        <li>
+                            <a href="{$callToAction->getUrl()}" class="text__cta cta{if $callToAction->getType()} cta-{$callToAction->getType()}{/if} {$app.cms.properties->getWidgetProperty('style.cta')}">{$callToAction->getLabel()|text}</a>
+                        </li>
+                    {/foreach}
+                </ul>
+            {/if}
         {/if}
     </div>
 {/function}
