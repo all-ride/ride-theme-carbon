@@ -27,7 +27,7 @@
                 {$html|text}
             </div>
             {foreach $callToActions as $callToAction}
-                {if callToActionsType != 'link'}
+                {if $callToActionsType != 'link'}
                     <span class="text__cta {if $ctaClass}{$ctaClass}{/if} {if $callToAction->getType()} cta-{$callToAction->getType()}{/if} {$app.cms.properties->getWidgetProperty('style.cta')}">{$callToAction->getLabel()|text}</span>
                 {else}
                     <a href="{$callToAction->getUrl()}" class="text__cta {if $ctaClass}{$ctaClass}{/if} {if $callToAction->getType()} cta-{$callToAction->getType()}{/if} {$app.cms.properties->getWidgetProperty('style.cta')}">{$callToAction->getLabel()|text}</a>
