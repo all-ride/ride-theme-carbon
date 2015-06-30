@@ -1,4 +1,4 @@
-{* widget: template; action: index; translation: widget.template.images.gallery *}
+{* widget: template; action: index; translation: template.template.images.gallery *}
 
 {include 'cms/helper/assets'}
 

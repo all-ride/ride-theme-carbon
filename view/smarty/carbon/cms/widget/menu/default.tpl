@@ -1,3 +1,3 @@
-{* widget: menu; action: index; translation: widget.menu.main *}
+{* widget: menu; action: index; translation: widget.menu *}
 
 {include 'cms/helper/menu' menuClass="nav--main"}

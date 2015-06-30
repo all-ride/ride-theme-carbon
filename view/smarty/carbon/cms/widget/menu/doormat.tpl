@@ -1,3 +1,3 @@
-{* widget: menu; action: index; translation: widget.menu.doormat *}
+{* widget: menu; action: index; translation: template.menu.doormat *}
 
 {include 'cms/helper/menu' menuClass="nav--doormat"}

@@ -1,3 +1,5 @@
+{* widget: reiko action: index; translation: widget.reiko *}
+
 {include file="cms/helper/form.prototype"}
 
 <div class="block {$app.cms.properties->getWidgetProperty('style.container')}" id="widget-{$app.cms.widget}">

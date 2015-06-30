@@ -1,1 +1,19 @@
-{}
+{
+    "label.cta.type.button": "Knop",
+    "label.cta.type.link.ext": "Link extended (met ›)",
+    "template.menu.block": "Een blok (titel, afbeelding, omschrijving, meer link)",
+    "template.menu.doormat": "Doormat menu",
+    "template.menu.flyout": "Flyout menu",
+    "template.menu.inline": "Inline menu",
+    "template.menu.main": "Main menu",
+    "template.menu.service": "Service menu",
+    "template.orm.overview.news": "Nieuwsoverzicht",
+    "template.template.images.gallery": "Gallerij (thumbs + colorbox)",
+    "template.template.logo": "logo.svg",
+    "template.text.clickable": "Hele tekst aanklikbaar (eerste cta)",
+    "template.text.simple": "Simpele tekst template (geen afbeelding opstelling, afbeelding volledige breedte)",
+    "template.text.lead": "Alleen tekst, grotere font-size",
+    "template.text.default": "Standaard tekst blok",
+    "template.text.panel": "Standaard tekst blok met panel class (extra padding)",
+    "template.text.clickable.panel": "Hele tekst aanklikbaar (eerste cta) met panel class (extra padding)"
+}

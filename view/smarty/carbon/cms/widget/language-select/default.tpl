@@ -4,7 +4,7 @@
     <ul class="locales {$app.cms.properties->getWidgetProperty('style.menu')}">
     {foreach $locales as $code => $data}
         {$locale = $data.locale}
-        <li{if $code == $app.locale} class="active"{/if}><a href="{$data.url}">{$code}</a></li>
+        <li><a href="{$data.url}"{if $code == $app.locale} class="active"{/if}>{$code}</a></li>
     {/foreach}
     </ul>
 </nav>

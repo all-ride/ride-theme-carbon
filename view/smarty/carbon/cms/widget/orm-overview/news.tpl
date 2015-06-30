@@ -1,4 +1,4 @@
-{* widget: orm.overview action: index; translation: widget.orm.overview.news *}
+{* widget: orm.overview action: index; translation: template.orm.overview.news *}
 
 {include 'cms/helper/general'}
 {include 'cms/helper/orm-overview'}
