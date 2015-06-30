@@ -1,4 +1,4 @@
-{* widget: menu; action: index; translation: widget.menu.block *}
+{* widget: menu; action: index; translation: template.menu.block *}
 
 {*
     Renders the items of a menu
