@@ -15,7 +15,7 @@
     "widget.text.clickable": "Whole text clickable (first cta)",
     "widget.text.simple": "Simple text widget (no img alignment, full-width image)",
     "widget.text.lead": "Text only, and bigger text",
-    "widget.text": "Default text block",
+    "widget.text.default": "Default text block",
     "widget.text.panel": "Default text block and add panel class (extra padding)",
     "widget.text.clickable.panel": "Whole text clickable (first cta) and add panel class (extra padding)"
 }
