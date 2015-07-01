@@ -12,10 +12,27 @@
 
 {function renderPagination pagination=null}
     {if $pagination}
-        {if $pagination->getPages() >= $pagination->getPage() && $pagination->getPages() > 1}
-            <div class="pagination">
-                {pagination href=$pagination->getHref() pages=$pagination->getPages() page=$pagination->getPage()}
-            </div>
+        {$anchors = $pagination->getAnchors()}
+
+        {if {$anchors|@count} > 3}
+            <ul class="pagination">
+                {foreach $anchors as $anchor}
+                    <li class="pagination__item">
+                        {if !($anchor@first or $anchor@last)}
+                            {$anchor->addToClass('pagination__btn')}
+                        {/if}
+                        {if $anchor@first}
+                            {$anchor->setLabel("label.previous"|translate)}
+                            {$anchor->addToClass('pagination__prev')}
+                        {/if}
+                        {if $anchor@last}
+                            {$anchor->setLabel("label.next"|translate)}
+                            {$anchor->addToClass('pagination__next')}
+                        {/if}
+                        {$anchor->getHtml()}
+                    </li>
+                {/foreach}
+            </ul>
         {/if}
     {/if}
 {/function}
