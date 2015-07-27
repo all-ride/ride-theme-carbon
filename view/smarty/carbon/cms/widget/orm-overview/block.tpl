@@ -1,8 +1,5 @@
 {* widget: orm.overview action: index; translation: template.orm.overview.block *}
 
-{include 'cms/helper/orm-overview'}
-
-
 {include 'cms/helper/general'}
 {include 'cms/helper/orm-overview'}
 
