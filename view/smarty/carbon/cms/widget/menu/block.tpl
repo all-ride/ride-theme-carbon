@@ -39,7 +39,7 @@
     </div>
 {/function}
 
-<nav class="block nav nav--block {$app.cms.properties->getWidgetProperty('style.container')}" id="widget-{$app.cms.widget}" role="navigation">
+<nav class="block nav nav--block {$app.cms.properties->getWidgetProperty('style.container')}" id="widget-{$app.cms.widget}">
     {if $title}
         <h2 class="{$app.cms.properties->getWidgetProperty('style.title')}">{$title}</h2>
     {/if}
