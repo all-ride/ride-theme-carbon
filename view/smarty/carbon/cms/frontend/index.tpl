@@ -14,7 +14,7 @@
         {/if}
     {/block}
 
-    {block "head_title"}{$app.cms.context.title.node} - {$app.cms.context.title.site}{/block}
+    {block "head_title"}{if $app.cms.node->getRoute($app.locale) != '/'}{$app.cms.context.title.node} - {/if}{$app.cms.context.title.site}{/block}
 
     {block "body_attributes"} class="page-{$app.cms.node->getId()} {$app.cms.node->get('body.class')}" data-components="{$app.cms.node->get('body.components')}"{/block}
 {/if}
