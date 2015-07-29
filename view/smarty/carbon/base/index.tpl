@@ -91,7 +91,7 @@
         {block "scripts_app"}
             {if isset($app.javascripts)}
                 {foreach $app.javascripts as $script => $dummy}
-                    {if substr($script, 0, 7) == 'http://' || substr(script, 0, 8) == 'https://' || substr($script, 0, 2) == '//' || substr($script, 0, 7) == '<script'}
+                    {if substr($script, 0, 7) == 'http://' || substr($script, 0, 8) == 'https://' || substr($script, 0, 2) == '//' || substr($script, 0, 7) == '<script'}
                         {script src=$script}
                     {else}
                         {script src="carbon/`$script`"}
