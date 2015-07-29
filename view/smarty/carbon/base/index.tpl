@@ -12,11 +12,18 @@
         {/block}
 
         <title>{block "head_title"}{if isset($app.taskbar)}{$app.taskbar->getTitle()}{/if}{/block}</title>
+        {block "favicon"}
+            <link rel="icon" type="image/png" href="{$app.url.base}/img/favicon.png" />
+        {/block}
+
+        {block "scripts_head"}
+            <script type="text/javascript" src="{$app.url.base}/carbon/js/modernizr.min.js"></script>
+        {/block}
+        {block "scripts_webfont"}{/block}
 
         {block "styles"}
             {style src="carbon/css/main.min.css" media="screen"}
         {/block}
-
         {block "styles_app"}
             {if isset($app.styles)}
                 {foreach $app.styles as $style => $dummy}
@@ -30,15 +37,6 @@
         {/block}
 
         {styles}
-
-        {block "favicon"}
-            <link rel="icon" type="image/png" href="{$app.url.base}/img/favicon.png" />
-        {/block}
-
-        {block "scripts_head"}
-            <script type="text/javascript" src="{$app.url.base}/carbon/js/modernizr.min.js"></script>
-        {/block}
-        {block "scripts_webfont"}{/block}
     {/block}
 </head>
 
