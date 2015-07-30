@@ -35,11 +35,13 @@
             {if isset($widgets.$region.$section)}
                 {$functionName = "layout-`$layout`"|replace:"-":"_"}
                 {$style = $app.cms.node->getSectionStyle($region, $section)}
-                <div class="container">
-                    <div class="{$class}__content">
-                        {call $functionName section=$section widgets=$widgets.$region.$section style=$style}
+                {if $style}<div class="{$style}">{/if}
+                    <div class="container">
+                        <div class="{$class}__content">
+                            {call $functionName section=$section widgets=$widgets.$region.$section style=$style}
+                        </div>
                     </div>
-                </div>
+                {if $style}</div>{/if}
             {/if}
         {/foreach}
     {* </{$element}> *}
