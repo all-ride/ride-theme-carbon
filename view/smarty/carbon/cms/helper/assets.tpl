@@ -1,4 +1,4 @@
-{function renderAssets asses=null}
+{function renderAssets assets=null}
     {if $assets}
         <div class="block assets detail__assets">
             <div class="grid grid--5-col grid--bp-med-10-col">
