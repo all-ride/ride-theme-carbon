@@ -1,6 +1,6 @@
-{function renderTitle title=null}
+{function renderTitle title=null class=null}
     {if $title}
-        <h2 class="toc {$app.cms.properties->getWidgetProperty('style.title')}">{$title}</h2>
+        <h2 class="toc {$app.cms.properties->getWidgetProperty('style.title')}{if $class} {$class}{/if}">{$title}</h2>
     {/if}
 {/function}
 
