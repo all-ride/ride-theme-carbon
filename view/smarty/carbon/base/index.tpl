@@ -51,7 +51,6 @@
 
         {block "content"}
             {block "content_title"}{/block}
-            {block "content_body"}{/block}
             {block "messages"}
                 {if isset($app.messages)}
                     {$_messageTypes = ["error" => "danger", "warning" => "warning", "success" => "success", "information" => "info"]}
@@ -79,6 +78,7 @@
                     {/foreach}
                 {/if}
             {/block}
+            {block "content_body"}{/block}
         {/block}
 
         {block "scripts"}
