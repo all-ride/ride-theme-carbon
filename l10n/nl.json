@@ -1,5 +1,6 @@
 {
     "label.cta.type.button": "Knop",
+    "label.cta.type.button.ext": "Knop extended (with ›)",
     "label.cta.type.link.ext": "Link extended (met ›)",
     "template.menu.block": "Een blok (titel, afbeelding, omschrijving, meer link)",
     "template.menu.doormat": "Doormat menu",

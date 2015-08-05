@@ -2,13 +2,15 @@
 
 {include 'cms/helper/text'}
 
-{foreach $callToActions as $callToAction}
-    <a href="{$callToAction->getUrl()}"  class="text block text--clickable {if $subtitle}text--has-subtile{/if} {$app.cms.properties->getWidgetProperty('style.container')}" id="widget-{$app.cms.widget}">
-        {$callToActions = null}
-        {call renderTextSimple}
+{$tmpCTAs = $callToActions}
+{$firstCallToAction = $tmpCTAs|@array_shift}
+
+{if $callToActions}
+    <a href="{$firstCallToAction->getUrl()}"  class="text block text--clickable {if $subtitle}text--has-subtile{/if} {$app.cms.properties->getWidgetProperty('style.container')}" id="widget-{$app.cms.widget}">
+        {call renderTextSimple callToActionsType='span'}
     </a>
-{foreachelse}
+{else}
     <div class="text block {if $subtitle}text--has-subtile{/if} {$app.cms.properties->getWidgetProperty('style.container')}" id="widget-{$app.cms.widget}">
         {call renderTextSimple}
     </div>
-{/foreach}
+{/if}
