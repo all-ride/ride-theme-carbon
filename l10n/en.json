@@ -1,5 +1,6 @@
 {
     "label.cta.type.button": "Button",
+    "label.cta.type.button.ext": "Button extended (with ›)",
     "label.cta.type.link.ext": "Link extended (with ›)",
     "label.security.mail.hello": "Hello",
     "label.security.mail.link": "You have requested to reset your password. Please click on the link below to change your password:",

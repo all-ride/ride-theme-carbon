@@ -9,7 +9,22 @@
     {/if}
 {/function}
 
-{function name="renderTextSimple" titleClass=null subtitleClass=null callToActionsType='link' ctaClass=null}
+{function renderCTA cta=null element='a'}
+    {$class = "block__cta `$cta->getType()` `$app.cms.properties->getWidgetProperty('style.cta')`"}
+    {if $cta->getType() == 'btn--ext'}
+        {$class = "`$class` btn"}
+    {/if}
+
+    {if $element == 'a'}
+        <a href="" class="{$class}">
+    {else}
+        <{$element} class="{$class}">
+    {/if}
+        {$cta->getLabel()|text}
+    </{$element}>
+{/function}
+
+{function name="renderTextSimple" titleClass=null subtitleClass=null callToActionsType='link'}
     <div class="text__inner excerpt clearfix">
 
         {if $image}
@@ -28,9 +43,9 @@
             </div>
             {foreach $callToActions as $callToAction}
                 {if $callToActionsType != 'link'}
-                    <span class="text__cta {if $ctaClass}{$ctaClass}{/if} {if $callToAction->getType()} cta-{$callToAction->getType()}{/if} {$app.cms.properties->getWidgetProperty('style.cta')}">{$callToAction->getLabel()|text}</span>
+                    {call renderCTA cta=$callToAction element='span'}
                 {else}
-                    <a href="{$callToAction->getUrl()}" class="text__cta {if $ctaClass}{$ctaClass}{/if} {if $callToAction->getType()} cta-{$callToAction->getType()}{/if} {$app.cms.properties->getWidgetProperty('style.cta')}">{$callToAction->getLabel()|text}</a>
+                    {call renderCTA cta=$callToAction element='a'}
                 {/if}
             {/foreach}
         </div>
@@ -58,12 +73,12 @@
                 <img src="{image src=$image width=300 height=300 transformation="resize"}" class="{$imageClass}" />
                 {$html|text}
                 {foreach $callToActions as $callToAction}
-                    <a href="{$callToAction->getUrl()}" class="cta{if $callToAction->getType()} cta-{$callToAction->getType()}{/if} {$app.cms.properties->getWidgetProperty('style.cta')}">{$callToAction->getLabel()|text}</a>
+                    {call renderCTA cta=$callToAction element='a'}
                 {/foreach}
             {else}
                 <img src="{image src=$image width=300 height=300 transformation="resize"}" class="{$imageClass}" />
                 {foreach $callToActions as $callToAction}
-                    <a href="{$callToAction->getUrl()}" class="cta{if $callToAction->getType()} cta-{$callToAction->getType()}{/if} {$app.cms.properties->getWidgetProperty('style.cta')}">{$callToAction->getLabel()|text}</a>
+                   {call renderCTA cta=$callToAction element='a'}
                 {/foreach}
             {/if}
         {else}
@@ -72,7 +87,7 @@
                 <ul class="list--unstyled">
                     {foreach $callToActions as $callToAction}
                         <li>
-                            <a href="{$callToAction->getUrl()}" class="text__cta cta{if $callToAction->getType()} cta-{$callToAction->getType()}{/if} {$app.cms.properties->getWidgetProperty('style.cta')}">{$callToAction->getLabel()|text}</a>
+                            {call renderCTA cta=$callToAction element='a'}
                         </li>
                     {/foreach}
                 </ul>
