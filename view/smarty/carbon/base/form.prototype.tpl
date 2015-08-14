@@ -1,3 +1,5 @@
+{addBodyComponent component="form"}
+
 {*
     Prototype functions for the form rendering
 
