@@ -1,5 +1,5 @@
 {
-    "template.smarty.plugin.cms": "%path%/src/ride/web/template/smarty/plugin",
+    "template.smarty.plugin.carbon": "%path%/src/ride/web/template/smarty/plugin",
     "cms.text.cta.type.btn": "label.cta.type.button",
     "cms.text.cta.type.btn--ext": "label.cta.type.button.ext",
     "cms.text.cta.type.link--ext": "label.cta.type.link.ext"
