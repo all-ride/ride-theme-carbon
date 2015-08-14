@@ -1,5 +1,5 @@
 <div class="block {$app.cms.properties->getWidgetProperty('style.container')}" id="widget-{$app.cms.widget}">
-    <form id="cse-search-box" action="{$action}" role="search" class="form form--inline">
+    <form id="cse-search-box" action="{$action}" role="search" class="form form--search form--inline">
         <input type="hidden" name="cx" value="{$clientId}" />
         <input type="hidden" name="ie" value="UTF-8" />
 
