@@ -27,7 +27,7 @@
                     <div class="excerpt__header">
                         <h3 class="excerpt__title">{$content->title}</h3>
                         {if $content->data->getDateAdded()}
-                            <div class="excerpt__date date">{call renderSimpleDate date=$content->data->getDateAdded()}</div>
+                            <div class="excerpt__date date">{call renderDateSimple date=$content->data->getDateAdded()}</div>
                         {/if}
                         {if $content->data->getCategories()}
                             {call renderTags tags=$content->data->getCategories()}
