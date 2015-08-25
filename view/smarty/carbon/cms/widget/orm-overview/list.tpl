@@ -9,10 +9,10 @@
     {call renderFilter filters=$filters}
 
     {if $result}
-        <ul>
-        {foreach from=$result item="content"}
-            <li>{if $content->url}<a href="{$content->url}">{$content->title}</a>{else}{$content->title}{/if}</li>
-        {/foreach}
+        <ul class="list--unordered">
+            {foreach from=$result item="content"}
+                <li>{if $content->url}<a href="{$content->url}">{$content->title}</a>{else}{$content->title}{/if}</li>
+            {/foreach}
         </ul>
 
         {if $pagination}
