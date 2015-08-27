@@ -83,7 +83,7 @@
 {/block}
 
 {block "scripts"}
-    {script src="carbon/js/jquery-2.1.4.min.js"}
+    {script src="carbon/js/jquery-1.11.3.min.js"}
     {script src="js/main.min.js"}
 {/block}
 
