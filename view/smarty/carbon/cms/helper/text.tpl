@@ -16,7 +16,7 @@
     {/if}
 
     {if $element == 'a'}
-        <a href="" class="{$class}">
+        <a href="{$cta->getUrl()}" class="{$class}">
     {else}
         <{$element} class="{$class}">
     {/if}
