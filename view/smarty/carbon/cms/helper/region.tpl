@@ -7,7 +7,7 @@
                 {$style = $app.cms.node->getSectionStyle($region, $section)}
                 {$title = $app.cms.node->getSectionTitle($region, $section, $app.locale)}
                 {$isFullWidth = $app.cms.node->isSectionFullWidth($region, $section)}
-                <div class="section section--{$region} {$style}">
+                <div class="section section--{$region} {if $style}{$style}{else}section--default{/if}">
                     {if $isFullWidth}
                         {if $title}
                             <div class="section__title">{$title}</div>
