@@ -29,6 +29,11 @@
                             {$anchor->setLabel("label.next"|translate)}
                             {$anchor->addToClass('pagination__next')}
                         {/if}
+
+                        {if ($anchor@first || $anchor@last) && $anchor->getHref() === $app.url.request}
+                            {continue}
+                        {/if}
+
                         {$anchor->getHtml()}
                     </li>
                 {/foreach}
