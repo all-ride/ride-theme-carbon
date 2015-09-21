@@ -2,6 +2,8 @@
     "label.cta.type.button": "Button",
     "label.cta.type.button.ext": "Button extended (with ›)",
     "label.cta.type.link.ext": "Link extended (with ›)",
+    "label.next" : "Next",
+    "label.previous" : "Previous",
     "label.security.mail.hello": "Hello",
     "label.security.mail.link": "You have requested to reset your password. Please click on the link below to change your password:",
     "template.menu.block": "As a block (title, image, description, more link)",
@@ -14,9 +16,9 @@
     "template.template.images.gallery": "Image gallery (thumbs + colorbox)",
     "template.template.logo": "Display logo.svg",
     "template.text.clickable": "Whole text clickable (first cta)",
-    "template.text.simple": "Simple text template (no img alignment, full-width image)",
-    "template.text.lead": "Text only, and bigger text",
-    "template.text.default": "Default text block",
-    "template.text.panel": "Default text block and add panel class (extra padding)",
     "template.text.clickable.panel": "Whole text clickable (first cta) and add panel class (extra padding)"
+    "template.text.default": "Default text block",
+    "template.text.lead": "Text only, and bigger text",
+    "template.text.panel": "Default text block and add panel class (extra padding)",
+    "template.text.simple": "Simple text template (no img alignment, full-width image)",
 }
