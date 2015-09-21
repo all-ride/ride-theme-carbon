@@ -20,5 +20,6 @@
     "template.text.default": "Default text block",
     "template.text.lead": "Text only, and bigger text",
     "template.text.panel": "Default text block and add panel class (extra padding)",
-    "template.text.simple": "Simple text template (no img alignment, full-width image)"
+    "template.text.simple": "Simple text template (no img alignment, full-width image)",
+    "widget.orm.entry.default": "Entry default"
 }
