@@ -18,5 +18,6 @@
     "template.text.lead": "Alleen tekst, grotere font-size",
     "template.text.default": "Standaard tekst blok",
     "template.text.panel": "Standaard tekst blok met panel class (extra padding)",
-    "template.text.clickable.panel": "Hele tekst aanklikbaar (eerste cta) met panel class (extra padding)"
+    "template.text.clickable.panel": "Hele tekst aanklikbaar (eerste cta) met panel class (extra padding)",
+    "widget.orm.entry.default": "Entry default"
 }
