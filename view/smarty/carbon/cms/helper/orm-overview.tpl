@@ -22,16 +22,18 @@
                             {$anchor->addToClass('pagination__btn')}
                         {/if}
                         {if $anchor@first}
+                            {if $pagination->getPage() == 1}
+                                {continue}
+                            {/if}
                             {$anchor->setLabel("label.previous"|translate)}
                             {$anchor->addToClass('pagination__prev')}
                         {/if}
                         {if $anchor@last}
+                            {if $pagination->getPage() == $pagination->getPages()}
+                                {continue}
+                            {/if}
                             {$anchor->setLabel("label.next"|translate)}
                             {$anchor->addToClass('pagination__next')}
-                        {/if}
-
-                        {if ($anchor@first || $anchor@last) && $anchor->getHref() === $app.url.request}
-                            {continue}
                         {/if}
 
                         {$anchor->getHtml()}
