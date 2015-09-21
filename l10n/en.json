@@ -16,9 +16,9 @@
     "template.template.images.gallery": "Image gallery (thumbs + colorbox)",
     "template.template.logo": "Display logo.svg",
     "template.text.clickable": "Whole text clickable (first cta)",
-    "template.text.clickable.panel": "Whole text clickable (first cta) and add panel class (extra padding)"
+    "template.text.clickable.panel": "Whole text clickable (first cta) and add panel class (extra padding)",
     "template.text.default": "Default text block",
     "template.text.lead": "Text only, and bigger text",
     "template.text.panel": "Default text block and add panel class (extra padding)",
-    "template.text.simple": "Simple text template (no img alignment, full-width image)",
+    "template.text.simple": "Simple text template (no img alignment, full-width image)"
 }
