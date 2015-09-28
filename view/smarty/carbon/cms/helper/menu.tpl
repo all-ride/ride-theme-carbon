@@ -6,7 +6,7 @@
 
     <ul class="{$prefix} {$class}">
     {foreach $items as $node}
-        {if !$node->hideInMenu() && $node->isPublished() && $nodeTypes[$node->getType()]->getFrontendCallback() && $node->isAvailableInLocale($app.locale) && $node->isAllowed($app.user)}
+        {if !$node->hideInMenu() && $node->isPublished() && $nodeTypes[$node->getType()]->getFrontendCallback() && $node->isAvailableInLocale($app.locale) && $node->isAllowed($app.security)}
 
         {if $app.cms.node->getId() == $node->getId() && !$app.cms.node->hasParent($node->getId())}
             {$active = true}
