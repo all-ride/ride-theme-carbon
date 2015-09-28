@@ -8,7 +8,7 @@
 
     <div class="{$prefix} {$class} grid grid--bp-sml-2-col">
     {foreach $items as $node}
-        {if !$node->hideInMenu() && $node->isPublished() && $nodeTypes[$node->getType()]->getFrontendCallback() && $node->isAvailableInLocale($app.locale) && $node->isAllowed($app.user)}
+        {if !$node->hideInMenu() && $node->isPublished() && $nodeTypes[$node->getType()]->getFrontendCallback() && $node->isAvailableInLocale($app.locale) && $node->isAllowed($app.security)}
         {$meta = $node->getMeta($app.locale)}
         <div class="grid__item {if $node@first}first {/if}{cycle values="even,odd" name=$prefix}{if $app.cms.node->hasParent($node->getId())} active-trail{elseif $app.cms.node->getId() == $node->getId()} active{/if}{if $node@last} last{/if}">
             <a href="{$app.url.script}{$node->getRoute($app.locale)}" class="excerpt excerpt--link excerpt--nav nav__link nav__link--{$node->getId()|replace:'.':'-'}">
