@@ -15,17 +15,13 @@
         {$class = "`$class` btn"}
     {/if}
 
-    {if $element == 'a'}
-        <a href="{$cta->getUrl()}{$cta->getSuffix()}" class="{$class}">
-    {else}
-        <{$element} class="{$class}">
-    {/if}
+    <{$element} {if $element == 'a'}href="{$cta->getUrl()}{$cta->getSuffix()}" {/if}class="{$class}">
         {$cta->getLabel()|text}
     </{$element}>
 {/function}
 
 {function name="renderTextSimple" titleClass=null subtitleClass=null callToActionsType='link'}
-    <div class="text__inner excerpt clearfix">
+    <div class="excerpt text__inner clearfix">
 
         {if $image}
             <div class="excerpt__aside">
@@ -45,7 +41,7 @@
                 {if $callToActionsType != 'link'}
                     {call renderCTA cta=$callToAction element='span'}
                 {else}
-                    {call renderCTA cta=$callToAction element='a'}
+                    {call renderCTA cta=$callToAction}
                 {/if}
             {/foreach}
         </div>
@@ -68,30 +64,20 @@
             {else}
                 {$imageClass = "`$imageClass` image--responsive"}
             {/if}
-
-            {if $html}
-                <img src="{image src=$image width=300 height=300 transformation="resize"}" class="{$imageClass}" />
-                {$html|text}
-                {foreach $callToActions as $callToAction}
-                    {call renderCTA cta=$callToAction element='a'}
-                {/foreach}
-            {else}
-                <img src="{image src=$image width=300 height=300 transformation="resize"}" class="{$imageClass}" />
-                {foreach $callToActions as $callToAction}
-                   {call renderCTA cta=$callToAction element='a'}
-                {/foreach}
-            {/if}
-        {else}
-            {$html|text}
-            {if $callToActions}
-                <ul class="list--unstyled">
-                    {foreach $callToActions as $callToAction}
-                        <li>
-                            {call renderCTA cta=$callToAction element='a'}
-                        </li>
-                    {/foreach}
-                </ul>
-            {/if}
+            <img src="{image src=$image width=300 height=300 transformation="resize"}" class="{$imageClass}" />
         {/if}
+
+        {$html|text}
+
+        {if $callToActions}
+            <ul class="list--unstyled">
+                {foreach $callToActions as $callToAction}
+                    <li>
+                        {call renderCTA cta=$callToAction}
+                    </li>
+                {/foreach}
+            </ul>
+        {/if}
+
     </div>
 {/function}
