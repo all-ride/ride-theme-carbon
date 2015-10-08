@@ -12,7 +12,7 @@
                 <li>
                     <a href="{$media['url']}" class="nav__link" target="_blank">
                         <i class="icon icon--{$media['name']|lower}"></i>
-                        <span class="visuallyhidden">{$media['name']}</span>
+                        <span>{$media['name']|capitalize}</span>
                     </a>
                 </li>
             {/foreach}
