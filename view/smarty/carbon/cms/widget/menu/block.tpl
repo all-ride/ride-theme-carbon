@@ -39,10 +39,10 @@
     </div>
 {/function}
 
-<nav class="block nav nav--block {$app.cms.properties->getWidgetProperty('style.container')}" id="widget-{$app.cms.widget}">
+<div class="block nav nav--block {$app.cms.properties->getWidgetProperty('style.container')}" id="widget-{$app.cms.widget}">
     {if $title}
         <h2 class="{$app.cms.properties->getWidgetProperty('style.title')}">{$title}</h2>
     {/if}
 
     {call renderBlockMenu prefix="menu" items=$items number=1 depth=$depth class=$app.cms.properties->getWidgetProperty('style.menu')}
-</nav>
+</div>

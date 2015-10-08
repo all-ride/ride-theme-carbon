@@ -32,10 +32,14 @@
     </ul>
 {/function}
 
-<nav class="nav {if isset($menuClass)}{$menuClass}{/if} {$app.cms.properties->getWidgetProperty('style.container')}" id="widget-{$app.cms.widget}">
+{if !isset($element)}
+    {$element = 'div'}
+{/if}
+
+<{$element} class="nav {if isset($menuClass)}{$menuClass}{/if} {$app.cms.properties->getWidgetProperty('style.container')}" id="widget-{$app.cms.widget}">
     {if $title}
         <h2 class="{$app.cms.properties->getWidgetProperty('style.title')}{if isset($titleClass)} {$titleClass}{/if}">{$title}</h2>
     {/if}
 
     {call renderMenu prefix="menu" items=$items number=1 depth=$depth class=$app.cms.properties->getWidgetProperty('style.menu')}
-</nav>
+</{$element}>
