@@ -2,6 +2,7 @@
 
     {if $media}
 
+        {$label = $media|capitalize}
         {$media = $media|lower}
 
         {if $media == "facebook"}
@@ -27,13 +28,13 @@
         {/if}
 
         {if isset($href)}
-            <a href="{$href}" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=450,width=600'); return false;" target="_blank" class="nav__link nav__link--{$media}" title="Share on {$media}">
+            <a href="{$href}" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=450,width=600'); return false;" target="_blank" class="nav__link nav__link--{$media}" title="Share on {$label}">
                 {if $media == "email"}
                     <i class="icon icon--envelope"></i>
                 {else}
                     <i class="icon icon--{$media}"></i>
                 {/if}
-                <span class="visuallyhidden">{translate key="label.share.{$media}"}</span>
+                <span>{$label}</span>
             </a>
         {/if}
 
