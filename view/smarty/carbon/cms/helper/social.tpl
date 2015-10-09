@@ -34,7 +34,7 @@
                 {else}
                     <i class="icon icon--{$media}"></i>
                 {/if}
-                <span>{$label}</span>
+                <span class="visuallyhidden">{$label}</span>
             </a>
         {/if}
 
