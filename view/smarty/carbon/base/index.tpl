@@ -1,3 +1,4 @@
+{include 'base/helper/analytics'}
 <!doctype html>
 <!--[if IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie10" lang="{$app.locale}"> <![endif]-->
 <!--[if IE 8]> <html class="no-js lt-ie9 lt-ie10" lang="{$app.locale}"> <![endif]-->
@@ -6,8 +7,8 @@
 <head>
     {block "head"}
         {block "head_meta"}
-            <meta charset="utf-8">
             <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <meta charset="utf-8">
             <meta name="viewport" content="width=device-width, initial-scale=1">
         {/block}
 
@@ -38,9 +39,11 @@
 
         {styles}
     {/block}
+    {call googleAnalytics id=$app.system->getConfig()->get('google.analytics.id')}
 </head>
 
 <body data-translation-url="{url id="api.locales.translations.exposed" parameters=["locale" => $app.locale]}" {block "body_attributes"}{/block}>
+    {call googleTagmanager id=$app.system->getConfig()->get('google.tagmanager.id')}
     {block "body"}
 
         {block "taskbar"}

@@ -9,7 +9,7 @@ function smarty_function_addSectionClasses($params, &$smarty) {
     $addedSectionClasses = $params['classes'];
 
     if (!strstr($sectionStyles, $addedSectionClasses)) {
-        $sectionStyles = $sectionStyles . $addedSectionClasses;
+        $sectionStyles = $sectionStyles . ' ' . $addedSectionClasses;
         $app['cms']['node']->setSectionStyle($region, $section, $sectionStyles);
     }
 }
