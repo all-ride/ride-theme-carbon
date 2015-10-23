@@ -20,6 +20,8 @@
                     <li class="pagination__item">
                         {if !($anchor@first or $anchor@last)}
                             {$anchor->addToClass('pagination__btn')}
+                        {else}
+                            {$anchor->addToClass('pagination__link')}
                         {/if}
                         {if $anchor@first}
                             {if $pagination->getPage() == 1}
