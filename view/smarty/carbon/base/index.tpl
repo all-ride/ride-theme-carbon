@@ -39,11 +39,11 @@
 
         {styles}
     {/block}
-    {call googleAnalytics id=$app.system->getConfig()->get('google.analytics.id')}
+    {call googleAnalytics}
 </head>
 
 <body data-translation-url="{url id="api.locales.translations.exposed" parameters=["locale" => $app.locale]}" {block "body_attributes"}{/block}>
-    {call googleTagmanager id=$app.system->getConfig()->get('google.tagmanager.id')}
+    {call googleTagmanager}
     {block "body"}
 
         {block "taskbar"}
