@@ -15,10 +15,12 @@
                         {call $functionName section=$section widgets=$widgets.$region.$section style=$style}
                     {else}
                         <div class="container">
-                            {if $title}
-                                <div class="section__title">{$title}</div>
-                            {/if}
-                            {call $functionName section=$section widgets=$widgets.$region.$section style=$style}
+                            <div class="section__content">
+                                {if $title}
+                                    <div class="section__title">{$title}</div>
+                                {/if}
+                                {call $functionName section=$section widgets=$widgets.$region.$section style=$style}
+                            </div>
                         </div>
                     {/if}
                 </div>
@@ -36,11 +38,17 @@
                 {$functionName = "layout-`$layout`"|replace:"-":"_"}
                 {$style = $app.cms.node->getSectionStyle($region, $section)}
                 {if $style}<div class="{$style}">{/if}
-                    <div class="container">
+                    {if $isFullWidth}
+                        <div class="container">
+                            <div class="{$class}__content">
+                                {call $functionName section=$section widgets=$widgets.$region.$section style=$style}
+                            </div>
+                        </div>
+                    {else}
                         <div class="{$class}__content">
                             {call $functionName section=$section widgets=$widgets.$region.$section style=$style}
                         </div>
-                    </div>
+                    {/if}
                 {if $style}</div>{/if}
             {/if}
         {/foreach}
