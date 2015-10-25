@@ -40,14 +40,14 @@
                 {$isFullWidth = $app.cms.node->isSectionFullWidth($region, $section)}
                 {if $style}<div class="{$style}">{/if}
                     {if $isFullWidth}
+                        <div class="{$class}__content">
+                            {call $functionName section=$section widgets=$widgets.$region.$section style=$style}
+                        </div>
+                    {else}
                         <div class="container">
                             <div class="{$class}__content">
                                 {call $functionName section=$section widgets=$widgets.$region.$section style=$style}
                             </div>
-                        </div>
-                    {else}
-                        <div class="{$class}__content">
-                            {call $functionName section=$section widgets=$widgets.$region.$section style=$style}
                         </div>
                     {/if}
                 {if $style}</div>{/if}
