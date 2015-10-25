@@ -37,6 +37,7 @@
             {if isset($widgets.$region.$section)}
                 {$functionName = "layout-`$layout`"|replace:"-":"_"}
                 {$style = $app.cms.node->getSectionStyle($region, $section)}
+                {$isFullWidth = $app.cms.node->isSectionFullWidth($region, $section)}
                 {if $style}<div class="{$style}">{/if}
                     {if $isFullWidth}
                         <div class="container">
