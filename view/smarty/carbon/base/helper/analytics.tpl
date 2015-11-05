@@ -19,7 +19,6 @@
 
 {*
  * Function to return the Universal Analytics tag
- *
  *}
 {function googleAnalytics id=false}
     {if $app.cms.node->getParentNode()->getProperty('analytics.ga_id')}
