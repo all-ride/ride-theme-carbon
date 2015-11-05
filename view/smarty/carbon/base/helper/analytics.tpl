@@ -2,6 +2,11 @@
  * Function to return the Google Tagmanager tag
  *}
 {function googleTagmanager id=false}
+    {if $app.cms.node->getParentNode()->getProperty('analytics.gtm_id')}
+        {$id = $app.cms.node->getParentNode()->getProperty('analytics.gtm_id')->getValue()}
+    {elseif $app.system->getConfig()->get('google.tagmanager.id')}
+        {$id = $app.system->getConfig()->get('google.tagmanager.id')}
+    {/if}
     {if $id}
         <noscript><iframe src="//www.googletagmanager.com/ns.html?id={$id}" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <script>(function(w,d,s,l,i){ldelim}w[l]=w[l]||[];w[l].push({ldelim}'gtm.start':
@@ -14,9 +19,13 @@
 
 {*
  * Function to return the Universal Analytics tag
- *
  *}
 {function googleAnalytics id=false}
+    {if $app.cms.node->getParentNode()->getProperty('analytics.ga_id')}
+        {$id = $app.cms.node->getParentNode()->getProperty('analytics.ga_id')->getValue()}
+    {elseif $app.system->getConfig()->get('google.analytics.id')}
+        {$id = $app.system->getConfig()->get('google.analytics.id')}
+    {/if}
     {if $id}
         <script>
             (function(i,s,o,g,r,a,m){ldelim}i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){ldelim}
