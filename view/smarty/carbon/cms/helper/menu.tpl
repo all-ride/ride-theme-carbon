@@ -21,7 +21,7 @@
 
         <li class="{if $node@first}first {/if}{cycle values="even,odd" name=$prefix}{if $app.cms.node->hasParent($node->getId()) || $active} active{/if}{if $node@last} last{/if}">
             <a href="{$app.url.script}{$node->getRoute($app.locale)}" class="nav__link nav__link--{$node->getId()|replace:'.':'-'}{if $app.cms.node->hasParent($node->getId()) || $active} active{/if}">{$node->getName($app.locale, "menu")}</a>
-            {if $node->getChildren() && $depth > 1 && ($app.cms.node->hasParent($node->getId()) || $active)}
+            {if $node->getChildren() && $depth > 1}
                 {call renderMenu items=$node->getChildren() prefix="`$prefix`sub" number=$number depth=$depth-1}
 
                 {assign var="number" value=$number+1}
