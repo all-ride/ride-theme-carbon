@@ -1,6 +1,7 @@
 {
-    "template.smarty.plugin.carbon": "%path%/src/ride/web/template/smarty/plugin",
+    "cms.default.layout": "100-no-grid",
     "cms.text.cta.type.btn": "label.cta.type.button",
     "cms.text.cta.type.btn--ext": "label.cta.type.button.ext",
-    "cms.text.cta.type.link--ext": "label.cta.type.link.ext"
+    "cms.text.cta.type.link--ext": "label.cta.type.link.ext",
+    "template.smarty.plugin.carbon": "%path%/src/ride/web/template/smarty/plugin"
 }
