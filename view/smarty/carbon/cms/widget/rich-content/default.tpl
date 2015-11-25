@@ -1,3 +1,3 @@
-{include file="base/rich-content.prototype"}
+{include file="cms/helper/rich-content.prototype"}
 
 {call richContentItems items=$content}
