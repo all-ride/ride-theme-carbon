@@ -12,10 +12,10 @@
 {/function}
 
 {function name="richContentQuote" data=null}
-    <div class="quote">
-        <blockquote class="quote__text">{$data->text}</blockquote>
-        <div class="quote__text">{$data->cite}</blockquote>
-    </div>
+    <blockquote class="quote">
+        {$data->text}
+        <footer>- <cite class="quote__text">{$data->cite}</cite></footer>
+    </blockquote>
 {/function}
 
 {function name="richContentText" data=null}
