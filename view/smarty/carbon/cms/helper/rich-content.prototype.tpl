@@ -8,18 +8,22 @@
 {/function}
 
 {function name="richContentHeading" data=null}
-    <h2>{$data->text}</h2>
+    <h2>{$data->text|text}</h2>
 {/function}
 
 {function name="richContentQuote" data=null}
     <blockquote class="quote">
-        {$data->text}
+        {$data->text|text}
         <footer>- <cite class="quote__text">{$data->cite}</cite></footer>
     </blockquote>
 {/function}
 
 {function name="richContentText" data=null}
-    {$data->text}
+    {$data->text|text}
+{/function}
+
+{function name="richContentWysiwyg" data=null}
+    {richContentText data=$data}
 {/function}
 
 {function name="richContentList" data=null}
@@ -31,9 +35,13 @@
 {/function}
 
 {function name="richContentVideo" data=null}
-    {$data|k}
+    {* {$data|k} *}
 {/function}
 
 {function name="richContentImage" data=null}
-    {$data|k}
+    {* {$data|k} *}
+{/function}
+
+{function name="richContentAsset" data=null}
+    {"[[asset.`$data->id`]]"|text}
 {/function}
