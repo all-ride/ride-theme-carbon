@@ -43,5 +43,10 @@
 {/function}
 
 {function name="richContentAsset" data=null}
-    {"[[asset.`$data->id`]]"|text}
+    {$imageStyle = 'medium-image'}
+    {if $data->className == 'stretch'}
+        {$imageStyle = 'large-image'}
+    {/if}
+
+    {"[[asset.`$data->id`.`$imageStyle`.`$data->className`]]"|text}
 {/function}

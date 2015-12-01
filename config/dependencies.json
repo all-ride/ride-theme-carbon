@@ -4,6 +4,82 @@
             "interfaces": ["ride\\library\\template\\theme\\Theme", "ride\\library\\cms\\theme\\Theme"],
             "class": "ride\\web\\cms\\theme\\CarbonTheme",
             "id": "carbon"
+        },
+        {
+            "interfaces": "ride\\application\\orm\\asset\\parser\\AssetParser",
+            "class": "ride\\application\\orm\\asset\\parser\\GenericAssetParser",
+            "id": "left",
+            "calls": [
+                {
+                    "method": "setImageClass",
+                    "arguments": [
+                        {
+                            "name": "imageClass",
+                            "type": "scalar",
+                            "properties": {
+                                "value": "image image--left"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "interfaces": "ride\\application\\orm\\asset\\parser\\AssetParser",
+            "class": "ride\\application\\orm\\asset\\parser\\GenericAssetParser",
+            "id": "right",
+            "calls": [
+                {
+                    "method": "setImageClass",
+                    "arguments": [
+                        {
+                            "name": "imageClass",
+                            "type": "scalar",
+                            "properties": {
+                                "value": "image image--right"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "interfaces": "ride\\application\\orm\\asset\\parser\\AssetParser",
+            "class": "ride\\application\\orm\\asset\\parser\\GenericAssetParser",
+            "id": "right",
+            "calls": [
+                {
+                    "method": "setImageClass",
+                    "arguments": [
+                        {
+                            "name": "imageClass",
+                            "type": "scalar",
+                            "properties": {
+                                "value": "image image--center"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "interfaces": "ride\\application\\orm\\asset\\parser\\AssetParser",
+            "class": "ride\\application\\orm\\asset\\parser\\GenericAssetParser",
+            "id": "stretch",
+            "calls": [
+                {
+                    "method": "setImageClass",
+                    "arguments": [
+                        {
+                            "name": "imageClass",
+                            "type": "scalar",
+                            "properties": {
+                                "value": "image image--full-width"
+                            }
+                        }
+                    ]
+                }
+            ]
         }
     ]
 }
