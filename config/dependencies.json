@@ -46,7 +46,7 @@
         {
             "interfaces": "ride\\application\\orm\\asset\\parser\\AssetParser",
             "class": "ride\\application\\orm\\asset\\parser\\GenericAssetParser",
-            "id": "right",
+            "id": "center",
             "calls": [
                 {
                     "method": "setImageClass",
@@ -55,7 +55,7 @@
                             "name": "imageClass",
                             "type": "scalar",
                             "properties": {
-                                "value": "image image--center"
+                                "value": "image image--responsive image--center"
                             }
                         }
                     ]
