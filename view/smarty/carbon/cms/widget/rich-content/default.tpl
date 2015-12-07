@@ -1,3 +1,5 @@
 {include file="cms/helper/rich-content.prototype"}
 
-{call richContentItems items=$content}
+<div class="block clearfix">
+    {call richContentItems items=$content}
+</div>
