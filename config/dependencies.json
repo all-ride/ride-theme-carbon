@@ -8,6 +8,25 @@
         {
             "interfaces": "ride\\application\\orm\\asset\\parser\\AssetParser",
             "class": "ride\\application\\orm\\asset\\parser\\GenericAssetParser",
+            "id": "generic",
+            "calls": [
+                {
+                    "method": "setImageClass",
+                    "arguments": [
+                        {
+                            "name": "imageClass",
+                            "type": "scalar",
+                            "properties": {
+                                "value": "image image--responsive"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "interfaces": "ride\\application\\orm\\asset\\parser\\AssetParser",
+            "class": "ride\\application\\orm\\asset\\parser\\GenericAssetParser",
             "id": "left",
             "calls": [
                 {
@@ -45,17 +64,18 @@
         },
         {
             "interfaces": "ride\\application\\orm\\asset\\parser\\AssetParser",
-            "class": "ride\\application\\orm\\asset\\parser\\GenericAssetParser",
+            "class": "ride\\application\\orm\\asset\\parser\\DivisionAssetParser",
+            "extends": "generic",
             "id": "center",
             "calls": [
                 {
-                    "method": "setImageClass",
+                    "method": "setDivisionClass",
                     "arguments": [
                         {
-                            "name": "imageClass",
+                            "name": "divisionClass",
                             "type": "scalar",
                             "properties": {
-                                "value": "image image--responsive image--center"
+                                "value": "text--center"
                             }
                         }
                     ]
