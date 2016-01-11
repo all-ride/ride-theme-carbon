@@ -50,3 +50,7 @@
 
     {"[[asset.`$data->id`.`$imageStyle`.`$data->className`]]"|text}
 {/function}
+
+{function name="richContentTweet" data=null}
+    {$data->embedCode|literal}
+{/function}
