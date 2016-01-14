@@ -52,5 +52,5 @@
 {/function}
 
 {function name="richContentTweet" data=null}
-    {$data->embedCode|literal}
+    {$data->embedCode}
 {/function}
