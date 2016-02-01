@@ -1,3 +1,27 @@
+{function name="renderSocialMediaNav" title=null socialMedia=null}
+    {$nodeTitle = $app.cms.context.title.node|text}
+    {$url = $app.url.request}
+    {if empty($socialMedia)}
+        {$socialMedia = $app.system->getConfig()->get('socialshare.default')}
+    {/if}
+
+    {if $socialMedia}
+        <div class="block nav nav--social nav--social-share {$app.cms.properties->getWidgetProperty('style.container')}">
+            {if $title}
+                <h2 class="{$app.cms.properties->getWidgetProperty('style.title')}">{$title}</h2>
+            {/if}
+
+            <ul>
+                {foreach $socialMedia as $media}
+                    <li>
+                        {call renderSocialMedia url=$url title=$nodeTitle media=$media}
+                    </li>
+                {/foreach}
+            </ul>
+        </div>
+    {/if}
+{/function}
+
 {function name="renderSocialMedia" url=null title=null media=null}
     {if $media}
         {$label = $media|capitalize}
