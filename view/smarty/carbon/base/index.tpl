@@ -115,6 +115,16 @@
                     });
                 </script>
             {/if}
+
+            {$browserSync = $app.system->getConfig()->get('browserSync')}
+            {if $browserSync.enabled}
+                {$version = $browserSync.version|default:"2.11.11"}
+                <script type='text/javascript' id="__bs_script__">
+                    //<![CDATA[
+                    document.write("<script async src='http://HOST:3000/browser-sync/browser-sync-client.{$version}.js'><\/script>".replace("HOST", location.hostname));
+                    //]]>
+                </script>
+            {/if}
         {/block}
     {/block}
 </body>
