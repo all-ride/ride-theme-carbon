@@ -1,4 +1,3 @@
-{include 'base/helper/analytics'}
 <!doctype html>
 <!--[if IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie10" lang="{$app.locale}"> <![endif]-->
 <!--[if IE 8]> <html class="no-js lt-ie9 lt-ie10" lang="{$app.locale}"> <![endif]-->
@@ -39,13 +38,10 @@
 
         {styles}
     {/block}
-    {call googleAnalytics}
 </head>
 
 <body data-translation-url="{url id="api.locales.translations.exposed" parameters=["locale" => $app.locale]}" {block "body_attributes"}{/block}>
-    {call googleTagmanager}
     {block "body"}
-
         {block "taskbar"}
             {if isset($app.taskbar)}
                 {include "base/taskbar" title=$app.taskbar->getTitle() applicationsMenu=$app.taskbar->getApplicationsMenu() settingsMenu=$app.taskbar->getSettingsMenu()}

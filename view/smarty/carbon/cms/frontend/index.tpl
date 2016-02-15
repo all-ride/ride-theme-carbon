@@ -1,4 +1,5 @@
 {extends file="base/index"}
+{include 'cms/helper/analytics'}
 
 {if isset($app.cms.context)}
     {block "head_meta" append}
@@ -47,6 +48,13 @@
     {/if}
 {/block}
 
+{block 'body' prepend}
+    {call googleTagmanager}
+{/block}
+
+{block 'head' append}
+    {call googleAnalytics}
+{/block}
 
 {block "content_body"}
     {foreach $layouts as $layout}
