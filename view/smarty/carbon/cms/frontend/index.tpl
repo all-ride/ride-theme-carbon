@@ -1,5 +1,4 @@
 {extends file="base/index"}
-{include 'cms/helper/analytics'}
 
 {if isset($app.cms.context)}
     {block "head_meta" append}
@@ -49,10 +48,12 @@
 {/block}
 
 {block 'body' prepend}
+    {include 'cms/helper/analytics'}
     {call googleTagmanager}
 {/block}
 
 {block 'head' append}
+    {include 'cms/helper/analytics'}
     {call googleAnalytics}
 {/block}
 
