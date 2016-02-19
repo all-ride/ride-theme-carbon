@@ -15,7 +15,7 @@
         {$class = "`$class` btn"}
     {/if}
 
-    <{$element} {if $element == 'a'}href="{$cta->getUrl()}{$cta->getSuffix()}" {/if}class="{$class}">
+    <{$element} {if $element == 'a'}href="{$cta->getUrl()}" {/if}class="{$class}">
         {$cta->getLabel()|text}
     </{$element}>
 {/function}
