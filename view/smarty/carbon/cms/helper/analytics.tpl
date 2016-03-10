@@ -2,12 +2,13 @@
  * Function to return the Google Tagmanager tag
  *}
 {function googleTagmanager id=false}
-    {$siteProperties = $app.cms.node->getProperties(null, true)}
-    {if isset($siteProperties['analytics.gtm_id'])}
-        {$id = $siteProperties['analytics.gtm_id']->getValue()}
-    {elseif $app.system->getConfig()->get('google.tagmanager.id')}
-        {$id = $app.system->getConfig()->get('google.tagmanager.id')}
+    {if !$id}
+        {$id = $app.cms.node->getLocalized($app.locale, 'analytics.gtm_id')}
+        {if !$id}
+            {$id = $app.system->getConfig()->get('google.tagmanager.id')}
+        {/if}
     {/if}
+
     {if $id}
         <noscript><iframe src="//www.googletagmanager.com/ns.html?id={$id}" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <script>(function(w,d,s,l,i){ldelim}w[l]=w[l]||[];w[l].push({ldelim}'gtm.start':
@@ -22,12 +23,13 @@
  * Function to return the Universal Analytics tag
  *}
 {function googleAnalytics id=false}
-    {$siteProperties = $app.cms.node->getProperties(null, true)}
-    {if isset($siteProperties['analytics.ga_id'])}
-        {$id = $siteProperties['analytics.ga_id']->getValue()}
-    {elseif $app.system->getConfig()->get('google.analytics.id')}
-        {$id = $app.system->getConfig()->get('google.analytics.id')}
+    {if !$id}
+        {$id = $app.cms.node->getLocalized($app.locale, 'analytics.ga_id')}
+        {if !$id}
+            {$id = $app.system->getConfig()->get('google.analytics.id')}
+        {/if}
     {/if}
+
     {if $id}
         <script>
             (function(i,s,o,g,r,a,m){ldelim}i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){ldelim}
