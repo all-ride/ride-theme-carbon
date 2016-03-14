@@ -5,11 +5,18 @@
         {$meta = $app.cms.node->getMeta($app.locale)}
         {if $meta}
             {foreach $meta as $metaName => $metaValue}
-                {if $metaName == 'og:image'}
-                    <meta property="{$metaName}" content="{image src=$metaValue}" />
-                {else}
-                    <meta property="{$metaName}" content="{$metaValue|strip_tags|trim}" />
+                {$metaAttribute = "name"}
+
+                {if $metaName == "title"}{continue}{/if}
+                {if $metaName|strpos:"og:" === 0}
+                    {$metaAttribute = "property"}
                 {/if}
+                {if $metaName == 'og:image'}
+                    {$metaValue = "{image src=$metaValue}"}
+                {else}
+                    {$metaValue = $metaValue|strip_tags|trim}
+                {/if}
+                <meta {$metaAttribute}="{$metaName}" content="{$metaValue}" />
             {/foreach}
         {/if}
     {/block}
