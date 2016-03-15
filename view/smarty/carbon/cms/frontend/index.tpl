@@ -5,16 +5,29 @@
         {$meta = $app.cms.node->getMeta($app.locale)}
         {if $meta}
             {foreach $meta as $metaName => $metaValue}
-                {if $metaName == 'og:image'}
-                    <meta property="{$metaName}" content="{image src=$metaValue}" />
-                {else}
-                    <meta property="{$metaName}" content="{$metaValue|strip_tags|trim}" />
+                {$metaAttribute = "name"}
+                {if $metaName == "title"}{continue}{/if}
+                {if $metaName|strpos:"og:" === 0}
+                    {$metaAttribute = "property"}
                 {/if}
+                {if $metaName == 'og:image'}
+                    {$metaValue = "{image src=$metaValue}"}
+                {else}
+                    {$metaValue = $metaValue|strip_tags|trim}
+                {/if}
+                <meta {$metaAttribute}="{$metaName}" content="{$metaValue}" />
             {/foreach}
         {/if}
     {/block}
 
-    {block "head_title"}{if $app.cms.node->getRoute($app.locale) != '/'}{$app.cms.context.title.node} - {/if}{$app.cms.context.title.site}{/block}
+    {block "head_title"}
+        {if isset($meta.title)}
+            {$meta.title}
+        {else}
+            {if $app.cms.node->getRoute($app.locale) != '/'}{$app.cms.context.title.node}{/if}
+        {/if}
+        {strip} | {$app.cms.context.title.site}
+    {/block}
 
     {block "body_attributes"} class="page-{$app.cms.node->getId()} {$app.cms.node->get('body.class')}" data-components="{$app.cms.node->get('body.components')}"{/block}
 {/if}
