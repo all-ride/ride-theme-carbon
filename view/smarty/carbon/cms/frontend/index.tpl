@@ -5,16 +5,22 @@
         {$meta = $app.cms.node->getMeta($app.locale)}
         {if $meta}
             {foreach $meta as $metaName => $metaValue}
-                {if $metaName == 'og:image'}
+                {if $metaName == 'title'}
+                    {continue}
+                {elseif $metaName == 'og:image'}
                     <meta property="{$metaName}" content="{image src=$metaValue}" />
-                {else}
+                {elseif $metaName|strpos:'og:' === 0}
                     <meta property="{$metaName}" content="{$metaValue|strip_tags|trim}" />
+                {else}
+                    <meta name="{$metaName}" content="{$metaValue|strip_tags|trim}" />
                 {/if}
             {/foreach}
         {/if}
     {/block}
 
-    {block "head_title"}{if $app.cms.node->getRoute($app.locale) != '/'}{$app.cms.context.title.node} - {/if}{$app.cms.context.title.site}{/block}
+    {block "head_title"}
+        {if $app.cms.node->getRoute($app.locale) != '/'}{$metaTitle = $app.cms.node->getMeta($app.locale, 'title')}{if $metaTitle}{$metaTitle}{else}{$app.cms.context.title.node}{/if} | {/if}{$app.cms.context.title.site}
+    {/block}
 
     {block "body_attributes"} class="page-{$app.cms.node->getId()} {$app.cms.node->get('body.class')}" data-components="{$app.cms.node->get('body.components')}"{/block}
 {/if}
