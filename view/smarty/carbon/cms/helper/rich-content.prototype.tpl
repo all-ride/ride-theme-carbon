@@ -13,8 +13,10 @@
 
 {function name="richContentQuote" data=null}
     <blockquote class="quote">
-        {$data->text|text}
-        <footer>- <cite class="quote__text">{$data->cite}</cite></footer>
+        <p>{$data->text|text}</p>
+        {if $data->cite}
+            <footer>- <cite class="quote__text">{$data->cite}</cite></footer>
+        {/if}
     </blockquote>
 {/function}
 
