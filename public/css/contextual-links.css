@@ -10,21 +10,19 @@
   display: inline-block;
   width: 34px;
   padding: 5px;
-  background: #fff;
-  border: 0 solid #ccc;
-  border-width: 0 1px 1px 0;
-  color: #3498db;
+  color: #fff;
+  background: #3498db;
   z-index: 1;
 }
 
 .contextual-links--dev .contextual-links__link {
-  color: #f15a4a;
+  background: #f15a4a;
 }
 .contextual-links--stag .contextual-links__link {
-  color: #f39c12;
+  background: #f39c12;
 }
 .contextual-links--prod .contextual-links__link {
-  color: #35a237;
+  background: #35a237;
 }
 
 .contextual-links__link svg {
