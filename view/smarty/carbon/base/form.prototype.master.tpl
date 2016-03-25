@@ -643,7 +643,7 @@
             {$assets = $widget->getAssets()}
             {foreach $assets as $asset}
                 <div class="form__asset" data-id="{$asset->getId()}">
-                    <img src="{image src=$asset->getThumbnail() transformation="crop" width=100 height=100}" width="100" height="100">
+                    <img src="{image src=$asset->getThumbnail() transformation="crop" width=100 height=100}" alt="{$asset->getAlt()}" width="100" height="100">
                     <a href="#" class="form__remove-asset">&times;</a>
                 </div>
             {/foreach}
@@ -686,7 +686,7 @@
                                     {$assets = $widget->getAssets()}
                                     {foreach $assets as $asset}
                                         <div class="form__asset" data-id="{$asset->getId()}">
-                                            <img src="{image src=$asset->getThumbnail() transformation="crop" width=40 height=40}" width="40" height="40">
+                                            <img src="{image src=$asset->getThumbnail() transformation="crop" width=40 height=40}" alt="{$asset->getAlt()}" width="40" height="40">
                                             <a href="#" class="form__remove-asset">&times;</a>
                                         </div>
                                     {/foreach}
@@ -906,7 +906,7 @@
         {if $value}
         <div class="form__help">
             <div class="form__image-preview">
-                <img src="{image src=$value transformation="crop" width=100 height=100}" title="{$value}" /><br>
+                <img src="{image src=$value transformation="crop" width=100 height=100}" alt="" title="{$value}"><br>
                 <a href="#" class="btn-file-delete" data-message="{translate key="label.confirm.file.delete"}">
                     <i class="glyphicon glyphicon-remove"></i>
                     {translate key="button.delete"}

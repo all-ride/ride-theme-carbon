@@ -76,6 +76,6 @@
 
 {function renderImage image=null width=140 height=105 transformation="crop"}
     <div class="excerpt__img">
-        <img src="{image src=$image width=$width height=$height transformation=$transformation}" class="image image--responsive" />
+        <img src="{image src=$image width=$width height=$height transformation=$transformation}" alt="" class="image image--responsive">
     </div>
 {/function}
