@@ -28,7 +28,7 @@
                     {if $content->image}
                         <div class="excerpt__aside">
                             <div class="excerpt__img">
-                                <img src="{image src=$content->image width=125 height=125 transformation="resize"}" class="image image--full-width" />
+                                <img src="{image src=$content->image width=125 height=125 transformation="resize"}" alt="" class="image image--full-width">
                             </div>
                         </div>
                     {/if}

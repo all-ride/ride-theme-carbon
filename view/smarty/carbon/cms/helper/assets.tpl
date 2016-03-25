@@ -14,7 +14,7 @@
                         {else}
                         <a class="colorbox" href="{image src=$asset->getValue() width=1000 height=1000 transformation="resize"}" rel="album"{if $asset->getDescription()} title="{$asset->getDescription()|text|escape}"{/if}>
                         {/if}
-                            <img class="image image--full-width" src="{$thumb}">
+                            <img src="{$thumb}" alt="{$asset->getAlt()}" class="image image--full-width">
                         </a>
                     </div>
                 {/foreach}

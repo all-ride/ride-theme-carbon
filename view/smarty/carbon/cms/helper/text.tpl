@@ -26,7 +26,7 @@
         {if $image}
             <div class="excerpt__aside">
                 <div class="excerpt__image">
-                    <img src="{image src=$image width=140 height=140 transformation="resize"}" class="image image--full-width" />
+                    <img src="{image src=$image width=140 height=140 transformation="resize"}" alt="" class="image image--full-width">
                 </div>
             </div>
         {/if}
@@ -64,7 +64,7 @@
             {else}
                 {$imageClass = "`$imageClass` image--responsive"}
             {/if}
-            <img src="{image src=$image width=300 height=300 transformation="resize"}" class="{$imageClass}" />
+            <img src="{image src=$image width=300 height=300 transformation="resize"}" alt="" class="{$imageClass}">
         {/if}
 
         {$html|text}
