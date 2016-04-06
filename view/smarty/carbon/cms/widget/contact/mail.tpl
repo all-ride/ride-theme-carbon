@@ -1,5 +1,9 @@
-{extends file="mail/index"}
+{extends 'mail/index'}
 
-{block name="content"}
+{block 'body_content'}
+	{$data['name']}
+	{$data['email']}
     {$data['message']}
 {/block}
+
+{block 'body_data'}{/block}
