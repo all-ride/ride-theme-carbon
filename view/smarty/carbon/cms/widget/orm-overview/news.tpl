@@ -10,7 +10,7 @@
     {call renderFilter filters=$filters}
 
     {if $result}
-        {foreach from=$result item="content"}
+        {foreach $result as $content}
             {$excerptClass = "excerpt excerpt--{$content->type|strtolower} excerpt--{cycle values="odd,even"}"}
 
             {if $content->url}
@@ -35,7 +35,7 @@
                     </div>
                     <div class="excerpt__ct">
                         <p>{$content->teaser|text}</p>
-                        {if $content->url}<span class="excerpt__link spacer--xsm">{translate key="label.readmore"} &rsaquo;</span>{/if}
+                        {if $content->url}<span class="excerpt__link spacer--xsm">{'label.readmore'|translate} &rsaquo;</span>{/if}
                     </div>
                 </div>
             {if $content->url}

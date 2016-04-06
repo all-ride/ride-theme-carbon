@@ -3,7 +3,7 @@
     {if $query}
         <p>{translate key="label.search.query.none" query=$query}</p>
     {else}
-        <p>{translate key="label.search.query.provide"}</p>
+        <p>{'label.search.query.provide'|translate}</p>
     {/if}
 {else}
     {if $result.total == 1}
@@ -38,7 +38,7 @@
                         </div>
                         <div class="excerpt__ct">
                             {$content->teaser}
-                            {if $content->url}<span class="excerpt__link">{translate key="label.readmore"} &rsaquo;</span>{/if}
+                            {if $content->url}<span class="excerpt__link">{'label.readmore'|translate} &rsaquo;</span>{/if}
                         </div>
                     </div>
                 {if $content->url}

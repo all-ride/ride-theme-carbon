@@ -150,7 +150,7 @@
             {/if}
 
             {if ($row->getLabel()|replace:' ':'')}
-                <label class="form__label" for="{$widget->getId()}">{if $type != 'button'}{$row->getLabel()}{if $type != 'label' && $type != 'component' && !$row->isRequired()} <small>({translate key="label.optional"})</small>{/if}{/if}</label>
+                <label class="form__label" for="{$widget->getId()}">{if $type != 'button'}{$row->getLabel()}{if $type != 'label' && $type != 'component' && !$row->isRequired()} <small>({'label.optional'|translate})</small>{/if}{/if}</label>
             {/if}
 
             {call formWidget form=$form row=$row part=$part}
@@ -177,7 +177,7 @@
             {if $type == 'date'}
                 <div class="form__help">{translate key="label.date.example" example=time()|date_format:$row->getFormat() format=$row->getFormat()}</div>
             {elseif $type == 'select' && $widget->isMultiple()}
-                <div class="form__help">{translate key="label.multiselect"}</div>
+                <div class="form__help">{'label.multiselect'|translate}</div>
             {/if}
 
             {if $widget->getType() == 'component'}
@@ -693,7 +693,7 @@
                                 </div>
                             </div>
                             <div class="grid--bp-xsm__3 text--right">
-                                <button type="button" class="btn btn--default" data-dismiss="modal">{translate key="button.done"}</button>
+                                <button type="button" class="btn btn--default" data-dismiss="modal">{'button.done'|translate}</button>
                             </div>
                         </div>
                     </div>
@@ -866,9 +866,9 @@
         {if $value}
         <div class="form__help">
             {$value}
-            <a href="#" class="btn-file-delete" data-message="{translate key="label.confirm.file.delete"}">
+            <a href="#" class="btn-file-delete" data-message="{'label.confirm.file.delete'|translate}">
                 <i class="glyphicon glyphicon-remove"></i>
-                {translate key="button.delete"}
+                {'button.delete'|translate}
             </a>
         </div>
         {/if}
@@ -907,9 +907,9 @@
         <div class="form__help">
             <div class="form__image-preview">
                 <img src="{image src=$value transformation="crop" width=100 height=100}" alt="" title="{$value}"><br>
-                <a href="#" class="btn-file-delete" data-message="{translate key="label.confirm.file.delete"}">
+                <a href="#" class="btn-file-delete" data-message="{'label.confirm.file.delete'|translate}">
                     <i class="glyphicon glyphicon-remove"></i>
-                    {translate key="button.delete"}
+                    {'button.delete'|translate}
                 </a>
             </div>
         </div>
@@ -1022,7 +1022,7 @@
     <div class="form__actions">
         <button type="submit" class="btn btn--default">{translate key=$submit}</button>
         {if $referer}
-            <a href="{$referer}" class="btn btn--link">{translate key="button.cancel"}</a>
+            <a href="{$referer}" class="btn btn--link">{'button.cancel'|translate}</a>
         {/if}
     </div>
 {/function}

@@ -8,7 +8,7 @@
         {/if}
 
         <ul>
-            {foreach from=$socialMedia item=media}
+            {foreach $socialMedia as $media}
                 <li>
                     <a href="{$media['url']}" class="nav__link" target="_blank">
                         <i class="icon icon--{$media['name']|lower}"></i>

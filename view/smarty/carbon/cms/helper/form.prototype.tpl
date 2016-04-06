@@ -1,4 +1,4 @@
-{include file="base/form.prototype" inline}
+{include 'base/form.prototype' inline}
 
 {$bodyComponent = $app.cms.node->get('body.components')}
 {if !$bodyComponent|strstr:'form'}

@@ -4,9 +4,9 @@
         <input type="hidden" name="ie" value="UTF-8" />
 
         <div class="form__item">
-            <label class="visuallyhidden" for="form-search-query">{translate key="label.query.search"}</label>
+            <label class="visuallyhidden" for="form-search-query">{'label.query.search'|translate}</label>
             <input type="search" id="form-search-query" name="q" class="form__text" />
         </div>
-        <button type="submit" class="btn" name="sa">{translate key="button.search"}</button>
+        <button type="submit" class="btn" name="sa">{'button.search'|translate}</button>
     </form>
 </div>
