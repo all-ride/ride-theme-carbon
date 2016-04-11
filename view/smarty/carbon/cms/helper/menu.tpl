@@ -19,12 +19,14 @@
             {/if}
         {/if}
 
-        <li class="{if $node@first}first {/if}{cycle values="even,odd" name=$prefix}{if $app.cms.node->hasParent($node->getId()) || $active} active{/if}{if $node@last} last{/if}">
-            <a href="{$app.url.script}{$node->getRoute($app.locale)}" class="nav__link nav__link--{$node->getId()|replace:'.':'-'}{if $app.cms.node->hasParent($node->getId()) || $active} active{/if}">{$node->getName($app.locale, "menu")}</a>
+        {$isActive = $app.cms.node->hasParent($node->getId()) || $active}
+
+        <li class="nav__item{if $isActive} active{/if}">
+            <a href="{$app.url.script}{$node->getRoute($app.locale)}" class="nav__link nav__link--{$node->getId()|replace:'.':'-'}{if $isActive} active{/if}">{$node->getName($app.locale, "menu")}</a>
             {if $node->getChildren() && $depth > 1}
                 {call renderMenu items=$node->getChildren() prefix="`$prefix`sub" number=$number depth=$depth-1}
 
-                {assign var="number" value=$number+1}
+                {$number = $number + 1}
             {/if}
         </li>
         {/if}
@@ -41,5 +43,5 @@
         <h2 class="{$app.cms.properties->getWidgetProperty('style.title')}{if isset($titleClass)} {$titleClass}{/if}">{$title}</h2>
     {/if}
 
-    {call renderMenu prefix="menu" items=$items number=1 depth=$depth class=$app.cms.properties->getWidgetProperty('style.menu')}
+    {call renderMenu prefix='menu' items=$items number=1 depth=$depth class=$app.cms.properties->getWidgetProperty('style.menu')}
 </{$element}>

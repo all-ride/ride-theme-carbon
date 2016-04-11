@@ -11,7 +11,13 @@
     {if $result}
         <ul class="list--unordered">
             {foreach $result as $content}
-                <li>{if $content->url}<a href="{$content->url}">{$content->title}</a>{else}{$content->title}{/if}</li>
+                <li>
+                {if $content->url}
+                    <a href="{$content->url}">{$content->title}</a>
+                {else}
+                    {$content->title}
+                {/if}
+                </li>
             {/foreach}
         </ul>
 

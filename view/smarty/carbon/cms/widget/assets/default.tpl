@@ -11,7 +11,7 @@
             <div class="spacer--med">
                 {* <a class="colorbox" href="{url id="assets.value" parameters=["asset" => $asset->getId()]}" title="{$asset->getName()|escape}"> *}
                     {if $asset->getValue()}
-                        <img src="{image src=$asset->getValue() width=400 height=300 transformation="resize"}" alt="{$asset->getAlt()}" class="image image--responsive">
+                        <img src="{image src=$asset->getValue() width=400 height=300 transformation='resize'}" alt="{$asset->getAlt()}" class="image image--responsive">
                     {/if}
                 {* </a> *}
             </div>

@@ -1,16 +1,15 @@
 {if isset($filterWidgetId)}
-    {if isset($app.cms.context["orm.filters.`$filterWidgetId`"])}
-        {$bodyComponent = $app.cms.node->get('body.components')}
-        {$app.cms.node->set('body.components', "`$bodyComponent` form")}
+    {if isset($app.cms.context["orm.filters.$filterWidgetId"])}
+        {addBodyComponent component='form'}
         {$filters = $app.cms.context["orm.filters.`$filterWidgetId`"]}
         {$filterUrl = $app.cms.context["orm.filters.`$filterWidgetId`.url"]}
     {/if}
 {/if}
 
-<form action="{$filterUrl}" method="GET" class="form form--filter filter">
+<form action="{$filterUrl}" method="get" class="form form--filter filter">
     <div class="text--lead filter__lead">{'label.filter'|translate}:</div>
     {foreach $filters as $filterName => $filter}
-        {$isMulti = $filter.type == "multi.or" || $filter.type == "multi.and"}
+        {$isMulti = $filter.type == 'multi.or' || $filter.type == 'multi.and'}
         <div class="form__item form__item--{$filterName} form__item--checkboxes">
             {* <h3>{$filterName}</h3> *}
             {if !$isMulti}

@@ -3,7 +3,7 @@
 {*
 Overwrite the function that you wish to change:
 
-{function name="formWidgetString" form=null row=null part=null}
+{function formWidgetString form=null row=null part=null}
     ...
 {/function}
 *}

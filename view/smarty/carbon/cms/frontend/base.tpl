@@ -5,28 +5,32 @@
         {$meta = $app.cms.node->getMeta($app.locale)}
         {if $meta}
             {foreach $meta as $metaName => $metaValue}
-                {$metaAttribute = "name"}
-                {if $metaName == "title"}{continue}{/if}
-                {if $metaName|strpos:"og:" === 0}
-                    {$metaAttribute = "property"}
+                {$metaAttribute = 'name'}
+                {if $metaName == 'title'}{continue}{/if}
+                {if $metaName|strpos:'og:' === 0}
+                    {$metaAttribute = 'property'}
                 {/if}
                 {if $metaName == 'og:image'}
-                    {$metaValue = "{image src=$metaValue}"}
+                    {image src=$metaValue var=$metaValue}
                 {else}
                     {$metaValue = $metaValue|strip_tags|trim}
                 {/if}
-                <meta {$metaAttribute}="{$metaName}" content="{$metaValue}" />
+                <meta {$metaAttribute}="{$metaName}" content="{$metaValue}">
             {/foreach}
         {/if}
     {/block}
 
     {block 'head_title'}
+        {$title = $app.cms.context.title.site}
         {if isset($meta.title)}
-            {$meta.title}
+            {"`$meta.title` | $title"}
         {else}
-            {if $app.cms.node->getRoute($app.locale) != '/'}{$app.cms.context.title.node}{/if}
+            {if $app.cms.node->getRoute($app.locale) != '/'}
+                {"`$app.cms.context.title.node` | $title"}
+            {else}
+                {$title}
+            {/if}
         {/if}
-        {strip} | {$app.cms.context.title.site}
     {/block}
 
     {block 'body_attributes'} class="page-{$app.cms.node->getId()} {$app.cms.node->get('body.class')}" data-components="{$app.cms.node->get('body.components')}"{/block}
@@ -80,11 +84,12 @@
         {/if}
 
         {foreach $pageActions as $pageActionUrl => $pageActionLabel}
-            {isGranted url=$pageActionUrl var="isGranted"}{/isGranted}
+            {isGranted url=$pageActionUrl var='isGranted'}{/isGranted}
             {if $isGranted}
                 {$tmpPageActions[$pageActionUrl] = $pageActionLabel}
             {/if}
         {/foreach}
+
         {$pageActions = $tmpPageActions}
 
         {if $pageActions}
@@ -108,9 +113,11 @@
                 </label>
 
                 <ul class="contextual-links__menu">
-                    {foreach $pageActions as $pageActionUrl => $pageActionLabel}
-                        <li><a href="{$pageActionUrl}">{$pageActionLabel}</a></li>
-                    {/foreach}
+                {foreach $pageActions as $pageActionUrl => $pageActionLabel}
+                    <li>
+                        <a href="{$pageActionUrl}">{$pageActionLabel}</a>
+                    </li>
+                {/foreach}
                 </ul>
             </div>
         {/if}
@@ -131,25 +138,27 @@
 
     <div class="page-wrap">
         <header role="banner" class="page-header">
-            {call regionSimple region="header" class="page-header"}
-            {call regionSimple region="menu" class="page-menu"}
+            {call regionSimple region='header' class='page-header'}
+            {call regionSimple region='menu' class='page-menu'}
         </header>
 
         <div class="page-main" role="main">
-            {call region region="title" class="page-title"}
-            {call region region="hero" class="page-hero"}
-            {call region region="content"}
+            {call region region='title' class='page-title'}
+            {call region region='hero' class='page-hero'}
+            {call region region='content'}
         </div>
 
         <footer class="page-footer" role="contentinfo">
-            {call region region="doormat" class="page-doormat"}
-            {call region region="footer"}
+            {call region region='doormat' class='page-doormat'}
+            {call region region='footer'}
         </footer>
 
         {if isset($widgets.flyout)}
             <div class="flyout region" id="flyout">
-                <button class="btn flyout__close"><i class="icon icon--times"></i> {'label.close'|translate}</button>
-                {call regionSimple region="flyout"}
+                <button class="btn flyout__close">
+                    <i class="icon icon--times"></i> {'label.close'|translate}
+                </button>
+                {call regionSimple region='flyout'}
             </div>
             <div class="flyout__overlay"></div>
         {/if}
@@ -157,8 +166,8 @@
 {/block}
 
 {block 'scripts'}
-    {script src="carbon/js/jquery-1.11.3.min.js"}
-    {script src="js/main.min.js"}
+    {script src='carbon/js/jquery-1.11.3.min.js'}
+    {script src='js/main.min.js'}
 {/block}
 
 {block 'scripts_polyfills'}

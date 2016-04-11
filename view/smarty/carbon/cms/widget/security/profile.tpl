@@ -3,12 +3,12 @@
 {include 'base/form.prototype'}
 
 <div class="block" id="widget-{$app.cms.widget}">
-    <form id="{$form->getId()}" class="form" action="{$app.url.request}" method="POST" enctype="multipart/form-data" role="form">
+    <form id="{$form->getId()}" class="form" action="{$app.url.request}" method="post" enctype="multipart/form-data" role="form">
         <div class="form__group">
             <div class="tabbable">
             <ul class="tabs">
             {foreach $hooks as $hookName => $hook}
-                <li class="tabs__tab {if $activeHook == $hookName} active{/if}">
+                <li class="tabs__tab{if $activeHook == $hookName} active{/if}">
                     <a href="#hook-{$hookName}" data-toggle="tab">{"profile.hook.$hookName"|translate}</a>
                 </li>
             {/foreach}
@@ -29,7 +29,7 @@
                 <div id="hook-unregister" class="tabs__pane{if $activeHook == 'unregister'} active{/if}">
                     <p>{'label.unregister'|translate}</p>
 
-                    {call formRow form=$form row="submit-unregister"}
+                    {call formRow form=$form row='submit-unregister'}
                 </div>
             {/if}
             </div>
