@@ -113,13 +113,9 @@
 
         {block 'scripts_inline'}
             {if isset($app.inlineJavascripts)}
-                {$inlineJavascripts = ''}
-                {foreach $app.inlineJavascripts as $inlineJavascript}
-                    {$inlineJavascripts = "$inlineJavascripts`$inlineJavascript`"}
-                {/foreach}
                 <script type="text/javascript">
                     $(function() {
-                        {$inlineJavascripts}
+                        {'\n'|implode:$app.inlineJavascripts}
                     });
                 </script>
             {/if}
