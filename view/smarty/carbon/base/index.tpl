@@ -113,11 +113,13 @@
 
         {block 'scripts_inline'}
             {if isset($app.inlineJavascripts)}
+                {strip}
                 <script type="text/javascript">
                     $(function() {
-                        {'\n'|implode:$app.inlineJavascripts}
+                        {''|implode:$app.inlineJavascripts}
                     });
                 </script>
+                {/strip}
             {/if}
 
             {$browserSync = $app.system->getConfig()->get('browserSync')}
