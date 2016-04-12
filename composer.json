@@ -1,8 +1,8 @@
 {
     "name": "statik/theme-carbon",
-    "description": "Thenme carbon for the CMS application of the Ride framework",
+    "description": "Theme carbon for the CMS application of the Ride framework",
     "license": "MIT",
-    "version": "0.3.25",
+    "version": "0.4.0",
     "authors": [
         {
             "name": "Bart Verbruggen",

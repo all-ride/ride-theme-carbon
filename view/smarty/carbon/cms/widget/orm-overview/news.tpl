@@ -11,7 +11,7 @@
 
     {if $result}
         {foreach $result as $content}
-            {$excerptClass = "excerpt excerpt--{$content->type|strtolower} excerpt--{cycle values="odd,even"}"}
+            {$excerptClass = "excerpt excerpt--{$content->type|strtolower}"}
 
             {if $content->url}
                 <a href="{$content->url}" class="{$excerptClass} excerpt--link">
@@ -27,7 +27,9 @@
                     <div class="excerpt__header">
                         <h3 class="excerpt__title">{$content->title}</h3>
                         {if $content->data->getDateAdded()}
-                            <div class="excerpt__date date">{call renderDateSimple date=$content->data->getDateAdded()}</div>
+                            <div class="excerpt__date">
+                                {call renderDateSimple date=$content->data->getDateAdded()}
+                            </div>
                         {/if}
                         {if $content->data->getCategories()}
                             {call renderTags tags=$content->data->getCategories()}
@@ -35,7 +37,7 @@
                     </div>
                     <div class="excerpt__ct">
                         <p>{$content->teaser|text}</p>
-                        {if $content->url}<span class="excerpt__link spacer--xsm">{'label.readmore'|translate} &rsaquo;</span>{/if}
+                        {if $content->url}<span class="excerpt__link">{'label.readmore'|translate}</span>{/if}
                     </div>
                 </div>
             {if $content->url}

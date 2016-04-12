@@ -12,7 +12,7 @@
 {function renderCTA cta=null element='a'}
     {$class = "block__cta `$cta->getType()` `$app.cms.properties->getWidgetProperty('style.cta')`"}
     {if $cta->getType() == 'btn--ext'}
-        {$class = "`$class` btn"}
+        {$class = "$class btn"}
     {/if}
 
     <{$element} {if $element == 'a'}href="{$cta->getUrl()}" {/if}class="{$class}">
@@ -20,13 +20,13 @@
     </{$element}>
 {/function}
 
-{function name="renderTextSimple" titleClass=null subtitleClass=null callToActionsType='link'}
+{function renderTextSimple titleClass=null subtitleClass=null callToActionsType='link'}
     <div class="excerpt text__inner clearfix">
 
         {if $image}
             <div class="excerpt__aside">
                 <div class="excerpt__image">
-                    <img src="{image src=$image width=140 height=140 transformation="resize"}" alt="" class="image image--full-width">
+                    <img src="{image src=$image width=140 height=140 transformation='resize'}" alt="" class="image image--full-width">
                 </div>
             </div>
         {/if}
@@ -48,7 +48,7 @@
     </div>
 {/function}
 
-{function name="renderText" titleClass=null subtitleClass=null callToActionsType='link' ctaClass=null}
+{function renderText titleClass=null subtitleClass=null callToActionsType='link' ctaClass=null}
     <div class="text__inner clearfix">
 
         {call renderTitles title=$title subtitle=$subtitle titleClass=$titleClass subtitleClass=$subtitleClass}
@@ -56,26 +56,26 @@
         {if $image}
             {$imageClass = 'image'}
             {if $imageAlignment == 'left'}
-                {$imageClass = "`$imageClass` image--responsive image--left"}
+                {$imageClass = "$imageClass image--responsive image--left"}
             {elseif $imageAlignment == 'right'}
-                {$imageClass = "`$imageClass` image--responsive image--right"}
+                {$imageClass = "$imageClass image--responsive image--right"}
             {elseif $imageAlignment == 'justify'}
-                {$imageClass = "`$imageClass` image--full-width"}
+                {$imageClass = "$imageClass image--full-width"}
             {else}
-                {$imageClass = "`$imageClass` image--responsive"}
+                {$imageClass = "$imageClass image--responsive"}
             {/if}
-            <img src="{image src=$image width=300 height=300 transformation="resize"}" alt="" class="{$imageClass}">
+            <img src="{image src=$image width=300 height=300 transformation='resize'}" alt="" class="{$imageClass}">
         {/if}
 
         {$html|text}
 
         {if $callToActions}
             <ul class="list--unstyled">
-                {foreach $callToActions as $callToAction}
-                    <li>
-                        {call renderCTA cta=$callToAction}
-                    </li>
-                {/foreach}
+            {foreach $callToActions as $callToAction}
+                <li>
+                    {call renderCTA cta=$callToAction}
+                </li>
+            {/foreach}
             </ul>
         {/if}
 

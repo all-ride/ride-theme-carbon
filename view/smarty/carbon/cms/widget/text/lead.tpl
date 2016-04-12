@@ -5,7 +5,7 @@
 <div class="grid block block--intro">
     <div class="grid__item grid--bp-med__10">
         <div class="text text--lead block {$app.cms.properties->getWidgetProperty('style.container')}" id="widget-{$app.cms.widget}">
-            {call renderTextSimple titleClass="heading--border"}
+            {call renderTextSimple titleClass='heading--border'}
         </div>
     </div>
 </div>

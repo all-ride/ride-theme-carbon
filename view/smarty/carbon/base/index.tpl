@@ -11,26 +11,36 @@
             <meta name="viewport" content="width=device-width, initial-scale=1">
         {/block}
 
-        <title>{block 'head_title'}{if isset($app.taskbar)}{$app.taskbar->getTitle()}{/if}{/block}</title>
+        {strip}
+        <title>
+        {block 'head_title'}
+            {if isset($app.taskbar)}
+                {$app.taskbar->getTitle()}
+            {/if}
+        {/block}
+        </title>
+        {/strip}
+
         {block 'favicon'}
-            <link rel="icon" type="image/png" href="{$app.url.base}/img/favicon.png" />
+            <link rel="icon" type="image/png" href="{$app.url.base}/img/favicon.png">
         {/block}
 
         {block 'scripts_head'}
             <script type="text/javascript" src="{$app.url.base}/carbon/js/modernizr.min.js"></script>
         {/block}
+
         {block 'scripts_webfont'}{/block}
 
         {block 'styles'}
-            {style src="carbon/css/main.min.css" media="screen"}
+            {style src='carbon/css/main.min.css' media='screen'}
         {/block}
         {block 'styles_app'}
             {if isset($app.styles)}
                 {foreach $app.styles as $style => $dummy}
                     {if substr($style, 0, 7) == 'http://' || substr(style, 0, 8) == 'https://' || substr($style, 0, 2) == '//'}
-                        {style src=$style media="screen"}
+                        {style src=$style media='screen'}
                     {else}
-                        {style src="carbon/`$style`" media="screen"}
+                        {style src="carbon/$style" media='screen'}
                     {/if}
                 {/foreach}
             {/if}
@@ -40,7 +50,7 @@
     {/block}
 </head>
 
-<body data-translation-url="{url id="api.locales.translations.exposed" parameters=["locale" => $app.locale]}" {block 'body_attributes'}{/block}>
+<body data-translation-url="{url id='api.locales.translations.exposed' parameters=['locale' => $app.locale]}" {block 'body_attributes'}{/block}>
     {block 'body'}
         {block 'taskbar'}
             {if isset($app.taskbar)}
@@ -52,7 +62,7 @@
             {block 'content_title'}{/block}
             {block 'messages'}
                 {if isset($app.messages)}
-                    {$_messageTypes = ["error" => "danger", "warning" => "warning", "success" => "success", "information" => "info"]}
+                    {$_messageTypes = ['error' => 'danger', 'warning' => 'warning', 'success' => 'success', 'information' => 'info']}
                     {foreach $_messageTypes as $_messageType => $_messageClass}
                         {$_messages = $app.messages->getByType($_messageType)}
                         {if $_messages}
@@ -81,8 +91,8 @@
         {/block}
 
         {block 'scripts'}
-            {script src="carbon/js/jquery-2.1.4.min.js"}
-            {script src="carbon/js/main.min.js"}
+            {script src='carbon/js/jquery-2.1.4.min.js'}
+            {script src='carbon/js/main.min.js'}
         {/block}
 
         {block 'scripts_app'}
@@ -91,7 +101,7 @@
                     {if substr($script, 0, 7) == 'http://' || substr($script, 0, 8) == 'https://' || substr($script, 0, 2) == '//' || substr($script, 0, 7) == '<script'}
                         {script src=$script}
                     {else}
-                        {script src="carbon/`$script`"}
+                        {script src="carbon/$script"}
                     {/if}
                 {/foreach}
             {/if}
@@ -103,21 +113,21 @@
 
         {block 'scripts_inline'}
             {if isset($app.inlineJavascripts)}
+                {strip}
                 <script type="text/javascript">
                     $(function() {
-                    {foreach $app.inlineJavascripts as $inlineJavascript}
-                        {$inlineJavascript}
-                    {/foreach}
+                        {''|implode:$app.inlineJavascripts}
                     });
                 </script>
+                {/strip}
             {/if}
 
             {$browserSync = $app.system->getConfig()->get('browserSync')}
             {if $browserSync.enabled}
-                {$version = $browserSync.version|default:"2.11.11"}
+                {$version = $browserSync.version|default:'2.11.11'}
                 <script type='text/javascript' id="__bs_script__">
                     //<![CDATA[
-                    document.write("<script async src='http://HOST:3000/browser-sync/browser-sync-client.{$version}.js'><\/script>".replace("HOST", location.hostname));
+                    document.write('<script async src="http://HOST:3000/browser-sync/browser-sync-client.{$version}.js"><\/script>'.replace('HOST', location.hostname));
                     //]]>
                 </script>
             {/if}

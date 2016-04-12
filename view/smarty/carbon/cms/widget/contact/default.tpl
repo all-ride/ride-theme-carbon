@@ -6,7 +6,6 @@
     <p>{'label.fields.required'|translate}</p>
     <form action="{$app.url.request}" method="post" role="form" class="form" data-parsley-validate>
         {call formRows form=$form}
-
-        {call formActions submit="button.submit"}
+        {call formActions submit='button.submit'}
     </form>
 </div>

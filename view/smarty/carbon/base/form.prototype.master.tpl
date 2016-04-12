@@ -1,4 +1,4 @@
-{addBodyComponent component="form"}
+{addBodyComponent component='form'}
 
 {*
     Prototype functions for the form rendering
@@ -14,7 +14,7 @@
 {*
     Renders the rows of the form
 *}
-{function name="formRows" rows=null form=null rowClass=null}
+{function formRows rows=null form=null rowClass=null}
     {if !$form && isset($block_form)}
         {$form = $block_form}
     {/if}
@@ -35,7 +35,7 @@
 {*
     Renders the errors of a single widget of the form
 *}
-{function name="formWidgetErrors" form=null row=null part=null}
+{function formWidgetErrors form=null row=null part=null}
     {if !$form && isset($block_form)}
         {$form = $block_form}
     {/if}
@@ -78,7 +78,7 @@
 {*
     Renders a simple row of the form
 *}
-{function name="formRow" form=null row=null part=null class=null}
+{function formRow form=null row=null part=null class=null}
     {if !$form && isset($block_form)}
         {$form = $block_form}
     {/if}
@@ -195,7 +195,7 @@
 {*
     Renders a single control of the form
 *}
-{function name="formWidget" form=null row=null part=null type=null}
+{function formWidget form=null row=null part=null type=null}
     {if !$form && isset($block_form)}
         {$form = $block_form}
     {/if}
@@ -224,7 +224,7 @@
     {/if}
 {/function}
 
-{function name="formWidgetHidden" form=null row=null part=null}
+{function formWidgetHidden form=null row=null part=null}
     {if !$form && isset($block_form)}
         {$form = $block_form}
     {/if}
@@ -245,7 +245,7 @@
     {/if}
 {/function}
 
-{function name="formWidgetLabel" form=null row=null part=null}
+{function formWidgetLabel form=null row=null part=null}
     {if !$form && isset($block_form)}
         {$form = $block_form}
     {/if}
@@ -272,7 +272,7 @@
     {/if}
 {/function}
 
-{function name="formWidgetButton" form=null row=null part=null}
+{function formWidgetButton form=null row=null part=null}
     {if !$form && isset($block_form)}
         {$form = $block_form}
     {/if}
@@ -300,7 +300,7 @@
     {/if}
 {/function}
 
-{function name="formWidgetString" form=null row=null part=null}
+{function formWidgetString form=null row=null part=null}
     {if !$form && isset($block_form)}
         {$form = $block_form}
     {/if}
@@ -352,7 +352,7 @@
     {/if}
 {/function}
 
-{function name="formWidgetNumber" form=null row=null part=null}
+{function formWidgetNumber form=null row=null part=null}
     {if !$form && isset($block_form)}
         {$form = $block_form}
     {/if}
@@ -380,7 +380,7 @@
     {/if}
 {/function}
 
-{function name="formWidgetEmail" form=null row=null part=null}
+{function formWidgetEmail form=null row=null part=null}
     {if !$form && isset($block_form)}
         {$form = $block_form}
     {/if}
@@ -419,7 +419,7 @@
     {/if}
 {/function}
 
-{function name="formWidgetDate" form=null row=null part=null}
+{function formWidgetDate form=null row=null part=null}
     {if !$form && isset($block_form)}
         {$form = $block_form}
     {/if}
@@ -447,7 +447,7 @@
     {/if}
 {/function}
 
-{function name="formWidgetWebsite" form=null row=null part=null}
+{function formWidgetWebsite form=null row=null part=null}
     {if !$form && isset($block_form)}
         {$form = $block_form}
     {/if}
@@ -486,7 +486,7 @@
     {/if}
 {/function}
 
-{function name="formWidgetPassword" form=null row=null part=null}
+{function formWidgetPassword form=null row=null part=null}
     {if !$form && isset($block_form)}
         {$form = $block_form}
     {/if}
@@ -524,7 +524,7 @@
     {/if}
 {/function}
 
-{function name="formWidgetText" form=null row=null part=null}
+{function formWidgetText form=null row=null part=null}
     {if !$form && isset($block_form)}
         {$form = $block_form}
     {/if}
@@ -571,7 +571,7 @@
     {/if}
 {/function}
 
-{function name="formWidgetWysiwyg" form=null row=null part=null}
+{function formWidgetWysiwyg form=null row=null part=null}
     {if !$form && isset($block_form)}
         {$form = $block_form}
     {/if}
@@ -620,7 +620,7 @@
 {/function}
 
 
-{function name="formWidgetAssets" form=null row=null part=null}
+{function formWidgetAssets form=null row=null part=null}
     {if !$form && isset($block_form)}
         {$form = $block_form}
     {/if}
@@ -669,12 +669,12 @@
                             {$locale = null}
                         {/if}
                         {if $widget->getFolderId()}
-                            {url id="assets.folder.overview" parameters=["folder" => $widget->getFolderId(), "locale" => $locale] var="assetsUrl"}
+                            {url id='assets.folder.overview' parameters=['folder' => $widget->getFolderId(), 'locale' => $locale] var='assetsUrl'}
                         {else}
                             {if $locale}
-                                {url id="assets.overview.locale" parameters=["locale" => $locale] var="assetsUrl"}
+                                {url id='assets.overview.locale' parameters=['locale' => $locale] var='assetsUrl'}
                             {else}
-                                {url id="assets.overview.locale" parameters=["locale" => $app.locale] var="assetsUrl"}
+                                {url id='assets.overview.locale' parameters=['locale' => $app.locale] var='assetsUrl'}
                             {/if}
                         {/if}
                         <iframe data-src="{$assetsUrl}?embed=1&amp;selected={$value|escape}" frameborder="0" width="100%" height="500"></iframe>
@@ -682,11 +682,11 @@
                     <div class="modal-footer">
                         <div class="grid">
                             <div class="grid--bp-xsm__9">
-                                <div class="form__assets form__assets--sml" data-field="{$attributes.id}"{if $widget->isMultiple()} data-max="999"{else} data-max="1"{/if}>
+                                <div class="form__assets form__assets--sml" data-field="{$attributes.id}" data-max="{if $widget->isMultiple()}999{else}1{/if}">
                                     {$assets = $widget->getAssets()}
                                     {foreach $assets as $asset}
                                         <div class="form__asset" data-id="{$asset->getId()}">
-                                            <img src="{image src=$asset->getThumbnail() transformation="crop" width=40 height=40}" alt="{$asset->getAlt()}" width="40" height="40">
+                                            <img src="{image src=$asset->getThumbnail() transformation='crop' width=40 height=40}" alt="{$asset->getAlt()}" width="40" height="40">
                                             <a href="#" class="form__remove-asset">&times;</a>
                                         </div>
                                     {/foreach}
@@ -703,7 +703,7 @@
     {/if}
 {/function}
 
-{function name="formWidgetOption" form=null row=null part=null}
+{function formWidgetOption form=null row=null part=null}
     {if !$form && isset($block_form)}
         {$form = $block_form}
     {/if}
@@ -715,16 +715,16 @@
     {$widget = $row->getWidget()}
     {if $widget}
         {if $widget->isMultiple()}
-            {$type = "checkbox"}
+            {$type = 'checkbox'}
         {else}
-            {$type = "radio"}
+            {$type = 'radio'}
         {/if}
 
         {$attributes = $widget->getAttributes()}
         {if isset($attributes.class)}
-            {$attributes.class = "`$attributes.class` form__`$type`"}
+            {$attributes.class = "`$attributes.class` form__$type"}
         {else}
-            {$attributes.class = "form__`$type`"}
+            {$attributes.class = "form__$type"}
         {/if}
 
         {$value = $widget->getValue()}
@@ -755,7 +755,7 @@
                                    {if (!is_array($value) && strcmp($value, $option) == 0) || (is_array($value) && isset($value[$option]))}checked="checked"{/if}
                                    {foreach $attributes as $name => $attribute}
                                        {if $name == 'id'}
-                                            {$attribute = "`$attribute`-`$option`"}
+                                            {$attribute = "$attribute-$option"}
                                        {/if}
                                        {$name}="{$attribute|escape}"
                                    {/foreach}
@@ -781,7 +781,7 @@
     {/if}
 {/function}
 
-{function name="formWidgetSelect" form=null row=null part=null}
+{function formWidgetSelect form=null row=null part=null}
     {if !$form && isset($block_form)}
         {$form = $block_form}
     {/if}
@@ -835,7 +835,7 @@
     {/if}
 {/function}
 
-{function name="formWidgetFile" form=null row=null part=null}
+{function formWidgetFile form=null row=null part=null}
     {if !$form && isset($block_form)}
         {$form = $block_form}
     {/if}
@@ -875,7 +875,7 @@
     {/if}
 {/function}
 
-{function name="formWidgetImage" form=null row=null part=null}
+{function formWidgetImage form=null row=null part=null}
     {if !$form && isset($block_form)}
         {$form = $block_form}
     {/if}
@@ -921,7 +921,7 @@
 {*
     Renders a component control of the form
 *}
-{function name="formWidgetComponent" form=null row=null class=null}
+{function formWidgetComponent form=null row=null class=null}
     {if !$form && isset($block_form)}
         {$form = $block_form}
     {/if}
@@ -944,7 +944,7 @@
 {*
     Renders a collection control of the form
 *}
-{function name="formWidgetCollection" form=null row=null}
+{function formWidgetCollection form=null row=null}
     {if !$form && isset($block_form)}
         {$form = $block_form}
     {/if}
@@ -990,7 +990,7 @@
 {*
     Renders a single collection control of the form
 *}
-{function name="formCollectionPrototype" form=null row=null part=null}
+{function formCollectionPrototype form=null row=null part=null}
     {if is_string($row) && $form}
         {$row = $form->getRow($row)}
     {/if}
@@ -1018,9 +1018,9 @@
 {*
     Renders the form actions, if a referer is passed, a cancel button will be presented
 *}
-{function name="formActions" referer=null submit="button.save"}
+{function formActions referer=null submit='button.save'}
     <div class="form__actions">
-        <button type="submit" class="btn btn--default">{translate key=$submit}</button>
+        <button type="submit" class="btn btn--default">{$submit|translate}</button>
         {if $referer}
             <a href="{$referer}" class="btn btn--link">{'button.cancel'|translate}</a>
         {/if}

@@ -1,17 +1,17 @@
-{function name="richContentItems" items=null}
+{function richContentItems items=null}
     {if $items}
         {foreach $items->data as $item}
-            {$function = "richContent`$item->type|ucwords`"}
+            {$function = "richContent{$item->type|ucwords}"}
             {call $function data=$item->data}
         {/foreach}
     {/if}
 {/function}
 
-{function name="richContentHeading" data=null}
+{function richContentHeading data=null}
     <h2>{$data->text|text}</h2>
 {/function}
 
-{function name="richContentQuote" data=null}
+{function richContentQuote data=null}
     <blockquote class="quote">
         <p>{$data->text|text}</p>
         {if $data->cite}
@@ -20,15 +20,15 @@
     </blockquote>
 {/function}
 
-{function name="richContentText" data=null}
+{function richContentText data=null}
     {$data->text|text}
 {/function}
 
-{function name="richContentWysiwyg" data=null}
+{function richContentWysiwyg data=null}
     {richContentText data=$data}
 {/function}
 
-{function name="richContentList" data=null}
+{function richContentList data=null}
     <ul class="list--unordered">
     {foreach $data->listItems as $item}
         <li>{$item->content}</li>
@@ -36,15 +36,15 @@
     </ul>
 {/function}
 
-{function name="richContentVideo" data=null}
+{function richContentVideo data=null}
     {* {$data|k} *}
 {/function}
 
-{function name="richContentImage" data=null}
+{function richContentImage data=null}
     {* {$data|k} *}
 {/function}
 
-{function name="richContentAsset" data=null}
+{function richContentAsset data=null}
     {$imageStyle = 'medium-image'}
     {if $data->className == 'stretch'}
         {$imageStyle = 'large-image'}
@@ -53,6 +53,6 @@
     {"[[asset.`$data->id`.`$imageStyle`.`$data->className`]]"|text}
 {/function}
 
-{function name="richContentTweet" data=null}
+{function richContentTweet data=null}
     {$data->embedCode}
 {/function}
