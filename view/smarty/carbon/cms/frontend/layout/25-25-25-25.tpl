@@ -1,41 +1,13 @@
+{include 'cms/helper/layout'}
+
 {function layout_25_25_25_25 section=null widgets=null}
-<div class="grid" id="section-{$region}-{$section}">
 
-    {$block = '1'}
-    <div class="grid__12 grid--bp-sml__6 grid--bp-med__3" id="block-{$section}-{$block}">
-    {if isset($widgets[$block])}
-        {foreach $widgets[$block] as $widget}
-            {$widget}
-        {/foreach}
-    {/if}
-    </div>
+    {$blocks = []}
+    {$blocks['1'] = 'grid__12 grid--bp-sml__6 grid--bp-med__3'}
+    {$blocks['2'] = 'grid__12 grid--bp-sml__6 grid--bp-med__3'}
+    {$blocks['3'] = 'grid__12 grid--bp-sml__6 grid--bp-med__3'}
+    {$blocks['4'] = 'grid__12 grid--bp-sml__6 grid--bp-med__3'}
 
-    {$block = '2'}
-    <div class="grid__12 grid--bp-sml__6 grid--bp-med__3" id="block-{$section}-{$block}">
-    {if isset($widgets[$block])}
-        {foreach $widgets[$block] as $widget}
-            {$widget}
-        {/foreach}
-    {/if}
-    </div>
-
-    {$block = '3'}
-    <div class="grid__12 grid--bp-sml__6 grid--bp-med__3" id="block-{$section}-{$block}">
-    {if isset($widgets[$block])}
-        {foreach $widgets[$block] as $widget}
-            {$widget}
-        {/foreach}
-    {/if}
-    </div>
-
-    {$block = '4'}
-    <div class="grid__12 grid--bp-sml__6 grid--bp-med__3" id="block-{$section}-{$block}">
-    {if isset($widgets[$block])}
-        {foreach $widgets[$block] as $widget}
-            {$widget}
-        {/foreach}
-    {/if}
-    </div>
-
-</div>
+    {call renderLayout blocks=$blocks}
+    
 {/function}
