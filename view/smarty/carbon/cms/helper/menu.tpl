@@ -2,7 +2,7 @@
     Renders the items of a menu
 *}
 {function renderMenu items=null prefix=null number=null depth=null class=null}
-    {$prefix = "$prefix`$number`"}
+    {$prefix = "$prefix$number"}
 
     <ul class="{$prefix} {$class}">
     {foreach $items as $node}

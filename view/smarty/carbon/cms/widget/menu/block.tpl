@@ -4,7 +4,7 @@
     Renders the items of a menu
 *}
 {function renderBlockMenu items=null prefix=null number=null depth=null class=null}
-    {$prefix = "$prefix`$number`"}
+    {$prefix = "$prefix$number"}
 
     <div class="{$prefix} {$class} grid grid--bp-sml-2-col">
     {foreach $items as $node}
