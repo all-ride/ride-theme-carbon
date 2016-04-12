@@ -1,34 +1,34 @@
 <div class="block {$app.cms.properties->getWidgetProperty('style.container')}" id="widget-{$app.cms.widget}">
 {if $result.total == 0}
     {if $query}
-        <p>{translate key="label.search.query.none" query=$query}</p>
+        <p>{translate key='label.search.query.none' query=$query}</p>
     {else}
-        <p>{translate key="label.search.query.provide"}</p>
+        <p>{'label.search.query.provide'|translate}</p>
     {/if}
 {else}
     {if $result.total == 1}
-        <p>{translate key="label.search.query.result" query=$query}</p>
+        <p>{translate key='label.search.query.result' query=$query}</p>
     {else}
-        <p>{translate key="label.search.query.results" query=$query total=$result.total}</p>
+        <p>{translate key='label.search.query.results' query=$query total=$result.total}</p>
     {/if}
 
     {foreach $result.types as $contentType => $contentResult}
-        {assign var="entries" value=$contentResult->getEntries()}
+        {$entries = $contentResult->getEntries()}
 
         {if $entries}
-        <div class="search-type">
+        <div class="block">
             {* <h3>{$contentType}</h3> *}
             {foreach $entries as $content}
-                {$excerptClass = "excerpt excerpt--{$content->type|strtolower} excerpt--{cycle values="odd,even"}"}
+                {$excerptClass = "excerpt excerpt--{$content->type|strtolower}"}
                 {if $content->url}
-                    <a href="{$content->url}" class="{$excerptClass}">
+                    <a href="{$content->url}" class="{$excerptClass} excerpt--link">
                 {else}
                     <div class="{$excerptClass}">
                 {/if}
                     {if $content->image}
                         <div class="excerpt__aside">
                             <div class="excerpt__img">
-                                <img src="{image src=$content->image width=125 height=125 transformation="resize"}" alt="" class="image image--full-width">
+                                <img src="{image src=$content->image width=125 height=125 transformation='resize'}" alt="" class="image image--full-width">
                             </div>
                         </div>
                     {/if}
@@ -38,7 +38,7 @@
                         </div>
                         <div class="excerpt__ct">
                             {$content->teaser}
-                            {if $content->url}<span class="excerpt__link">{translate key="label.readmore"} &rsaquo;</span>{/if}
+                            {if $content->url}<span class="excerpt__link">{'label.readmore'|translate}</span>{/if}
                         </div>
                     </div>
                 {if $content->url}
@@ -49,12 +49,12 @@
             {/foreach}
 
             {if $urlMore}
-                {assign var="numResults" value=$entries|@count}
-                {assign var="totalNumResults" value=$contentResult->getTotal()}
-                {assign var="remainingResults" value=$totalNumResults-$numResults}
+                {$numResults = $entries|@count}
+                {$totalNumResults = $contentResult->getTotal()}
+                {$remainingResults = $totalNumResults - $numResults}
                 {if $remainingResults}
-                <div class="more">
-                    <a href="{$urlMore}&amp;type={$contentType}">{translate key="button.search.results.more" total=$remainingResults}</a>
+                <div class="block">
+                    <a href="{$urlMore}&amp;type={$contentType}">{translate key='button.search.results.more' total=$remainingResults}</a>
                 </div>
                 {/if}
             {/if}

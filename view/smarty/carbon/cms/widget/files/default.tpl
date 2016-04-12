@@ -10,7 +10,7 @@
             {$fileObj = $file.file|decorate:'file'}
             <a href="{$file.url}" class="download">
                 {$file.label}
-                <span class="download__meta">({$fileObj->getExtension()} {$fileObj->getSize()|decorate:"storage.size"})</span>
+                <span class="download__meta">({$fileObj->getExtension()} {$fileObj->getSize()|decorate:'storage.size'})</span>
             </a>
         {/foreach}
         </div>

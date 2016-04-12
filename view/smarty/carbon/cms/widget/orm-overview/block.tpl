@@ -10,14 +10,15 @@
     {call renderFilter filters=$filters}
 
     {if $result}
-        {foreach from=$result item="content"}
-            {$excerptClass = "excerpt excerpt--{$content->type|strtolower} excerpt--{cycle values="odd,even"}"}
+        {foreach $result as $content}
+            {$excerptClass = "excerpt excerpt--{$content->type|strtolower}"}
 
             {if $content->url}
                 <a href="{$content->url}" class="{$excerptClass} excerpt--link">
             {else}
                 <div class="{$excerptClass}">
             {/if}
+
                 {if $content->image}
                     <div class="excerpt__aside">
                         {call renderImage image=$content->image}
@@ -29,7 +30,7 @@
                     </div>
                     <div class="excerpt__ct">
                         <p>{$content->teaser|text}</p>
-                        {if $content->url}<span class="excerpt__link spacer--xsm">{translate key="label.readmore"} &rsaquo;</span>{/if}
+                        {if $content->url}<span class="excerpt__link">{'label.readmore'|translate}</span>{/if}
                     </div>
                 </div>
             {if $content->url}

@@ -1,48 +1,52 @@
-{extends file="base/index"}
+{extends 'base/index'}
 
 {if isset($app.cms.context)}
-    {block "head_meta" append}
+    {block 'head_meta' append}
         {$meta = $app.cms.node->getMeta($app.locale)}
         {if $meta}
             {foreach $meta as $metaName => $metaValue}
-                {$metaAttribute = "name"}
-                {if $metaName == "title"}{continue}{/if}
-                {if $metaName|strpos:"og:" === 0}
-                    {$metaAttribute = "property"}
+                {$metaAttribute = 'name'}
+                {if $metaName == 'title'}{continue}{/if}
+                {if $metaName|strpos:'og:' === 0}
+                    {$metaAttribute = 'property'}
                 {/if}
                 {if $metaName == 'og:image'}
-                    {$metaValue = "{image src=$metaValue}"}
+                    {image src=$metaValue var=$metaValue}
                 {else}
                     {$metaValue = $metaValue|strip_tags|trim}
                 {/if}
-                <meta {$metaAttribute}="{$metaName}" content="{$metaValue}" />
+                <meta {$metaAttribute}="{$metaName}" content="{$metaValue}">
             {/foreach}
         {/if}
     {/block}
 
-    {block "head_title"}
+    {block 'head_title'}
+        {$title = $app.cms.context.title.site}
         {if isset($meta.title)}
-            {$meta.title}
+            {"`$meta.title` | $title"}
         {else}
-            {if $app.cms.node->getRoute($app.locale) != '/'}{$app.cms.context.title.node}{/if}
+            {if $app.cms.node->getRoute($app.locale) != '/'}
+                {"`$app.cms.context.title.node` | $title"}
+            {else}
+                {$title}
+            {/if}
         {/if}
-        {strip} | {$app.cms.context.title.site}
     {/block}
 
-    {block "body_attributes"} class="page-{$app.cms.node->getId()} {$app.cms.node->get('body.class')}" data-components="{$app.cms.node->get('body.components')}"{/block}
+    {block 'body_attributes'} class="page-{$app.cms.node->getId()} {$app.cms.node->get('body.class')}" data-components="{$app.cms.node->get('body.components')}"{/block}
 {/if}
 
-{block "styles"}
+{block 'styles'}
     <!--[if gt IE 8]><!--><link rel="stylesheet" href="{$app.url.base}/css/main.min.css"><!--<![endif]-->
     <!--[if lt IE 9]><link rel="stylesheet" href="{$app.url.base}/css/main-legacy.min.css"><![endif]-->
 {/block}
 
-{block "scripts_head"}
+{block 'scripts_head'}
     <script type="text/javascript" src="{$app.url.base}/js/modernizr.min.js"></script>
     <!--[if lt IE 9]><script type="text/javascript" src="{$app.url.base}/js/polyfill.min.js"></script><![endif]-->
 {/block}
 
-{block "scripts_webfont"}
+{block 'scripts_webfont'}
     {$webfont = $app.system->getConfig()->get('webfont')}
     {if $webfont}
         <script type="text/javascript">
@@ -71,20 +75,32 @@
         {$tmpPageActions = []}
 
         {if isset($app.cms.node)}
-            {url id="cms.node.content" parameters=["locale" => $app.locale, "site" => $app.cms.site, "revision" => "draft", "node" => $app.cms.node->getId()] var="editNodeUrl"}
-            {$pageActions["`$editNodeUrl`?referer={$app.url.request|urlencode}"] = "{translate key="label.edit"} `$app.cms.node->getName()`"}
+            {$params = []}
+            {$params['locale'] = $app.locale}
+            {$params['site'] = $app.cms.site}
+            {$params['revision'] = 'draft'}
+            {$params['node'] = $app.cms.node->getId()}
+            {url id='cms.node.content' parameters=$params var='editNodeUrl'}
+            {$pageActions["$editNodeUrl?referer={$app.url.request|urlencode}"] = "{'label.edit'|translate} `$app.cms.node->getName()`"}
         {/if}
+
         {if isset($app.cms.context.content)}
-            {url id="system.orm.scaffold.action.entry" parameters=["model" => $app.cms.context.content->type, "locale" => $app.locale, "id" => $app.cms.context.content->data->getId(), "action" => "edit"] var="editEntryUrl"}
-            {$pageActions["`$editEntryUrl`?referer={$app.url.request|urlencode}"] = "{translate key="label.edit"} `$app.cms.context.content->title`"}
+            {$params = []}
+            {$params['model'] = $app.cms.context.content->type}
+            {$params['locale'] = $app.locale}
+            {$params['id'] = $app.cms.context.content->data->getId()}
+            {$params['action'] = 'edit'}
+            {url id='system.orm.scaffold.action.entry' parameters=$params var='editEntryUrl'}
+            {$pageActions["$editEntryUrl?referer={$app.url.request|urlencode}"] = "{'label.edit'|translate} `$app.cms.context.content->title`"}
         {/if}
 
         {foreach $pageActions as $pageActionUrl => $pageActionLabel}
-            {isGranted url=$pageActionUrl var="isGranted"}{/isGranted}
+            {isGranted url=$pageActionUrl var='isGranted'}{/isGranted}
             {if $isGranted}
                 {$tmpPageActions[$pageActionUrl] = $pageActionLabel}
             {/if}
         {/foreach}
+
         {$pageActions = $tmpPageActions}
 
         {if $pageActions}
@@ -108,9 +124,11 @@
                 </label>
 
                 <ul class="contextual-links__menu">
-                    {foreach $pageActions as $pageActionUrl => $pageActionLabel}
-                        <li><a href="{$pageActionUrl}">{$pageActionLabel}</a></li>
-                    {/foreach}
+                {foreach $pageActions as $pageActionUrl => $pageActionLabel}
+                    <li>
+                        <a href="{$pageActionUrl}">{$pageActionLabel}</a>
+                    </li>
+                {/foreach}
                 </ul>
             </div>
         {/if}
@@ -122,7 +140,7 @@
     {call googleAnalytics}
 {/block}
 
-{block "content_body"}
+{block 'content_body'}
     {foreach $layouts as $layout}
         {include file=$layout->getFrontendResource() inline}
     {/foreach}
@@ -131,36 +149,38 @@
 
     <div class="page-wrap">
         <header role="banner" class="page-header">
-            {call regionSimple region="header" class="page-header"}
-            {call regionSimple region="menu" class="page-menu"}
+            {call regionSimple region='header' class='page-header'}
+            {call regionSimple region='menu' class='page-menu'}
         </header>
 
         <div class="page-main" role="main">
-            {call region region="title" class="page-title"}
-            {call region region="hero" class="page-hero"}
-            {call region region="content"}
+            {call region region='title' class='page-title'}
+            {call region region='hero' class='page-hero'}
+            {call region region='content'}
         </div>
 
         <footer class="page-footer" role="contentinfo">
-            {call region region="doormat" class="page-doormat"}
-            {call region region="footer"}
+            {call region region='doormat' class='page-doormat'}
+            {call region region='footer'}
         </footer>
 
         {if isset($widgets.flyout)}
             <div class="flyout region" id="flyout">
-                <button class="btn flyout__close"><i class="icon icon--times"></i> {translate key="label.close"}</button>
-                {call regionSimple region="flyout"}
+                <button class="btn flyout__close">
+                    <i class="icon icon--times"></i> {'label.close'|translate}
+                </button>
+                {call regionSimple region='flyout'}
             </div>
             <div class="flyout__overlay"></div>
         {/if}
     </div> <!-- /.page-wrap -->
 {/block}
 
-{block "scripts"}
-    {script src="carbon/js/jquery-1.11.3.min.js"}
-    {script src="js/main.min.js"}
+{block 'scripts'}
+    {script src='carbon/js/jquery-1.11.3.min.js'}
+    {script src='js/main.min.js'}
 {/block}
 
-{block "scripts_polyfills"}
+{block 'scripts_polyfills'}
     <!--[if lt IE 9]><script type="text/javascript" src="{$app.url.base}/js/selectivizr.min.js"></script><![endif]-->
 {/block}

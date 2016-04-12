@@ -1,11 +1,10 @@
 {* widget: password; action: request; translation: template.password.request *}
 
-{include file="cms/helper/form.prototype"}
+{include 'cms/helper/form.prototype'}
 
 <div class="block" id="widget-{$app.cms.widget}">
-    <form id="{$form->getId()}" class="form" action="{$app.url.request}" method="POST" role="form"  data-parsley-validate>
+    <form id="{$form->getId()}" class="form" action="{$app.url.request}" method="post" role="form" data-parsley-validate>
         {call formRows form=$form}
-
-        {call formActions submit="button.submit"}
+        {call formActions submit='button.submit'}
     </form>
 </div>
