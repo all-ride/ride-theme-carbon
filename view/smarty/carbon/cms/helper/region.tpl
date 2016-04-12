@@ -3,7 +3,7 @@
     {* <{$element} class="region {$class}"{if $role} role="{$role}"{/if}> *}
         {foreach $regions.$region as $section => $layout}
             {if isset($widgets.$region.$section)}
-                {$functionName = "layout-`$layout`"|replace:"-":"_"}
+                {$functionName = "layout-$layout"|replace:'-':'_'}
                 {$style = $app.cms.node->getSectionStyle($region, $section)}
                 {$title = $app.cms.node->getSectionTitle($region, $section, $app.locale)}
                 {$isFullWidth = $app.cms.node->isSectionFullWidth($region, $section)}
@@ -35,7 +35,7 @@
     {* <{$element} class="region {$class}"{if $role} role="{$role}"{/if}> *}
         {foreach $regions.$region as $section => $layout}
             {if isset($widgets.$region.$section)}
-                {$functionName = "layout-`$layout`"|replace:"-":"_"}
+                {$functionName = "layout-$layout"|replace:'-':'_'}
                 {$style = $app.cms.node->getSectionStyle($region, $section)}
                 {$isFullWidth = $app.cms.node->isSectionFullWidth($region, $section)}
                 {if $style}<div class="{$style}">{/if}

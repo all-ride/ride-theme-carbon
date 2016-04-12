@@ -1,8 +1,8 @@
 {*
     Renders the items of a menu
 *}
-{function name="renderMenu" items=null prefix=null number=null depth=null class=null}
-    {assign var="prefix" value="`$prefix``$number`"}
+{function renderMenu items=null prefix=null number=null depth=null class=null}
+    {$prefix = "$prefix`$number`"}
 
     <ul class="{$prefix} {$class}">
     {foreach $items as $node}

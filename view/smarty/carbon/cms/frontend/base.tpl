@@ -75,12 +75,23 @@
         {$tmpPageActions = []}
 
         {if isset($app.cms.node)}
-            {url id="cms.node.content" parameters=["locale" => $app.locale, "site" => $app.cms.site, "revision" => "draft", "node" => $app.cms.node->getId()] var="editNodeUrl"}
-            {$pageActions["`$editNodeUrl`?referer={$app.url.request|urlencode}"] = "{'label.edit'|translate} `$app.cms.node->getName()`"}
+            {$params = []}
+            {$params['locale'] = $app.locale}
+            {$params['site'] = $app.cms.site}
+            {$params['revision'] = 'draft'}
+            {$params['node'] = $app.cms.node->getId()}
+            {url id='cms.node.content' parameters=$params var='editNodeUrl'}
+            {$pageActions["$editNodeUrl?referer={$app.url.request|urlencode}"] = "{'label.edit'|translate} `$app.cms.node->getName()`"}
         {/if}
+
         {if isset($app.cms.context.content)}
-            {url id="system.orm.scaffold.action.entry" parameters=["model" => $app.cms.context.content->type, "locale" => $app.locale, "id" => $app.cms.context.content->data->getId(), "action" => "edit"] var="editEntryUrl"}
-            {$pageActions["`$editEntryUrl`?referer={$app.url.request|urlencode}"] = "{'label.edit'|translate} `$app.cms.context.content->title`"}
+            {$params = []}
+            {$params['model'] = $app.cms.context.content->type}
+            {$params['locale'] = $app.locale}
+            {$params['id'] = $app.cms.context.content->data->getId()}
+            {$params['action'] = 'edit'}
+            {url id='system.orm.scaffold.action.entry' parameters=$params var='editEntryUrl'}
+            {$pageActions["$editEntryUrl?referer={$app.url.request|urlencode}"] = "{'label.edit'|translate} `$app.cms.context.content->title`"}
         {/if}
 
         {foreach $pageActions as $pageActionUrl => $pageActionLabel}

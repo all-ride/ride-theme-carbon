@@ -722,9 +722,9 @@
 
         {$attributes = $widget->getAttributes()}
         {if isset($attributes.class)}
-            {$attributes.class = "`$attributes.class` form__`$type`"}
+            {$attributes.class = "`$attributes.class` form__$type"}
         {else}
-            {$attributes.class = "form__`$type`"}
+            {$attributes.class = "form__$type"}
         {/if}
 
         {$value = $widget->getValue()}
@@ -755,7 +755,7 @@
                                    {if (!is_array($value) && strcmp($value, $option) == 0) || (is_array($value) && isset($value[$option]))}checked="checked"{/if}
                                    {foreach $attributes as $name => $attribute}
                                        {if $name == 'id'}
-                                            {$attribute = "`$attribute`-`$option`"}
+                                            {$attribute = "$attribute-$option"}
                                        {/if}
                                        {$name}="{$attribute|escape}"
                                    {/foreach}

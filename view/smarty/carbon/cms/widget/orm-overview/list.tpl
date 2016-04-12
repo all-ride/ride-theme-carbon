@@ -21,14 +21,10 @@
             {/foreach}
         </ul>
 
-        {if $pagination}
-            {pagination href=$pagination->getHref() pages=$pagination->getPages() page=$pagination->getPage()}
-        {/if}
+        {call renderPagination pagination=$pagination}
 
-        {if $moreUrl}
-        <p><a href="{$moreUrl}" class="more">{$moreLabel}</a></p>
-        {/if}
+        {call renderMore moreUrl=$moreUrl moreLabel=$moreLabel}
     {else}
-        <p>{$emptyResultMessage|text}</p>
+        {call renderEmpty emptyResultMessage=$emptyResultMessage}
     {/if}
 </div>

@@ -40,7 +40,7 @@
                     {if substr($style, 0, 7) == 'http://' || substr(style, 0, 8) == 'https://' || substr($style, 0, 2) == '//'}
                         {style src=$style media='screen'}
                     {else}
-                        {style src="carbon/`$style`" media="screen"}
+                        {style src="carbon/$style" media='screen'}
                     {/if}
                 {/foreach}
             {/if}
@@ -101,7 +101,7 @@
                     {if substr($script, 0, 7) == 'http://' || substr($script, 0, 8) == 'https://' || substr($script, 0, 2) == '//' || substr($script, 0, 7) == '<script'}
                         {script src=$script}
                     {else}
-                        {script src="carbon/`$script`"}
+                        {script src="carbon/$script"}
                     {/if}
                 {/foreach}
             {/if}
@@ -113,11 +113,13 @@
 
         {block 'scripts_inline'}
             {if isset($app.inlineJavascripts)}
+                {$inlineJavascripts = ''}
+                {foreach $app.inlineJavascripts as $inlineJavascript}
+                    {$inlineJavascripts = "$inlineJavascripts`$inlineJavascript`"}
+                {/foreach}
                 <script type="text/javascript">
                     $(function() {
-                    {foreach $app.inlineJavascripts as $inlineJavascript}
-                        {$inlineJavascript}
-                    {/foreach}
+                        {$inlineJavascripts}
                     });
                 </script>
             {/if}

@@ -16,12 +16,12 @@
         {$entries = $contentResult->getEntries()}
 
         {if $entries}
-        <div class="search-type">
+        <div class="block">
             {* <h3>{$contentType}</h3> *}
             {foreach $entries as $content}
-                {$excerptClass = "excerpt excerpt--{$content->type|strtolower} excerpt--{cycle values="odd,even"}"}
+                {$excerptClass = "excerpt excerpt--{$content->type|strtolower}"}
                 {if $content->url}
-                    <a href="{$content->url}" class="{$excerptClass}">
+                    <a href="{$content->url}" class="{$excerptClass} excerpt--link">
                 {else}
                     <div class="{$excerptClass}">
                 {/if}
@@ -38,7 +38,7 @@
                         </div>
                         <div class="excerpt__ct">
                             {$content->teaser}
-                            {if $content->url}<span class="excerpt__link">{'label.readmore'|translate} &rsaquo;</span>{/if}
+                            {if $content->url}<span class="excerpt__link">{'label.readmore'|translate}</span>{/if}
                         </div>
                     </div>
                 {if $content->url}
