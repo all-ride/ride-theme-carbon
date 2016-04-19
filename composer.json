@@ -2,7 +2,7 @@
     "name": "statik/theme-carbon",
     "description": "Theme carbon for the CMS application of the Ride framework",
     "license": "MIT",
-    "version": "0.4.0",
+    "version": "0.4.1",
     "authors": [
         {
             "name": "Bart Verbruggen",
@@ -15,6 +15,10 @@
         {
             "name": "Niels Dupont",
             "email": "niels@statik.be"
+        },
+        {
+            "name": "Stijn Elskens",
+            "email": "stijn@statik.be"
         }
     ],
     "require": {
