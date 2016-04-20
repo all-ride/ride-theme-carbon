@@ -4,6 +4,6 @@
 
     {$blocks = ['1' => '']}
 
-    {renderLayout blocks=$blocks containerClass=''}
+    {call renderLayout blocks=$blocks containerClass=''}
 
 {/function}
