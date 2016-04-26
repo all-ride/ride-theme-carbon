@@ -4,70 +4,68 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title></title>
 <style type="text/css">
-body {
-    font-family: Arial, Helvetica, sans-serif;
-    margin: 0;
-    padding: 0; 
-    background: #f3f3f3;
-}
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+        margin: 0;
+        padding: 0;
+        background: #f3f3f3;
+    }
 
-/* Hotmail centreren */
-.ReadMsgBody { width: 100%;}
-.ExternalClass {width: 100%;}
+    .ReadMsgBody { width: 100%;}
+    .ExternalClass { width: 100%; }
 
-/* Achtergrond Outlook2007 */
-v:* { 
-    behavior: url(#default#VML); 
-    display: inline-block;
-}
+    v:* {
+        behavior: url(#default#VML);
+        display: inline-block;
+    }@
 
-/* Link kleur Yahoo */
-.yshortcuts { color: #CCCCCC } /* Body text color */
-.yshortcuts a span { color: #00FF00 } /* Link text color */
+    /* Link kleur Yahoo */
+    .yshortcuts { color: #CCCCCC } /* Body text color */
+    .yshortcuts a span { color: #00FF00 } /* Link text color */
 
-img {
-    display: block; 
-}
+    img {
+        display: block;
+    }
 
-a img {
-    border: 0;
-}
+    a img {
+        border: 0;
+    }
 
-a {
-    color: #1c3b6c;
-}
+    a {
+        color: #1c3b6c;
+    }
 
-table td {
-    text-align: left;
-}
+    table td {
+        text-align: left;
+    }
 
-table td p {
-    margin: 0 0 10px 0;
-    padding: 0;
-}
+    table td p {
+        margin: 0 0 10px 0;
+        padding: 0;
+    }
 
-@media (max-width: 600px) {
+    @media (max-width: 600px) {
 
-* { -webkit-text-size-adjust:none; }
+    * { -webkit-text-size-adjust:none; }
 
-table[id=wrapper] { width:100%!important; padding:0px 10px !important; }
+    table[id=wrapper] { width:100%!important; padding:0px 10px !important; }
 
-table[id=wrapper] #main, table[id=wrapper] .inner { width:100% !important; }
+    table[id=wrapper] #main, table[id=wrapper] .inner { width:100% !important; }
 
-table[id=wrapper] .hidden, table[id=wrapper] .spacer { width:0 !important; display:none !important; }
+    table[id=wrapper] .hidden, table[id=wrapper] .spacer { width:0 !important; display:none !important; }
 
-table[id=wrapper] .width-null { width: 0px !important; }
+    table[id=wrapper] .width-null { width: 0px !important; }
 
-table[id=wrapper] .top-story { width:100% !important; clear: left !important; padding: 0 0 5px 30px !important; }
-table[id=wrapper] .top-story-links {  width:100% !important; clear: left !important; padding: 0 30px 25px 0 !important; }
-table[id=wrapper] .top-story-rechts {  width:100% !important; clear: left !important; padding: 0 0px 5px 30px !important; }
+    table[id=wrapper] .top-story { width:100% !important; clear: left !important; padding: 0 0 5px 30px !important; }
+    table[id=wrapper] .top-story-links {  width:100% !important; clear: left !important; padding: 0 30px 25px 0 !important; }
+    table[id=wrapper] .top-story-rechts {  width:100% !important; clear: left !important; padding: 0 0px 5px 30px !important; }
 
-table[id=wrapper] .fullimage img { width: 100% !important; height: auto !important; }
+    table[id=wrapper] .fullimage img { width: 100% !important; height: auto !important; }
 
-table[id=wrapper] .left { text-align: left !important; }
-table[id=wrapper] .center { text-align: center !important; padding-bottom: 15px !important; }
+    table[id=wrapper] .left { text-align: left !important; }
+    table[id=wrapper] .center { text-align: center !important; padding-bottom: 15px !important; }
 
-}
+    }
 
 </style>
 </head>
