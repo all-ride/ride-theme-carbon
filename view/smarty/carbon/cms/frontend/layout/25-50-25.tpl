@@ -4,7 +4,7 @@
 
     {$blocks = []}
     {$blocks['1'] = 'grid__12 grid--bp-med__3'}
-    {$blocks['2'] = 'grid__12 grid--bp-med__3'}
+    {$blocks['2'] = 'grid__12 grid--bp-med__6'}
     {$blocks['3'] = 'grid__12 grid--bp-med__3'}
 
     {call renderLayout blocks=$blocks}
