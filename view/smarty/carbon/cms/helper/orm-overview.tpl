@@ -27,14 +27,14 @@
                             {if $pagination->getPage() == 1}
                                 {continue}
                             {/if}
-                            {$anchor->setLabel("label.previous"|translate)}
+                            {$anchor->setLabel('label.previous'|translate)}
                             {$anchor->addToClass('pagination__prev')}
                         {/if}
                         {if $anchor@last}
                             {if $pagination->getPage() == $pagination->getPages()}
                                 {continue}
                             {/if}
-                            {$anchor->setLabel("label.next"|translate)}
+                            {$anchor->setLabel('label.next'|translate)}
                             {$anchor->addToClass('pagination__next')}
                         {/if}
 
@@ -49,7 +49,7 @@
 {function renderMore moreUrl=null moreLabel=null}
     {if $moreUrl}
         <div class="excerpt__more">
-            <a href="{$moreUrl}" class="excpert__more-link link--ext">{$moreLabel}</a>
+            <a href="{$moreUrl}" class="link link--ext">{$moreLabel}</a>
         </div>
     {/if}
 {/function}
@@ -74,8 +74,8 @@
     </div>
 {/function}
 
-{function renderImage image=null width=140 height=105 transformation="crop"}
+{function renderImage image=null width=140 height=105 transformation='crop'}
     <div class="excerpt__img">
-        <img src="{image src=$image width=$width height=$height transformation=$transformation}" class="image image--responsive" />
+        <img src="{image src=$image width=$width height=$height transformation=$transformation}" alt="" class="image image--responsive">
     </div>
 {/function}

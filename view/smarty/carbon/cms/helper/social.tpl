@@ -1,4 +1,4 @@
-{function name="renderSocialMediaNav" title=null socialMedia=null}
+{function renderSocialMediaNav title=null socialMedia=null}
     {$nodeTitle = $app.cms.context.title.node|text}
     {$url = $app.url.request}
     {if empty($socialMedia)}
@@ -22,7 +22,7 @@
     {/if}
 {/function}
 
-{function name="renderSocialMedia" url=null title=null media=null}
+{function renderSocialMedia url=null title=null media=null}
     {if $media}
         {$label = $media|capitalize}
         {$media = $media|lower}
@@ -43,7 +43,7 @@
 
         {if isset($links.$media)}
             <a href="{$links.$media}" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=450,width=600'); return false;" target="_blank" class="nav__link nav__link--{$media}" title="Share on {$label}">
-                {if $media == "email"}
+                {if $media == 'email'}
                     <i class="icon icon--envelope"></i>
                 {else}
                     <i class="icon icon--{$media}"></i>

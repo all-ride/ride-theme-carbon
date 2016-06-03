@@ -1,0 +1,60 @@
+.contextual-links {
+  position: fixed;
+  left: 0;
+  top: 0;
+  white-space: nowrap;
+}
+
+.contextual-links__link {
+  position: relative;
+  display: inline-block;
+  width: 34px;
+  padding: 5px;
+  color: #fff;
+  background: #3498db;
+  z-index: 1;
+}
+
+.contextual-links--dev .contextual-links__link {
+  background: #f15a4a;
+}
+.contextual-links--stag .contextual-links__link {
+  background: #f39c12;
+}
+.contextual-links--prod .contextual-links__link {
+  background: #35a237;
+}
+
+.contextual-links__link svg {
+  vertical-align: middle;
+  fill: currentColor;
+}
+
+.contextual-links__menu {
+  position: absolute;
+  top: 0;
+  left: calc(100% - 1px);
+  display: none;
+  margin: 0;
+  padding: 0;
+  background: #fff;
+  border: 1px solid #ccc;
+  border-top: 0;
+  list-style: none;
+  z-index: 0;
+}
+.contextual-links__menu li + li {
+  border-top: 1px solid #ccc;
+}
+.contextual-links__menu a {
+  display: block;
+  padding: 5px 15px;
+}
+
+.contextual-links__toggle:checked ~ .contextual-links__link {
+  /*border-bottom-color: #fff;*/
+}
+.contextual-links__toggle:checked ~ .contextual-links__menu {
+  display: block;
+
+}
