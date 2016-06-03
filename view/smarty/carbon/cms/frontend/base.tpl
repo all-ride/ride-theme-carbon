@@ -11,9 +11,9 @@
                     {$metaAttribute = 'property'}
                 {/if}
                 {if $metaName == 'og:image'}
-                    {image src=$metaValue var=$metaValue}
+                    {image src=$metaValue|text var=$metaValue}
                 {else}
-                    {$metaValue = $metaValue|strip_tags|trim}
+                    {$metaValue = $metaValue|text|strip_tags|trim}
                 {/if}
                 <meta {$metaAttribute}="{$metaName}" content="{$metaValue}">
             {/foreach}
@@ -23,7 +23,7 @@
     {block 'head_title'}
         {$title = $app.cms.context.title.site}
         {if isset($meta.title)}
-            {"`$meta.title` | $title"}
+            {$meta.title|text} | {$title}
         {else}
             {if $app.cms.node->getRoute($app.locale) != '/'}
                 {"`$app.cms.context.title.node` | $title"}
