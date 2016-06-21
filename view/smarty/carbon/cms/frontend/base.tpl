@@ -21,12 +21,12 @@
     {/block}
 
     {block 'head_title'}
-        {$title = $app.cms.context.title.site}
+        {$title = $app.cms.node->getContext('title.site')}
         {if isset($meta.title)}
             {$meta.title|text} | {$title}
         {else}
             {if $app.cms.node->getRoute($app.locale) != '/'}
-                {"`$app.cms.context.title.node` | $title"}
+                {"`$app.cms.node->getContext('title.node')` | $title"}
             {else}
                 {$title}
             {/if}
