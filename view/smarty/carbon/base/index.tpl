@@ -51,6 +51,10 @@
 </head>
 
 <body data-translation-url="{url id='api.locales.translations.exposed' parameters=['locale' => $app.locale]}" {block 'body_attributes'}{/block}>
+    {block 'body' prepend}
+        {include 'cms/helper/analytics'}
+        {call googleTagmanager}
+    {/block}
     {block 'body'}
         {block 'taskbar'}
             {if isset($app.taskbar)}

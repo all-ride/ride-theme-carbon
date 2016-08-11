@@ -64,11 +64,6 @@
     {/if}
 {/block}
 
-{block 'body' prepend}
-    {include 'cms/helper/analytics'}
-    {call googleTagmanager}
-{/block}
-
 {block 'body' append}
     {isGranted permission="cms.front.contextual.links"}
         {$pageActions = []}
