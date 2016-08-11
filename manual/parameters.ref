@@ -1,0 +1,2 @@
+socialshare.default           Array of default social media share options. Can be overridden in each widget.
+webfont                       Define webfontconfig object. (e.g. webfont.typekit.id, webfont.google.families.0)

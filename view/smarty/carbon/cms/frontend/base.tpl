@@ -11,7 +11,7 @@
                     {$metaAttribute = 'property'}
                 {/if}
                 {if $metaName == 'og:image'}
-                    {image src=$metaValue|text var=$metaValue}
+                    {$metaValue = {image src=$metaValue|text}}
                 {else}
                     {$metaValue = $metaValue|text|strip_tags|trim}
                 {/if}
@@ -37,8 +37,8 @@
 {/if}
 
 {block 'styles'}
-    <!--[if gt IE 8]><!--><link rel="stylesheet" href="{$app.url.base}/css/main.min.css"><!--<![endif]-->
-    <!--[if lt IE 9]><link rel="stylesheet" href="{$app.url.base}/css/main-legacy.min.css"><![endif]-->
+    <!--[if gt IE 9><!--><link rel="stylesheet" href="{$app.url.base}/css/main.min.css"><!--<![endif]-->
+    <!--[if lte IE 9]><link rel="stylesheet" href="{$app.url.base}/css/main-legacy.min.css"><![endif]-->
 {/block}
 
 {block 'scripts_head'}
