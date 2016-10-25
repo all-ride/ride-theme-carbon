@@ -44,5 +44,9 @@
         <h2 class="{$app.cms.properties->getWidgetProperty('style.title')}">{$title}</h2>
     {/if}
 
+    {if $items === false}
+        {$items = $app.cms.context.title.nodes}
+    {/if}
+
     {call renderBlockMenu prefix='menu' items=$items number=1 depth=$depth class=$app.cms.properties->getWidgetProperty('style.menu')}
 </div>
