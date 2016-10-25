@@ -2,7 +2,6 @@
     "name": "ride/theme-carbon",
     "description": "Theme carbon for the CMS application of the Ride framework",
     "license": "MIT",
-    "version": "1.0.0",
     "authors": [
         {
             "name": "Bart Verbruggen",
