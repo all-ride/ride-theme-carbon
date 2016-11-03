@@ -1,3 +1,10 @@
+## [Unreleased]
+### Added
+- canonical URL to head
+- localized URL's to head
+- pagination URL's to head
+
+
 ## [1.1.0] - 2016-10-25
 ### Updated
 - title widget template to support custom titles with an anchor
