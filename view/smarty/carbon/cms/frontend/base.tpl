@@ -2,6 +2,27 @@
 
 {if isset($app.cms.context)}
     {block 'head_meta' append}
+        {if isset($app.cms.context.canonical)}
+            <link rel="canonical" href="{$app.cms.context.canonical}"/>
+        {/if}
+
+        {if isset($app.cms.context.localizedUrls)}
+            {foreach $app.cms.context.localizedUrls as $localizedUrl}
+                <link rel="alternate" hreflang="{$localizedUrl.locale|replace:"_":"-"}" href="{$localizedUrl.url}"/>
+            {/foreach}
+        {/if}
+
+        {if isset($app.cms.context.pagination)}
+            {$paginationUrl = $app.cms.context.pagination->getPreviousLink()}
+            {if $paginationUrl}
+                <link rel="prev" href="{$paginationUrl}"/>
+            {/if}
+            {$paginationUrl = $app.cms.context.pagination->getNextLink()}
+            {if $paginationUrl}
+                <link rel="next" href="{$paginationUrl}"/>
+            {/if}
+        {/if}
+
         {$meta = $app.cms.node->getMeta($app.locale)}
         {if $meta}
             {foreach $meta as $metaName => $metaValue}

@@ -1,3 +1,11 @@
+## [1.2.0] - 2017-01-13
+### Added
+- canonical URL to head
+- localized URL's to head
+- pagination URL's to head
+### Removed
+- modifier.text: use smarty-cms module for the CMS integration of Smarty
+
 ## [1.1.0] - 2016-10-25
 ### Updated
 - title widget template to support custom titles with an anchor
