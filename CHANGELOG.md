@@ -1,3 +1,7 @@
+## [1.3.0] - 2017-01-17
+### Added
+- added template for a widget error
+
 ## [1.2.0] - 2017-01-13
 ### Added
 - canonical URL to head
