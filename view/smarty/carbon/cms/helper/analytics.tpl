@@ -2,7 +2,7 @@
  * Function to return the Google Tagmanager tag
  *}
 {function googleTagmanager id=false}
-    {if !$id}
+    {if !$id && isset($app.cms.node)}
         {$id = $app.cms.node->getLocalized($app.locale, 'analytics.gtm_id')}
         {if !$id}
             {$id = $app.system->getConfig()->get('google.tagmanager.id')}
@@ -26,7 +26,7 @@
  * Function to return the Universal Analytics tag
  *}
 {function googleAnalytics id=false}
-    {if !$id}
+    {if !$id && isset($app.cms.node)}
         {$id = $app.cms.node->getLocalized($app.locale, 'analytics.ga_id')}
         {if !$id}
             {$id = $app.system->getConfig()->get('google.analytics.id')}
