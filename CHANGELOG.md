@@ -1,3 +1,7 @@
+## [1.4.0] - 2017-01-18
+### Added
+- added template for the exception module
+
 ## [1.3.0] - 2017-01-17
 ### Added
 - added template for a widget error
