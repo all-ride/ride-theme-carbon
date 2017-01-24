@@ -866,10 +866,12 @@
         {if $value}
         <div class="form__help">
             {$value}
+            {if $row->getOption('allow_delete', true)}
             <a href="#" class="btn-file-delete" data-message="{'label.confirm.file.delete'|translate}">
                 <i class="glyphicon glyphicon-remove"></i>
                 {'button.delete'|translate}
             </a>
+            {/if}
         </div>
         {/if}
     {/if}
@@ -907,10 +909,12 @@
         <div class="form__help">
             <div class="form__image-preview">
                 <img src="{image src=$value transformation="crop" width=100 height=100}" alt="" title="{$value}"><br>
+            {if $row->getOption('allow_delete', true)}
                 <a href="#" class="btn-file-delete" data-message="{'label.confirm.file.delete'|translate}">
                     <i class="glyphicon glyphicon-remove"></i>
                     {'button.delete'|translate}
                 </a>
+            {/if}
             </div>
         </div>
         {/if}

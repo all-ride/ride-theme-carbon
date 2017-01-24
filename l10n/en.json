@@ -7,6 +7,8 @@
     "label.previous": "Previous",
     "label.security.mail.hello": "Hello",
     "label.security.mail.link": "You have requested to reset your password. Please click on the link below to change your password:",
+    "template.assets.downloads": "Downloads",
+    "template.assets.raw": "Original images",
     "template.flyout.link": "Flyout link",
     "template.menu.block": "As a block (title, image, description, more link)",
     "template.menu.doormat": "Doormat menu",

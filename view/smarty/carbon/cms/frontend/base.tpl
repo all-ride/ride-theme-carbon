@@ -8,7 +8,9 @@
 
         {if isset($app.cms.context.localizedUrls)}
             {foreach $app.cms.context.localizedUrls as $localizedUrl}
-                <link rel="alternate" hreflang="{$localizedUrl.locale|replace:"_":"-"}" href="{$localizedUrl.url}"/>
+                {if $localizedUrl.url && $localizedUrl.isAvailable}
+                    <link rel="alternate" hreflang="{$localizedUrl.locale|replace:"_":"-"}" href="{$localizedUrl.url}"/>
+                {/if}
             {/foreach}
         {/if}
 
