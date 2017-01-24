@@ -1,3 +1,14 @@
+## [2.0.0] - 2017-01-24
+### Added
+- support for allow_delete option for file and image form rows
+- downloads template for assets widget
+### Updated
+- use widgets 2.0
+- localized url handling
+- main.js with updated locales
+### Removed
+- files, google and toc widget templates
+
 ## [1.4.0] - 2017-01-18
 ### Added
 - added template for the exception module

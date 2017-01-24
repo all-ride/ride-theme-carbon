@@ -5,6 +5,8 @@
     "label.edit": "Bewerk",
     "label.next": "Volgende",
     "label.previous": "Vorige",
+    "template.assets.downloads": "Downloads",
+    "template.assets.raw": "Originele afbeeldingen",
     "template.flyout.link": "Flyout link",
     "template.menu.block": "Een blok (titel, afbeelding, omschrijving, meer link)",
     "template.menu.doormat": "Doormat menu",
