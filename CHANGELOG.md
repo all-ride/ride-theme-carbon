@@ -1,3 +1,7 @@
+## [2.1.0] - 2017-02-09
+### Added
+- added meta tags from the node
+
 ## [2.0.0] - 2017-01-24
 ### Added
 - support for allow_delete option for file and image form rows
