@@ -9,11 +9,14 @@
     {foreach $assets as $asset}
         {if $asset->type == 'image'}
             <div class="spacer--med">
-                {* <a class="colorbox" href="{url id="assets.value" parameters=["asset" => $asset->getId()]}" title="{$asset->getName()|escape}"> *}
-                    {if $asset->getValue()}
-                        <img src="{image src=$asset->getValue() width=400 height=300 transformation='resize'}" alt="{$asset->getAlt()}" class="image image--responsive">
-                    {/if}
-                {* </a> *}
+                {if $asset->getValue()}
+                    <img src="{image src=$asset->getValue() width=400 height=300 transformation='resize'}" alt="{$asset->getAlt()}" class="image image--responsive">
+                {/if}
+            </div>
+        {else}
+            {$file = $asset->getValue()|decorate:'file'}
+            <div class="spacer--med">
+                <a href="{asset src=$asset}" download>{$asset->getName()}</a> <small>({$file->getExtension()}, {$file->getSize()|decorate:'storage.size'})</small>
             </div>
         {/if}
     {/foreach}
