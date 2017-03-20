@@ -1,3 +1,7 @@
+## [2.1.1] - 2017-03-20
+### Updated
+- made default assets template fall back to download links, instead of only displaying images
+
 ## [2.1.0] - 2017-02-09
 ### Added
 - added meta tags from the node
