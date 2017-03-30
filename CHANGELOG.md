@@ -1,3 +1,7 @@
+## [2.1.1] - 2017-03-30
+### Updated
+- fixed submission URL of the exception form
+
 ## [2.1.0] - 2017-02-09
 ### Added
 - added meta tags from the node
