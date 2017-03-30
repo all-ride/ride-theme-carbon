@@ -1,3 +1,7 @@
+## [2.1.2] - 2017-03-30
+### Updated
+- fixed submission URL of the exception form
+
 ## [2.1.1] - 2017-03-20
 ### Updated
 - made default assets template fall back to download links, instead of only displaying images
