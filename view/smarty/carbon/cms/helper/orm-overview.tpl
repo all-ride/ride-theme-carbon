@@ -74,8 +74,9 @@
     </div>
 {/function}
 
-{function renderImage image=null width=140 height=105 transformation='crop'}
-    <div class="excerpt__img">
+{* Good practise: always keep the transformation width equal to 100n + 80, this fits nicely into the default grid layout with 80px columns and 20px gutters *}
+{function renderImage image=null width=180 height=120 transformation='crop'}
+    <div class="card__img">
         <img src="{image src=$image width=$width height=$height transformation=$transformation}" alt="" class="image image--responsive">
     </div>
 {/function}
