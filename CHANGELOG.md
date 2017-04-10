@@ -1,3 +1,13 @@
+## [2.2.0] - 2017-04-10
+### Deprecated
+- Deprecate “excerpt” class name in favour of “card”
+
+### Changed
+- Generalize image transformation widths to better fit layouts
+
+### Fixed
+- Fix colorbox for asset helper function
+
 ## [2.1.2] - 2017-03-30
 ### Updated
 - fixed submission URL of the exception form

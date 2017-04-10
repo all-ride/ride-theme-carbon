@@ -19,26 +19,28 @@
         <div class="block">
             {* <h3>{$contentType}</h3> *}
             {foreach $entries as $content}
-                {$excerptClass = "excerpt excerpt--{$content->type|strtolower}"}
+                {$cardClass = "card card--search"}
                 {if $content->url}
-                    <a href="{$content->url}" class="{$excerptClass} excerpt--link">
+                    <a href="{$content->url}" class="{$cardClass} card--link">
                 {else}
-                    <div class="{$excerptClass}">
+                    <div class="{$cardClass}">
                 {/if}
                     {if $content->image}
-                        <div class="excerpt__aside">
-                            <div class="excerpt__img">
-                                <img src="{image src=$content->image width=125 height=125 transformation='resize'}" alt="" class="image image--full-width">
+                        <div class="card__aside">
+                            <div class="card__img">
+                                <img src="{image src=$content->image transformation='resize' width=180}" alt="">
                             </div>
                         </div>
                     {/if}
-                    <div class="excerpt__main">
-                        <div class="excerpt__header">
-                            <h3 class="excerpt__title">{$content->title}</h3>
+                    <div class="card__main">
+                        <div class="card__header">
+                            <h3 class="card__title">{$content->title}</h3>
                         </div>
-                        <div class="excerpt__ct">
-                            {$content->teaser}
-                            {if $content->url}<span class="excerpt__link">{'label.readmore'|translate}</span>{/if}
+                        <div class="card__content">
+                            <p class="card__text">{$content->teaser|text}</p>
+                            {if $content->url}
+                                <span class="card__link">{'label.more.link'|translate}</span>
+                            {/if}
                         </div>
                     </div>
                 {if $content->url}

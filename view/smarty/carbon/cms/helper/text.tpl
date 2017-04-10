@@ -1,16 +1,16 @@
 {function renderTitles}
     {if $title}
         {$title = $title|text}
-        <h2 class="toc text__title {if isset($titleClass)}{$titleClass}{/if} {$app.cms.properties->getWidgetProperty('style.title')}" id="{$title|safe}">{$title}</h2>
+        <h2 class="card__title {if isset($titleClass)}{$titleClass}{/if} {$app.cms.properties->getWidgetProperty('style.title')}" id="{$title|safe}">{$title}</h2>
     {/if}
     {if $subtitle}
         {$subtitle = $subtitle|text}
-        <h3 class="toc text__title {$app.cms.properties->getWidgetProperty('style.subtitle')}" id="{$subtitle|safe}">{$subtitle}</h3>
+        <h3 class="card__subtitle {$app.cms.properties->getWidgetProperty('style.subtitle')}" id="{$subtitle|safe}">{$subtitle}</h3>
     {/if}
 {/function}
 
 {function renderCTA cta=null element='a'}
-    {$class = "block__cta `$cta->getType()` `$app.cms.properties->getWidgetProperty('style.cta')`"}
+    {$class = "card__link `$cta->getType()` `$app.cms.properties->getWidgetProperty('style.cta')`"}
     {if $cta->getType() == 'btn--ext'}
         {$class = "$class btn"}
     {/if}
@@ -21,35 +21,37 @@
 {/function}
 
 {function renderTextSimple titleClass=null subtitleClass=null callToActionsType='link'}
-    <div class="excerpt text__inner clearfix">
+    <div class="card card--text">
 
         {if $image}
-            <div class="excerpt__aside">
-                <div class="excerpt__image">
-                    <img src="{image src=$image width=140 height=140 transformation='resize'}" alt="" class="image image--full-width">
-                </div>
+            <div class="card__img">
+                <img src="{image src=$image width=380 transformation='resize'}" alt="">
             </div>
         {/if}
 
-        <div class="excerpt__main">
-            {call renderTitles title=$title subtitle=$subtitle}
-
-            <div class="excerpt__ct">
-                {$html|text}
+        <div class="card__main">
+            <div class="card__header">
+                {call renderTitles title=$title subtitle=$subtitle}
             </div>
-            {foreach $callToActions as $callToAction}
-                {if $callToActionsType != 'link'}
-                    {call renderCTA cta=$callToAction element='span'}
-                {else}
-                    {call renderCTA cta=$callToAction}
-                {/if}
-            {/foreach}
+
+            <div class="card__content">
+                <div class="card__text">
+                    {$html|text}
+                </div>
+                {foreach $callToActions as $callToAction}
+                    {if $callToActionsType != 'link'}
+                        {call renderCTA cta=$callToAction element='span'}
+                    {else}
+                        {call renderCTA cta=$callToAction}
+                    {/if}
+                {/foreach}
+            </div>
         </div>
     </div>
 {/function}
 
 {function renderText titleClass=null subtitleClass=null callToActionsType='link' ctaClass=null}
-    <div class="text__inner clearfix">
+    <div class="card card--text">
 
         {call renderTitles title=$title subtitle=$subtitle titleClass=$titleClass subtitleClass=$subtitleClass}
 
@@ -64,7 +66,10 @@
             {else}
                 {$imageClass = "$imageClass image--responsive"}
             {/if}
-            <img src="{image src=$image width=300 height=300 transformation='resize'}" alt="" class="{$imageClass}">
+            
+            <div class="card__img">
+                <img src="{image src=$image width=380 transformation='resize'}" alt="" class="{$imageClass}">
+            </div>
         {/if}
 
         {$html|text}

@@ -11,26 +11,28 @@
 
     {if $result}
         {foreach $result as $content}
-            {$excerptClass = "excerpt excerpt--{$content->type|strtolower}"}
+            {$cardClass = "card card--{$content->type|strtolower}"}
 
             {if $content->url}
-                <a href="{$content->url}" class="{$excerptClass} excerpt--link">
+                <a href="{$content->url}" class="{$cardClass} card--link">
             {else}
-                <div class="{$excerptClass}">
+                <div class="{$cardClass}">
             {/if}
 
                 {if $content->image}
-                    <div class="excerpt__aside">
+                    <div class="card__aside">
                         {call renderImage image=$content->image}
                     </div>
                 {/if}
-                <div class="excerpt__main">
-                    <div class="excerpt__header">
-                        <h3 class="excerpt__title">{$content->title}</h3>
+                <div class="card__main">
+                    <div class="card__header">
+                        <h3 class="card__title">{$content->title}</h3>
                     </div>
-                    <div class="excerpt__ct">
-                        <p>{$content->teaser|text}</p>
-                        {if $content->url}<span class="excerpt__link">{'label.readmore'|translate}</span>{/if}
+                    <div class="card__content">
+                        <p class="card__text">{$content->teaser|text}</p>
+                        {if $content->url}
+                            <span class="card__link">{'label.more.link'|translate}</span>
+                        {/if}
                     </div>
                 </div>
             {if $content->url}
