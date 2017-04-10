@@ -48,18 +48,18 @@
 
 {function renderMore moreUrl=null moreLabel=null}
     {if $moreUrl}
-        <div class="excerpt__more">
+        <div class="block">
             <a href="{$moreUrl}" class="link link--ext">{$moreLabel}</a>
         </div>
     {/if}
 {/function}
 
 {function renderEmpty emptyResultMessage=null}
-    <p class="excerpt__empty">{$emptyResultMessage|text}</p>
+    <div class="block">{$emptyResultMessage|text}</div>
 {/function}
 
 {function renderMeta meta=null}
-    <div class="meta">
+    <div class="card__meta meta">
         {foreach $meta as $itemClass => $item}
             <div class="meta__item meta__item--{$itemClass}">{$item}</div>
         {/foreach}
@@ -67,7 +67,7 @@
 {/function}
 
 {function renderTags tags=null}
-    <div class="excerpt__tags tags spacer--xsm">
+    <div class="card__tags tags">
         {foreach $tags as $tag}
             <div class="tag">{$tag->getName()}</div>
         {/foreach}
