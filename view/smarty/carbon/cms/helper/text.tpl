@@ -15,9 +15,7 @@
         {$class = "$class btn"}
     {/if}
 
-    <{$element} {if $element == 'a'}href="{$cta->getUrl()}" {/if}class="{$class}">
-        {$cta->getLabel()|text}
-    </{$element}>
+    <{$element} {if $element == 'a'}href="{$cta->getUrl()}" {/if}class="{$class}">{$cta->getLabel()|text}</{$element}>
 {/function}
 
 {function renderTextSimple titleClass=null subtitleClass=null callToActionsType='link'}
