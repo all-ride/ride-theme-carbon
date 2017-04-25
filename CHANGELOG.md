@@ -1,3 +1,7 @@
+## [2.2.0] - 2017-04-25
+### Added
+- template for the finish page of the exception report module
+
 ## [2.1.2] - 2017-03-30
 ### Updated
 - fixed submission URL of the exception form
