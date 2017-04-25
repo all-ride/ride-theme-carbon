@@ -1,10 +1,13 @@
+
+## [2.3.0] - 2017-04-25
+### Added
+- template for the finish page of the exception report module
+
 ## [2.2.0] - 2017-04-10
 ### Deprecated
 - Deprecate “excerpt” class name in favour of “card”
-
 ### Changed
 - Generalize image transformation widths to better fit layouts
-
 ### Fixed
 - Fix colorbox for asset helper function
 
