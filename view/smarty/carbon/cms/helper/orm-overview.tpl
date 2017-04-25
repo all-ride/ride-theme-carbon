@@ -48,18 +48,18 @@
 
 {function renderMore moreUrl=null moreLabel=null}
     {if $moreUrl}
-        <div class="excerpt__more">
+        <div class="block">
             <a href="{$moreUrl}" class="link link--ext">{$moreLabel}</a>
         </div>
     {/if}
 {/function}
 
 {function renderEmpty emptyResultMessage=null}
-    <p class="excerpt__empty">{$emptyResultMessage|text}</p>
+    <div class="block">{$emptyResultMessage|text}</div>
 {/function}
 
 {function renderMeta meta=null}
-    <div class="meta">
+    <div class="card__meta meta">
         {foreach $meta as $itemClass => $item}
             <div class="meta__item meta__item--{$itemClass}">{$item}</div>
         {/foreach}
@@ -67,15 +67,16 @@
 {/function}
 
 {function renderTags tags=null}
-    <div class="excerpt__tags tags spacer--xsm">
+    <div class="card__tags tags">
         {foreach $tags as $tag}
             <div class="tag">{$tag->getName()}</div>
         {/foreach}
     </div>
 {/function}
 
-{function renderImage image=null width=140 height=105 transformation='crop'}
-    <div class="excerpt__img">
+{* Good practise: always keep the transformation width equal to 100n + 80, this fits nicely into the default grid layout with 80px columns and 20px gutters *}
+{function renderImage image=null width=180 height=120 transformation='crop'}
+    <div class="card__img">
         <img src="{image src=$image width=$width height=$height transformation=$transformation}" alt="" class="image image--responsive">
     </div>
 {/function}

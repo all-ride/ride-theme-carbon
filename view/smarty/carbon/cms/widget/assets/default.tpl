@@ -10,7 +10,7 @@
         {if $asset->type == 'image'}
             <div class="spacer--med">
                 {if $asset->getValue()}
-                    <img src="{image src=$asset->getValue() width=400 height=300 transformation='resize'}" alt="{$asset->getAlt()}" class="image image--responsive">
+                    <img src="{image src=$asset->getValue() width=380 transformation='resize'}" alt="{$asset->getAlt()}" class="image image--responsive">
                 {/if}
             </div>
         {else}
