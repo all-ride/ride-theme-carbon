@@ -1,23 +1,45 @@
+
 {*
- * Function to return the Google Tagmanager tag
+    # Function that returns the Google Tag Manager tag in <head>
  *}
-{function googleTagmanager id=false}
+{function googleTagManagerHead id=false}
     {if !$id && isset($app.cms.node)}
         {$id = $app.cms.node->getLocalized($app.locale, 'analytics.gtm_id')}
         {if !$id}
             {$id = $app.system->getConfig()->get('google.tagmanager.id')}
         {/if}
     {/if}
-
     {if $id}
         {$gtmCount = {counter}}
         {if $gtmCount < 2}
-            <noscript><iframe src="//www.googletagmanager.com/ns.html?id={$id}" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+            <!-- Google Tag Manager -->
             <script>(function(w,d,s,l,i){ldelim}w[l]=w[l]||[];w[l].push({ldelim}'gtm.start':
-                    new Date().getTime(),event:'gtm.js'{rdelim});var f=d.getElementsByTagName(s)[0],
-                    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-                    '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-                {rdelim})(window,document,'script','dataLayer','{$id}');</script>
+            new Date().getTime(),event:'gtm.js'{rdelim});var f=d.getElementsByTagName(s)[0],
+            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+            {rdelim})(window,document,'script','dataLayer','{$id}');</script>
+            <!-- End Google Tag Manager -->
+        {/if}
+    {/if}
+{/function}
+
+{*
+    # Function that returns the Google Tag Manager tag in <body>
+ *}
+{function googleTagManagerBody id=false}
+    {if !$id && isset($app.cms.node)}
+        {$id = $app.cms.node->getLocalized($app.locale, 'analytics.gtm_id')}
+        {if !$id}
+            {$id = $app.system->getConfig()->get('google.tagmanager.id')}
+        {/if}
+    {/if}
+    {if $id}
+        {$gtmCount = {counter}}
+        {if $gtmCount < 2}
+            <!-- Google Tag Manager (noscript) -->
+            <noscript><iframe src="https://www.googletagmanager.com/ns.html?id={$id}"
+            height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+            <!-- End Google Tag Manager (noscript) -->
         {/if}
     {/if}
 {/function}
