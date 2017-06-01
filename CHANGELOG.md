@@ -1,4 +1,11 @@
 
+## [2.4.0] - 2017-06-01
+### Removed
+- Removed the original Google Tag Manager function
+
+### Added
+- Added 2 new Functions for the Google Tag Manager tag, one in ```<head>``` and one in ```<body>```
+
 ## [2.3.0] - 2017-04-25
 ### Added
 - template for the finish page of the exception report module
@@ -6,8 +13,10 @@
 ## [2.2.0] - 2017-04-10
 ### Deprecated
 - Deprecate “excerpt” class name in favour of “card”
+
 ### Changed
 - Generalize image transformation widths to better fit layouts
+
 ### Fixed
 - Fix colorbox for asset helper function
 
@@ -27,10 +36,12 @@
 ### Added
 - support for allow_delete option for file and image form rows
 - downloads template for assets widget
+
 ### Updated
 - use widgets 2.0
 - localized url handling
 - main.js with updated locales
+
 ### Removed
 - files, google and toc widget templates
 
@@ -47,6 +58,7 @@
 - canonical URL to head
 - localized URL's to head
 - pagination URL's to head
+
 ### Removed
 - modifier.text: use smarty-cms module for the CMS integration of Smarty
 
