@@ -1,4 +1,8 @@
 
+## [2.4.1] - 2017-06-01
+### Fixed
+- Fixed a small typo in naming of function.
+
 ## [2.4.0] - 2017-06-01
 ### Removed
 - Removed the original Google Tag Manager function
