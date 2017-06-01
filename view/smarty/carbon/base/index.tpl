@@ -58,12 +58,16 @@
 
         {styles}
     {/block}
+    {block 'head' prepend}
+        {include 'cms/helper/analytics'}
+        {call googleTagmanagerHead}
+    {/block}
 </head>
 
 <body data-translation-url="{url id='api.locales.translations.exposed' parameters=['locale' => $app.locale]}" {block 'body_attributes'}{/block}>
     {block 'body' prepend}
         {include 'cms/helper/analytics'}
-        {call googleTagmanager}
+        {call googleTagmanagerBody}
     {/block}
     {block 'body'}
         {block 'taskbar'}
