@@ -1,4 +1,8 @@
 
+## [2.4.2] - 2017-06-07
+### Fixed
+- Fixed default asset template to generate URLs for every asset type, not just images
+
 ## [2.4.1] - 2017-06-01
 ### Fixed
 - Fixed a small typo in naming of function.
