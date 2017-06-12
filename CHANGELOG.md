@@ -1,5 +1,5 @@
 
-## [2.4.3] - 2017-06-12
+## [2.4.4] - 2017-06-12
 ### Fixed
 - Remove empty subject parameter from social share mail link (causes issues in certain email clients)
 
