@@ -1,4 +1,8 @@
 
+## [2.4.4] - 2017-06-12
+### Fixed
+- Remove empty subject parameter from social share mail link (causes issues in certain email clients)
+
 ## [2.4.2] - 2017-06-07
 ### Fixed
 - Fixed default asset template to generate URLs for every asset type, not just images

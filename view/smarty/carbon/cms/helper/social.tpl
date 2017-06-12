@@ -38,7 +38,7 @@
             'stumbleupon' => "http://reddit.com/submit?url={$url}&title={$title}",
             'tumblr' => "http://www.tumblr.com/share/link?url={$url}&name={$title}",
             'twitter' => "https://twitter.com/share?url={$url}",
-            'email' => "mailto:?Subject=&Body={$url}"
+            'email' => "mailto:?Body={$url}"
         ]}
 
         {if isset($links.$media)}
