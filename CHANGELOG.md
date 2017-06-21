@@ -1,4 +1,8 @@
 
+## [2.4.5] - 2017-06-21
+### Updated
+- removed meta from base/index.tpl, belongs in cms/base.tpl where it also resides
+
 ## [2.4.4] - 2017-06-12
 ### Fixed
 - Remove empty subject parameter from social share mail link (causes issues in certain email clients)
