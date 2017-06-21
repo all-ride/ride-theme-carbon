@@ -26,15 +26,6 @@
             <link rel="icon" type="image/png" href="{$app.url.base}/img/favicon.png">
         {/block}
 
-        {if isset($app.cms.node)}
-            {$meta = $app.cms.node->getMeta($app.locale)}
-            {if $meta}
-                {foreach $meta as $metaName => $metaValue}
-            <meta name="{$metaName}" content="{$metaValue}" />
-                {/foreach}
-            {/if}
-        {/if}
-
         {block 'scripts_head'}
             <script type="text/javascript" src="{$app.url.base}/carbon/js/modernizr.min.js"></script>
         {/block}
