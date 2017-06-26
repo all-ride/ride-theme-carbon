@@ -4,8 +4,9 @@
 {function renderMenu items=null prefix=null number=null depth=null class=null}
     {$prefix = "$prefix$number"}
 
-    <ul class="{$prefix} {$class}">
+    <ul class="nav__menu {$prefix} {$class}">
     {foreach $items as $node}
+    
         {if !$node->hideInMenu() && $node->isPublished() && $nodeTypes[$node->getType()]->getFrontendCallback() && $node->isAvailableInLocale($app.locale) && $node->isAllowed($app.security)}
 
         {if $app.cms.node->getId() == $node->getId() && !$app.cms.node->hasParent($node->getId())}
@@ -13,6 +14,7 @@
         {else}
             {$active = false}
         {/if}
+
         {if $node->getType() == 'redirect'}
             {if $node->getRedirectNode($app.locale) == $app.cms.node->getId() || $app.cms.node->getId() == $node->getId()}
                 {$active = true}
