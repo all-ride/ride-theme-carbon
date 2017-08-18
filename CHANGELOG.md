@@ -1,3 +1,6 @@
+## [2.4.6] - 2017-08-18
+### Updated
+- fixed hideForAuthenticatedUsers and hideForAnonymousUsers in the menu templates
 
 ## [2.4.5] - 2017-06-21
 ### Updated

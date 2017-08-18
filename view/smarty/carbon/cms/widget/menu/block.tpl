@@ -5,10 +5,12 @@
 *}
 {function renderBlockMenu items=null prefix=null number=null depth=null class=null}
     {$prefix = "$prefix$number"}
+    {$user = $app.security->getUser()}
 
     <div class="{$prefix} {$class} grid grid--bp-sml-2-col">
     {foreach $items as $node}
-        {if !$node->hideInMenu() && $node->isPublished() && $nodeTypes[$node->getType()]->getFrontendCallback() && $node->isAvailableInLocale($app.locale) && $node->isAllowed($app.security)}
+        {$isHidden = $node->hideInMenu() || ($user && $node->hideForAuthenticatedUsers()) || (!$user && $node->hideForAnonymousUsers())}
+        {if !$isHidden && $node->isPublished() && $nodeTypes[$node->getType()]->getFrontendCallback() && $node->isAvailableInLocale($app.locale) && $node->isAllowed($app.security)}
         {$meta = $node->getMeta($app.locale)}
         <div class="grid__item">
             <a href="{$app.url.script}{$node->getRoute($app.locale)}" class="card card--link card--nav">
