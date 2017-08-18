@@ -5,15 +5,16 @@
     {$prefix = "$prefix$number"}
     {$user = $app.security->getUser()}
 
-    <ul class="{$prefix} {$class}">
+    <ul class="nav__menu {$prefix} {$class}">
     {foreach $items as $node}
         {$isHidden = $node->hideInMenu() || ($user && $node->hideForAuthenticatedUsers()) || (!$user && $node->hideForAnonymousUsers())}
         {if !$isHidden && $node->isPublished() && $nodeTypes[$node->getType()]->getFrontendCallback() && $node->isAvailableInLocale($app.locale) && $node->isAllowed($app.security)}
+            {$active = false}
+
             {if $app.cms.node->getId() == $node->getId() && !$app.cms.node->hasParent($node->getId())}
                 {$active = true}
-            {else}
-                {$active = false}
             {/if}
+
             {if $node->getType() == 'redirect'}
                 {if $node->getRedirectNode($app.locale) == $app.cms.node->getId() || $app.cms.node->getId() == $node->getId()}
                     {$active = true}
