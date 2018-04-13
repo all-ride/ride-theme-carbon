@@ -1,14 +1,22 @@
 {* Renders a grid layout *}
 {function renderLayout blocks=['1' => ''] containerClass='grid'}
-<div class="{$containerClass}" id="section-{$region}-{$section}">
+    {if $containerClass}
+        <div class="{$containerClass}" id="section-{$region}-{$section}">
+    {/if}
     {foreach $blocks as $block => $className}
-    <div class="{$className}" id="block-{$section}-{$block}">
+        {if $className}
+            <div class="{$className}" id="block-{$section}-{$block}">
+        {/if}
         {if isset($widgets[$block])}
             {foreach $widgets[$block] as $widget}
                 {$widget}
             {/foreach}
         {/if}
-    </div>
+        {if $className}
+            </div>
+        {/if}
     {/foreach}
-</div>
+    {if $containerClass}
+        </div>
+    {/if}
 {/function}
