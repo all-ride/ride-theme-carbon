@@ -1,3 +1,7 @@
+## [2.4.8] - 2018-04-13
+### Updated
+- Don't render useless divs when layout className or containerClass isn't set
+
 ## [2.4.6] - 2017-08-18
 ### Updated
 - fixed hideForAuthenticatedUsers and hideForAnonymousUsers in the menu templates
