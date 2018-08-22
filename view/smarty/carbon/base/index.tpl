@@ -38,7 +38,7 @@
         {block 'styles_app'}
             {if isset($app.styles)}
                 {foreach $app.styles as $style => $dummy}
-                    {if substr($style, 0, 7) == 'http://' || substr(style, 0, 8) == 'https://' || substr($style, 0, 2) == '//'}
+                    {if substr($style, 0, 7) == 'http://' || substr($style, 0, 8) == 'https://' || substr($style, 0, 2) == '//'}
                         {style src=$style media='screen'}
                     {else}
                         {style src="carbon/$style" media='screen'}

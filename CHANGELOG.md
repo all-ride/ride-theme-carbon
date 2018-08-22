@@ -1,3 +1,7 @@
+## [2.4.9] - 2018-08-21
+### Updated
+- Fixed minifying stylesheets starting with https
+
 ## [2.4.8] - 2018-04-13
 ### Updated
 - Don't render useless divs when layout className or containerClass isn't set
