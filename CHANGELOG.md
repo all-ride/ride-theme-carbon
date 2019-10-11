@@ -1,3 +1,7 @@
+## [2.4.10] - 2019-10-11
+### Updated
+- Body components should only be included once
+
 ## [2.4.9] - 2018-08-21
 ### Updated
 - Fixed minifying stylesheets starting with https
