@@ -132,7 +132,7 @@
             {/if}
 
             {$browserSync = $app.system->getConfig()->get('browserSync')}
-            {if $browserSync.enabled}
+            {if isset($browserSync['enabled']}
                 {$version = $browserSync.version|default:'2.11.11'}
                 <script type='text/javascript' id="__bs_script__">
                     //<![CDATA[

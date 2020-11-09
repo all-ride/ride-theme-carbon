@@ -1,3 +1,8 @@
+
+## [2.5.0] - 2020-11-9
+### Updated
+- Updated browserSync array check to work with php 7.4
+
 ## [2.4.11] - 2020-02-06
 ### Updated
 - Changed breadcrumbs tpl to play well with structured data for Google Breadcrumbs
