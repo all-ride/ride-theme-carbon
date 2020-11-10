@@ -1,4 +1,8 @@
 
+## [2.5.1] - 2020-11-10
+### Updated
+- Added missing bracket
+
 ## [2.5.0] - 2020-11-9
 ### Updated
 - Updated browserSync array check to work with php 7.4
