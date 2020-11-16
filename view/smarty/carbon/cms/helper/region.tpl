@@ -5,7 +5,7 @@
             {if isset($widgets[$region][$section])}
                 {$functionName = "layout-$layout"|replace:'-':'_'}
                 {$style = isset($app['cms']['node']) ? $app['cms']['node']->getSectionStyle($region, $section) : null}
-                {$title = isset($app['cms']['node']) ? $app['cms']['node']->getSectionTitle($region, $section, $app.locale) : null}
+                {$title = isset($app['cms']['node']) ? $app['cms']['node']->getSectionTitle($region, $section, $app['locale']) : null}
                 {$isFullWidth = isset($app['cms']['node']) ? $app['cms']['node']->isSectionFullWidth($region, $section) : null}
                 <div class="section section--{$region} {if $style}{$style}{else}section--default{/if}">
                     {if $isFullWidth}

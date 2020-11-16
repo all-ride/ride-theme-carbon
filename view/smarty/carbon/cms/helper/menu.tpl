@@ -3,7 +3,7 @@
 *}
 {function renderMenu items=null prefix=null number=null depth=null class=null}
     {$prefix = "$prefix$number"}
-    {$user = isset($app['security']) ? $app.security->getUser() : null}
+    {$user = isset($app['security']) ? $app['security']->getUser() : null}
 
     <ul class="nav__menu {$prefix} {$class}">
     {foreach $items as $node}
@@ -48,6 +48,6 @@
     {if $items === false}
         {$items = $app['cms']['context']['title']['nodes'] ? $app['cms']['context']['title']['nodes'] : false}
     {/if}
-
-    {call renderMenu prefix='menu' items=$items number=1 depth=$depth class=$app.cms.properties->getWidgetProperty('style.menu')}
+    {$class = isset($app['cms']['properties']->getWidgetProperty('style.menu')) ? $app['cms']['properties']->getWidgetProperty('style.menu') : null}
+    {call renderMenu prefix='menu' items=$items number=1 depth=$depth class=$class}
 </{$element}>

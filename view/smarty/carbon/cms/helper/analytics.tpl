@@ -28,7 +28,7 @@
  *}
 {function googleTagManagerBody id=false}
     {if !$id && isset($app['cms']['node'])}
-        {$id = $app['cms']['node']->getLocalized($app.locale, 'analytics.gtm_id')}
+        {$id = $app['cms']['node']->getLocalized($app['locale'], 'analytics.gtm_id')}
         {if !$id && isset($app['system'])}
             {$id = $app['system']->getConfig()->get('google.tagmanager.id')}
         {/if}
@@ -49,7 +49,7 @@
  *}
 {function googleAnalytics id=false}
     {if !$id && isset($app['cms']['node'])}
-        {$id = $app['cms']['node']->getLocalized($app.locale, 'analytics.ga_id')}
+        {$id = $app['cms']['node']->getLocalized($app['locale'], 'analytics.ga_id')}
         {if !$id && isset($app['system'])}
             {$id = $app['system']->getConfig()->get('google.analytics.id')}
         {/if}

@@ -63,7 +63,7 @@
     {block 'body'}
         {block 'taskbar'}
             {if isset($app['taskbar'])}
-                {include 'base/taskbar' title=$app['taskbar']->getTitle() applicationsMenu=$app.taskbar->getApplicationsMenu() settingsMenu=$app['taskbar']->getSettingsMenu()}
+                {include 'base/taskbar' title=$app['taskbar']->getTitle() applicationsMenu=$app['taskbar']->getApplicationsMenu() settingsMenu=$app['taskbar']->getSettingsMenu()}
             {/if}
         {/block}
 
@@ -133,7 +133,7 @@
 
             {$browserSync = isset($app['system']) ? $app['system']->getConfig()->get('browserSync') : null}
             {if isset($browserSync['enabled'])}
-                {$version = $browserSync.version|default:'2.11.11'}
+                {$version = $browserSync['version']|default:'2.11.11'}
                 <script type='text/javascript' id="__bs_script__">
                     //<![CDATA[
                     document.write('<script async src="http://HOST:3000/browser-sync/browser-sync-client.{$version}.js"><\/script>'.replace('HOST', location.hostname));

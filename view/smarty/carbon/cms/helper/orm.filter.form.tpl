@@ -14,7 +14,7 @@
             {* <h3>{$filterName}</h3> *}
             {if !$isMulti}
                 <div class="form__checkbox-item">
-                    <label class="form__label {if isset($filter['value']) && !$filter.value} form__label--selected{/if} form__label--checkbox">
+                    <label class="form__label {if isset($filter['value']) && !$filter['value']} form__label--selected{/if} form__label--checkbox">
                         <input name="{$filterName}" type="radio" value="" {if isset($filter['value']) && !$filter['value']} checked="checked"{/if} class="form__checkbox"> {'label.select.all'|translate}
                     </label>
                 </div>

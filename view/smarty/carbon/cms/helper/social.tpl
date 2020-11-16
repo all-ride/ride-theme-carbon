@@ -1,6 +1,6 @@
 {function renderSocialMediaNav title=null socialMedia=null}
     {$nodeTitle = isset($app['cms']['context']['title']['node']) ? ($app['cms']['context']['title']['node']|text) : null}
-    {$url = $app.url.request}
+    {$url = $app['url']['request']}
     {if empty($socialMedia)}
         {$socialMedia = isset($app['system']) ? $app['system']->getConfig()->get('socialshare.default') : null}
     {/if}

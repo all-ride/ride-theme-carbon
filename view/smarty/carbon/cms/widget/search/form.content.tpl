@@ -1,4 +1,4 @@
-<div class="block {if isset($app['cms']['properties'])}{$app['cms']['properties']->getWidgetProperty('style.container')}{/if}" {if isset($app['cms']['widget'])}id="widget-{$app.cms.widget}"{/if}>
+<div class="block {if isset($app['cms']['properties'])}{$app['cms']['properties']->getWidgetProperty('style.container')}{/if}" {if isset($app['cms']['widget'])}id="widget-{$app['cms']['widget']}"{/if}>
     <form id="cse-search-box-{$app['cms']['widget']}" action="{$action}" role="search" class="form form--search form--inline" method="post">
         <div class="form__item">
             <label class="visuallyhidden" for="form-search-query-{$app['cms']['widget']}">{'label.query.search'|translate}</label>

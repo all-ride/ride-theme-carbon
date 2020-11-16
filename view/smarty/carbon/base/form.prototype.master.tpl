@@ -674,7 +674,7 @@
                             {if $locale}
                                 {url id='assets.overview.locale' parameters=['locale' => $locale] var='assetsUrl'}
                             {else}
-                                {url id='assets.overview.locale' parameters=['locale' => $app.locale] var='assetsUrl'}
+                                {url id='assets.overview.locale' parameters=['locale' => $app['locale']] var='assetsUrl'}
                             {/if}
                         {/if}
                         <iframe data-src="{$assetsUrl}?embed=1&amp;selected={$value|escape}" frameborder="0" width="100%" height="500"></iframe>
@@ -828,7 +828,7 @@
                 {/if}
             {/foreach}
             </select>
-            {* <label for="{$attributes.id}"><i class="icon icon--chevron-down"></i></label>
+            {* <label for="{$attributes.['id']}"><i class="icon icon--chevron-down"></i></label>
         </div> *}
 
 

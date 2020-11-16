@@ -1,7 +1,7 @@
 {* widget: language.select; action: index; translation: widget.language.select *}
 
 {if $locales|count > 1}
-    <div class="nav nav--language {if isset($app['cms']['properties'])}{$app['cms']['properties']->getWidgetProperty('style.container')}{/if}" {if isset($app['cms']['widget'])}id="widget-{$app.cms.widget}"{/if}>
+    <div class="nav nav--language {if isset($app['cms']['properties'])}{$app['cms']['properties']->getWidgetProperty('style.container')}{/if}" {if isset($app['cms']['widget'])}id="widget-{$app['cms']['widget']}"{/if}>
         <ul class="locales {if isset($app['cms']['properties'])}{$app['cms']['properties']->getWidgetProperty('style.menu')}{/if}">
             {foreach $locales as $code => $data}
                 {if !isset($data['url'])}
