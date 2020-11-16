@@ -2,6 +2,6 @@
 
 {include 'cms/helper/text'}
 
-<div class="text block {$app.cms.properties->getWidgetProperty('style.container')}" id="widget-{$app.cms.widget}">
+<div class="text block {if isset($app['cms']['properties'])}{$app['cms']['properties']->getWidgetProperty('style.container')}{/if}" {if isset($app['cms']['widget'])}id="widget-{$app.cms.widget}"{/if}>
     {call renderText}
 </div>

@@ -18,6 +18,10 @@
         {
             "name": "Stijn Elskens",
             "email": "stijn@statik.be"
+        },
+        {
+            "name": "Kristof Serré",
+            "email": "kristof@statik.be"
         }
     ],
     "require": {

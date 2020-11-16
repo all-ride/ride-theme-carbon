@@ -54,8 +54,8 @@
                 {$errorsName = "`$errorsName`[`$part`]"}
             {/if}
 
-            {if isset($errors.$errorsName)}
-                {$errors = $errors.$errorsName}
+            {if isset($errors[$errorsName])}
+                {$errors = $errors[$errorsName]}
             {else}
                 {$errors = array()}
             {/if}
@@ -133,8 +133,8 @@
                 {$errorsName = "`$errorsName`[`$part`]"}
             {/if}
 
-            {if isset($errors.$errorsName)}
-                {$errors = $errors.$errorsName}
+            {if isset($errors[$errorsName])}
+                {$errors = $errors[$errorsName]}
             {else}
                 {$errors = array()}
             {/if}
@@ -257,10 +257,10 @@
     {$widget = $row->getWidget()}
     {if $widget}
         {$attributes = $widget->getAttributes()}
-        {if isset($attributes.class)}
-            {$attributes.class = "`$attributes.class` form__label"}
+        {if isset($attributes['class'])}
+            {$attributes['class'] = "`$attributes['class']` form__label"}
         {else}
-            {$attributes.class = 'form__label'}
+            {$attributes['class'] = 'form__label'}
         {/if}
 
         {$value = $widget->getValue($part)}
@@ -284,10 +284,10 @@
     {$widget = $row->getWidget()}
     {if $widget}
         {$attributes = $widget->getAttributes()}
-        {if isset($attributes.class)}
-            {$attributes.class = "btn btn--default `$attributes.class`"}
+        {if isset($attributes['class'])}
+            {$attributes['class'] = "btn btn--default `$attributes['class']`"}
         {else}
-            {$attributes.class = 'btn btn--default'}
+            {$attributes['class'] = 'btn btn--default'}
         {/if}
 
         <button
@@ -312,19 +312,19 @@
     {$widget = $row->getWidget()}
     {if $widget}
         {$attributes = $widget->getAttributes()}
-        {if isset($attributes.class)}
-            {$attributes.class = "`$attributes.class` form__text"}
+        {if isset($attributes['class'])}
+            {$attributes['class'] = "`$attributes['class']` form__text"}
         {else}
-            {$attributes.class = 'form__text'}
+            {$attributes['class'] = 'form__text'}
         {/if}
 
         {$validators = $row->getValidators()}
         {foreach $validators as $validator}
             {foreach $validator->getOptions() as $option => $value}
                 {if $option == 'minimum'}
-                    {$attributes.minlength = $value}
-                {else if $option == 'maximum'}
-                    {$attributes.maxlength = $value}
+                    {$attributes['minlength'] = $value}
+                {elseif $option == 'maximum'}
+                    {$attributes['maxlength'] = $value}
                 {/if}
             {/foreach}
         {/foreach}
@@ -364,10 +364,10 @@
     {$widget = $row->getWidget()}
     {if $widget}
         {$attributes = $widget->getAttributes()}
-        {if isset($attributes.class)}
-            {$attributes.class = "`$attributes.class` form__text"}
+        {if isset($attributes['class'])}
+            {$attributes['class'] = "`$attributes['class']` form__text"}
         {else}
-            {$attributes.class = 'form__text'}
+            {$attributes['class'] = 'form__text'}
         {/if}
 
         <input type="text" inputmode="number"
@@ -392,19 +392,19 @@
     {$widget = $row->getWidget()}
     {if $widget}
         {$attributes = $widget->getAttributes()}
-        {if isset($attributes.class)}
-            {$attributes.class = "`$attributes.class` form__text"}
+        {if isset($attributes['class'])}
+            {$attributes['class'] = "`$attributes['class']` form__text"}
         {else}
-            {$attributes.class = 'form__text'}
+            {$attributes['class'] = 'form__text'}
         {/if}
 
         {$validators = $row->getValidators()}
         {foreach $validators as $validator}
             {foreach $validator->getOptions() as $option => $value}
                 {if $option == 'minimum'}
-                    {$attributes.minlength = $value}
-                {else if $option == 'maximum'}
-                    {$attributes.maxlength = $value}
+                    {$attributes['minlength'] = $value}
+                {elseif $option == 'maximum'}
+                    {$attributes['maxlength'] = $value}
                 {/if}
             {/foreach}
         {/foreach}
@@ -431,10 +431,10 @@
     {$widget = $row->getWidget()}
     {if $widget}
         {$attributes = $widget->getAttributes()}
-        {if isset($attributes.class)}
-            {$attributes.class = "`$attributes.class` form__text"}
+        {if isset($attributes['class'])}
+            {$attributes['class'] = "`$attributes['class']` form__text"}
         {else}
-            {$attributes.class = 'form__text'}
+            {$attributes['class'] = 'form__text'}
         {/if}
 
         <input type="date"
@@ -459,19 +459,19 @@
     {$widget = $row->getWidget()}
     {if $widget}
         {$attributes = $widget->getAttributes()}
-        {if isset($attributes.class)}
-            {$attributes.class = "`$attributes.class` form__text"}
+        {if isset($attributes['class'])}
+            {$attributes['class'] = "`$attributes['class']` form__text"}
         {else}
-            {$attributes.class = 'form__text'}
+            {$attributes['class'] = 'form__text'}
         {/if}
 
         {$validators = $row->getValidators()}
         {foreach $validators as $validator}
             {foreach $validator->getOptions() as $option => $value}
                 {if $option == 'minimum'}
-                    {$attributes.minlength = $value}
-                {else if $option == 'maximum'}
-                    {$attributes.maxlength = $value}
+                    {$attributes['minlength'] = $value}
+                {elseif $option == 'maximum'}
+                    {$attributes['maxlength'] = $value}
                 {/if}
             {/foreach}
         {/foreach}
@@ -498,19 +498,19 @@
     {$widget = $row->getWidget()}
     {if $widget}
         {$attributes = $widget->getAttributes()}
-        {if isset($attributes.class)}
-            {$attributes.class = "`$attributes.class` form__text"}
+        {if isset($attributes['class'])}
+            {$attributes['class'] = "`$attributes['class']` form__text"}
         {else}
-            {$attributes.class = 'form__text'}
+            {$attributes['class'] = 'form__text'}
         {/if}
 
         {$validators = $row->getValidators()}
         {foreach $validators as $validator}
             {foreach $validator->getOptions() as $option => $value}
                 {if $option == 'minimum'}
-                    {$attributes.minlength = $value}
-                {else if $option == 'maximum'}
-                    {$attributes.maxlength = $value}
+                    {$attributes['minlength'] = $value}
+                {elseif $option == 'maximum'}
+                    {$attributes['maxlength'] = $value}
                 {/if}
             {/foreach}
         {/foreach}
@@ -535,19 +535,19 @@
     {$widget = $row->getWidget()}
     {if $widget}
         {$attributes = $widget->getAttributes()}
-        {if isset($attributes.class)}
-            {$attributes.class = "`$attributes.class` form__text"}
+        {if isset($attributes['class'])}
+            {$attributes['class'] = "`$attributes['class']` form__text"}
         {else}
-            {$attributes.class = 'form__text'}
+            {$attributes['class'] = 'form__text'}
         {/if}
 
         {$validators = $row->getValidators()}
         {foreach $validators as $validator}
             {foreach $validator->getOptions() as $option => $value}
                 {if $option == 'minimum'}
-                    {$attributes.minlength = $value}
-                {else if $option == 'maximum'}
-                    {$attributes.maxlength = $value}
+                    {$attributes['minlength'] = $value}
+                {elseif $option == 'maximum'}
+                    {$attributes['maxlength'] = $value}
                 {/if}
             {/foreach}
         {/foreach}
@@ -583,19 +583,19 @@
     {$widget = $row->getWidget()}
     {if $widget}
         {$attributes = $widget->getAttributes()}
-        {if isset($attributes.class)}
-            {$attributes.class = "`$attributes.class` form__text"}
+        {if isset($attributes['class'])}
+            {$attributes['class'] = "`$attributes['class']` form__text"}
         {else}
-            {$attributes.class = 'form__text'}
+            {$attributes['class'] = 'form__text'}
         {/if}
 
         {$validators = $row->getValidators()}
         {foreach $validators as $validator}
             {foreach $validator->getOptions() as $option => $value}
                 {if $option == 'minimum'}
-                    {$attributes.minlength = $value}
-                {else if $option == 'maximum'}
-                    {$attributes.maxlength = $value}
+                    {$attributes['minlength'] = $value}
+                {elseif $option == 'maximum'}
+                    {$attributes['maxlength'] = $value}
                 {/if}
             {/foreach}
         {/foreach}
@@ -604,9 +604,9 @@
         {foreach $validators as $validator}
             {foreach $validator->getOptions() as $option => $value}
                 {if $option == 'minimum'}
-                    {$attributes.minlength = $value}
-                {else if $option == 'maximum'}
-                    {$attributes.maxlength = $value}
+                    {$attributes['minlength'] = $value}
+                {elseif $option == 'maximum'}
+                    {$attributes['maxlength'] = $value}
                 {/if}
             {/foreach}
         {/foreach}
@@ -633,13 +633,13 @@
     {if $widget}
         {$attributes = $widget->getAttributes()}
         {$safeName = $widget->getName()|replace:"[":"_"|replace:"]":"_"}
-        {if isset($attributes.class)}
-            {$attributes.class = "`$attributes.class` form__assets-input"}
+        {if isset($attributes['class'])}
+            {$attributes['class'] = "`$attributes['class']` form__assets-input"}
         {else}
-            {$attributes.class = 'form__assets-input'}
+            {$attributes['class'] = 'form__assets-input'}
         {/if}
 
-        <div class="form__assets" data-field="{$attributes.id}"{if $widget->isMultiple()} data-max="999"{else} data-max="1"{/if}>
+        <div class="form__assets" data-field="{$attributes['id']}"{if $widget->isMultiple()} data-max="999"{else} data-max="1"{/if}>
             {$assets = $widget->getAssets()}
             {foreach $assets as $asset}
                 <div class="form__asset" data-id="{$asset->getId()}">
@@ -682,7 +682,7 @@
                     <div class="modal-footer">
                         <div class="grid">
                             <div class="grid--bp-xsm__9">
-                                <div class="form__assets form__assets--sml" data-field="{$attributes.id}" data-max="{if $widget->isMultiple()}999{else}1{/if}">
+                                <div class="form__assets form__assets--sml" data-field="{$attributes['id']}" data-max="{if $widget->isMultiple()}999{else}1{/if}">
                                     {$assets = $widget->getAssets()}
                                     {foreach $assets as $asset}
                                         <div class="form__asset" data-id="{$asset->getId()}">
@@ -721,16 +721,16 @@
         {/if}
 
         {$attributes = $widget->getAttributes()}
-        {if isset($attributes.class)}
-            {$attributes.class = "`$attributes.class` form__$type"}
+        {if isset($attributes['class'])}
+            {$attributes['class'] = "`$attributes['class']` form__$type"}
         {else}
-            {$attributes.class = "form__$type"}
+            {$attributes['class'] = "form__$type"}
         {/if}
 
         {$value = $widget->getValue()}
         {$options = $widget->getOptions()}
         {if $part !== null}
-            {if isset($options.$part)}
+            {if isset($options[$part])}
             <input type="{$type}"
                    name="{$widget->getName()}{if $type == 'checkbox'}[{$part}]{/if}"
                    value="{$part}"
@@ -767,7 +767,7 @@
                 </div>
             {else}
                 <div class="form__checkbox-type">
-                    <label class="form__label form__label--checkbox{if isset($attributes.disabled)} form__label--muted{/if}">
+                    <label class="form__label form__label--checkbox{if isset($attributes['disabled'])} form__label--muted{/if}">
                         <input type="checkbox" name="{$widget->getName()}" value="1"{if $value} checked="checked"{/if}
                             {foreach $attributes as $name => $attribute}
                                 {$name}="{$attribute|escape}"
@@ -793,10 +793,10 @@
     {$widget = $row->getWidget()}
     {if $widget}
         {$attributes = $widget->getAttributes()}
-        {if isset($attributes.class)}
-            {$attributes.class = "`$attributes.class` form__select"}
+        {if isset($attributes['class'])}
+            {$attributes['class'] = "`$attributes['class']` form__select"}
         {else}
-            {$attributes.class = 'form__select'}
+            {$attributes['class'] = 'form__select'}
         {/if}
 
         {$value = $widget->getValue()}
@@ -954,10 +954,10 @@
     {/if}
 
     {$attributes = $row->getOption('attributes')}
-    {if isset($attributes.class)}
-        {$attributes.class = "`$attributes.class` collection-control-group sortables"}
+    {if isset($attributes['class'])}
+        {$attributes['class'] = "`$attributes['class']` collection-control-group sortables"}
     {else}
-        {$attributes.class = 'collection-control-group sortables'}
+        {$attributes['class'] = 'collection-control-group sortables'}
     {/if}
 
     <div

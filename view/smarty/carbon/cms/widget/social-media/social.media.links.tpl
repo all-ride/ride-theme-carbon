@@ -1,10 +1,10 @@
 {* widget: social-media; action: index; translation: template.social.links *}
 
 {if $socialMedia}
-    <div class="nav nav--social nav--social-links {$app.cms.properties->getWidgetProperty('style.container')}">
+    <div class="nav nav--social nav--social-links {if isset($app['cms']['properties'])}{$app['cms']['properties']->getWidgetProperty('style.container')}{/if}">
 
     {if $title}
-        <h2 class="{$app.cms.properties->getWidgetProperty('style.title')}">{$title}</h2>
+        <h2 class="{if isset($app['cms']['properties'])}{$app['cms']['properties']->getWidgetProperty('style.title')}{/if}">{$title}</h2>
     {/if}
 
         <ul>

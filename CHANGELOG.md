@@ -1,3 +1,6 @@
+## [2.5.2] - 2020-11-16
+### Updated
+- Changed all the dot notations to php array ['value'] notation + added the needed isset()
 
 ## [2.5.1] - 2020-11-10
 ### Updated

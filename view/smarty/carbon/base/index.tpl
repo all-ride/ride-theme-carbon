@@ -1,4 +1,4 @@
-{$documentLang = {$app.locale|replace:'_':'-'}}
+{$documentLang = {$app['locale']|replace:'_':'-'}}
 <!doctype html>
 <!--[if IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie10" lang="{$documentLang}"> <![endif]-->
 <!--[if IE 8]> <html class="no-js lt-ie9 lt-ie10" lang="{$documentLang}"> <![endif]-->
@@ -15,19 +15,19 @@
         {strip}
         <title>
         {block 'head_title'}
-            {if isset($app.taskbar)}
-                {$app.taskbar->getTitle()}
+            {if isset($app['taskbar'])}
+                {$app['taskbar']->getTitle()}
             {/if}
         {/block}
         </title>
         {/strip}
 
         {block 'favicon'}
-            <link rel="icon" type="image/png" href="{$app.url.base}/img/favicon.png">
+            <link rel="icon" type="image/png" href="{$app['url']['base']}/img/favicon.png">
         {/block}
 
         {block 'scripts_head'}
-            <script type="text/javascript" src="{$app.url.base}/carbon/js/modernizr.min.js"></script>
+            <script type="text/javascript" src="{$app['url']['base']}/carbon/js/modernizr.min.js"></script>
         {/block}
 
         {block 'scripts_webfont'}{/block}
@@ -36,8 +36,8 @@
             {style src='carbon/css/main.min.css' media='screen'}
         {/block}
         {block 'styles_app'}
-            {if isset($app.styles)}
-                {foreach $app.styles as $style => $dummy}
+            {if isset($app['styles'])}
+                {foreach $app['styles'] as $style => $dummy}
                     {if substr($style, 0, 7) == 'http://' || substr($style, 0, 8) == 'https://' || substr($style, 0, 2) == '//'}
                         {style src=$style media='screen'}
                     {else}
@@ -55,25 +55,25 @@
     {/block}
 </head>
 
-<body data-translation-url="{url id='api.locales.translations.exposed' parameters=['locale' => $app.locale]}" {block 'body_attributes'}{/block}>
+<body data-translation-url="{url id='api.locales.translations.exposed' parameters=['locale' => $app['locale']]}" {block 'body_attributes'}{/block}>
     {block 'body' prepend}
         {include 'cms/helper/analytics'}
         {call googleTagManagerBody}
     {/block}
     {block 'body'}
         {block 'taskbar'}
-            {if isset($app.taskbar)}
-                {include 'base/taskbar' title=$app.taskbar->getTitle() applicationsMenu=$app.taskbar->getApplicationsMenu() settingsMenu=$app.taskbar->getSettingsMenu()}
+            {if isset($app['taskbar'])}
+                {include 'base/taskbar' title=$app['taskbar']->getTitle() applicationsMenu=$app.taskbar->getApplicationsMenu() settingsMenu=$app['taskbar']->getSettingsMenu()}
             {/if}
         {/block}
 
         {block 'content'}
             {block 'content_title'}{/block}
             {block 'messages'}
-                {if isset($app.messages)}
+                {if isset($app['messages'])}
                     {$_messageTypes = ['error' => 'danger', 'warning' => 'warning', 'success' => 'success', 'information' => 'info']}
                     {foreach $_messageTypes as $_messageType => $_messageClass}
-                        {$_messages = $app.messages->getByType($_messageType)}
+                        {$_messages = $app['messages']->getByType($_messageType)}
                         {if $_messages}
                             <div class="notice notice--{$_messageClass}" role="alert">
                                 <button type="button" class="btn btn--close" data-dismiss="alert">
@@ -105,8 +105,8 @@
         {/block}
 
         {block 'scripts_app'}
-            {if isset($app.javascripts)}
-                {foreach $app.javascripts as $script => $dummy}
+            {if isset($app['javascripts'])}
+                {foreach $app['javascripts'] as $script => $dummy}
                     {if substr($script, 0, 7) == 'http://' || substr($script, 0, 8) == 'https://' || substr($script, 0, 2) == '//' || substr($script, 0, 7) == '<script'}
                         {script src=$script}
                     {else}
@@ -121,17 +121,17 @@
         {block 'scripts_polyfills'}{/block}
 
         {block 'scripts_inline'}
-            {if isset($app.inlineJavascripts)}
+            {if isset($app['inlineJavascripts'])}
                 {strip}
                 <script type="text/javascript">
                     $(function() {
-                        {''|implode:$app.inlineJavascripts}
+                        {''|implode:$app['inlineJavascripts']}
                     });
                 </script>
                 {/strip}
             {/if}
 
-            {$browserSync = $app.system->getConfig()->get('browserSync')}
+            {$browserSync = isset($app['system']) ? $app['system']->getConfig()->get('browserSync') : null}
             {if isset($browserSync['enabled'])}
                 {$version = $browserSync.version|default:'2.11.11'}
                 <script type='text/javascript' id="__bs_script__">

@@ -1,9 +1,9 @@
 {* widget: assets action: index; translation: widget.assets *}
 
 {if $assets}
-<div class="widget widget-assets clearfix {$app.cms.properties->getWidgetProperty('style.container')}" id="widget-{$app.cms.widget}">
+<div class="widget widget-assets clearfix {if isset($app['cms']['properties'])}{$app['cms']['properties']->getWidgetProperty('style.container')}{/if}" {if isset($app['cms']['widget'])}id="widget-{$app['cms']['widget']}"{/if}>
     {if $title}
-        <h2 class="toc {$app.cms.properties->getWidgetProperty('style.title')}">{$title}</h2>
+        <h2 class="toc {if isset($app['cms']['properties'])}{$app['cms']['properties']->getWidgetProperty('style.title')}{/if}">{$title}</h2>
     {/if}
     <div class="assets">
     {foreach $assets as $asset}

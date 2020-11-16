@@ -1,18 +1,18 @@
-<div class="block {$app.cms.properties->getWidgetProperty('style.container')}" id="widget-{$app.cms.widget}">
-{if $result.total == 0}
+<div class="block {if isset($app['cms']['properties'])}{$app['cms']['properties']->getWidgetProperty('style.container')}{/if}" {if isset($app['cms']['widget'])}id="widget-{$app.cms.widget}"{/if}>
+{if $result['total'] == 0}
     {if $query}
         <p>{translate key='label.search.query.none' query=$query}</p>
     {else}
         <p>{'label.search.query.provide'|translate}</p>
     {/if}
 {else}
-    {if $result.total == 1}
+    {if $result['total'] == 1}
         <p>{translate key='label.search.query.result' query=$query}</p>
     {else}
-        <p>{translate key='label.search.query.results' query=$query total=$result.total}</p>
+        <p>{translate key='label.search.query.results' query=$query total=$result['total']}</p>
     {/if}
 
-    {foreach $result.types as $contentType => $contentResult}
+    {foreach $result['types'] as $contentType => $contentResult}
         {$entries = $contentResult->getEntries()}
 
         {if $entries}

@@ -1,31 +1,31 @@
 {extends 'base/index'}
 
-{if isset($app.cms.context)}
+{if isset($app['cms']['context'])}
     {block 'head_meta' append}
-        {if isset($app.cms.context.canonical)}
-            <link rel="canonical" href="{$app.cms.context.canonical}"/>
+        {if isset($app['cms']['context']['canonical'])}
+            <link rel="canonical" href="{$app['cms']['context']['canonical']}"/>
         {/if}
 
-        {if isset($app.cms.context.localizedUrls)}
-            {foreach $app.cms.context.localizedUrls as $localizedUrl}
-                {if $localizedUrl.url && $localizedUrl.isAvailable}
-                    <link rel="alternate" hreflang="{$localizedUrl.locale|replace:"_":"-"}" href="{$localizedUrl.url}"/>
+        {if isset($app['cms']['context']['localizedUrls'])}
+            {foreach $app['cms']['context']['localizedUrls'] as $localizedUrl}
+                {if isset($localizedUrl['url']) && $localizedUrl['isAvailable']}
+                    <link rel="alternate" hreflang="{$localizedUrl['locale']|replace:"_":"-"}" href="{$localizedUrl['url']}"/>
                 {/if}
             {/foreach}
         {/if}
 
-        {if isset($app.cms.context.pagination)}
-            {$paginationUrl = $app.cms.context.pagination->getPreviousLink()}
+        {if isset($app['cms']['context']['pagination'])}
+            {$paginationUrl = $app['cms']['context']['pagination']->getPreviousLink()}
             {if $paginationUrl}
                 <link rel="prev" href="{$paginationUrl}"/>
             {/if}
-            {$paginationUrl = $app.cms.context.pagination->getNextLink()}
+            {$paginationUrl = $app['cms']['context']['pagination']->getNextLink()}
             {if $paginationUrl}
                 <link rel="next" href="{$paginationUrl}"/>
             {/if}
         {/if}
 
-        {$meta = $app.cms.node->getMeta($app.locale)}
+        {$meta = isset($app['cms']['node']) ? $app['cms']['node']->getMeta($app['locale']) : null}
         {if $meta}
             {foreach $meta as $metaName => $metaValue}
                 {$metaAttribute = 'name'}
@@ -44,33 +44,33 @@
     {/block}
 
     {block 'head_title'}
-        {$title = $app.cms.node->getContext('title.site')}
-        {if isset($meta.title)}
-            {$meta.title|text} | {$title}
+        {$title = isset($app['cms']['node']->getContext('title.site')) ? $app['cms']['node']->getContext('title.site') : null}
+        {if isset($meta['title'])}
+            {$meta['title']|text} | {$title}
         {else}
-            {if $app.cms.node->getRoute($app.locale) != '/'}
-                {"`$app.cms.node->getContext('title.node')` | $title"}
+            {if isset($app['cms']['node']) && $app['cms']['node']->getRoute($app['locale']) != '/'}
+                {"`$app['cms']['node']->getContext('title.node')` | $title"}
             {else}
                 {$title}
             {/if}
         {/if}
     {/block}
 
-    {block 'body_attributes'} class="page-{$app.cms.node->getId()} {$app.cms.node->get('body.class')}" data-components="{$app.cms.node->get('body.components')}"{/block}
+    {block 'body_attributes'} class="page-{$app['cms']['node']->getId()} {$app['cms']['node']->get('body.class')}" data-components="{$app['cms']['node']->get('body.components')}"{/block}
 {/if}
 
 {block 'styles'}
-    <!--[if gt IE 9><!--><link rel="stylesheet" href="{$app.url.base}/css/main.min.css"><!--<![endif]-->
-    <!--[if lte IE 9]><link rel="stylesheet" href="{$app.url.base}/css/main-legacy.min.css"><![endif]-->
+    <!--[if gt IE 9><!--><link rel="stylesheet" href="{$app['url']['base']}/css/main.min.css"><!--<![endif]-->
+    <!--[if lte IE 9]><link rel="stylesheet" href="{$app['url']['base']}/css/main-legacy.min.css"><![endif]-->
 {/block}
 
 {block 'scripts_head'}
-    <script type="text/javascript" src="{$app.url.base}/js/modernizr.min.js"></script>
-    <!--[if lt IE 9]><script type="text/javascript" src="{$app.url.base}/js/polyfill.min.js"></script><![endif]-->
+    <script type="text/javascript" src="{$app['url']['base']}/js/modernizr.min.js"></script>
+    <!--[if lt IE 9]><script type="text/javascript" src="{$app['url']['base']}/js/polyfill.min.js"></script><![endif]-->
 {/block}
 
 {block 'scripts_webfont'}
-    {$webfont = $app.system->getConfig()->get('webfont')}
+    {$webfont = isset($app['system']) ? $app['system']->getConfig()->get('webfont') : null}
     {if $webfont}
         <script type="text/javascript">
             WebFontConfig = {$webfont|json_encode};
@@ -92,24 +92,24 @@
         {$pageActions = []}
         {$tmpPageActions = []}
 
-        {if isset($app.cms.node)}
+        {if isset($app['cms']['node'])}
             {$params = []}
-            {$params['locale'] = $app.locale}
-            {$params['site'] = $app.cms.site}
+            {$params['locale'] = $app['locale']}
+            {$params['site'] = isset($app['cms']['site']) ? $app['cms']['site'] : null}
             {$params['revision'] = 'draft'}
-            {$params['node'] = $app.cms.node->getId()}
+            {$params['node'] = $app['cms']['node']->getId()}
             {url id='cms.node.content' parameters=$params var='editNodeUrl'}
-            {$pageActions["$editNodeUrl?referer={$app.url.request|urlencode}"] = "{'label.edit'|translate} `$app.cms.node->getName()`"}
+            {$pageActions["$editNodeUrl?referer={$app['url']['request']|urlencode}"] = "{'label.edit'|translate} `$app['cms']['node']->getName()`"}
         {/if}
 
-        {if isset($app.cms.context.content)}
+        {if isset($app['cms']['context']['content'])}
             {$params = []}
-            {$params['model'] = $app.cms.context.content->type}
-            {$params['locale'] = $app.locale}
-            {$params['id'] = $app.cms.context.content->data->getId()}
+            {$params['model'] = $app['cms']['context']['content']->type}
+            {$params['locale'] = $app['locale']}
+            {$params['id'] = $app['cms']['context']['content']->data->getId()}
             {$params['action'] = 'edit'}
             {url id='system.orm.scaffold.action.entry' parameters=$params var='editEntryUrl'}
-            {$pageActions["$editEntryUrl?referer={$app.url.request|urlencode}"] = "{'label.edit'|translate} `$app.cms.context.content->title`"}
+            {$pageActions["$editEntryUrl?referer={$app['url']['request']|urlencode}"] = "{'label.edit'|translate} `$app['cms']['context']['content']->title`"}
         {/if}
 
         {foreach $pageActions as $pageActionUrl => $pageActionLabel}
@@ -122,8 +122,8 @@
         {$pageActions = $tmpPageActions}
 
         {if $pageActions}
-            <link rel="stylesheet" href="{$app.url.base}/css/contextual-links.css">
-            <div class="contextual-links contextual-links--{$app.system->getEnvironment()}">
+            <link rel="stylesheet" href="{$app['url']['base']}/css/contextual-links.css">
+            <div class="contextual-links contextual-links--{$app['system']->getEnvironment()}">
                 <input type="checkbox" id="contextual-links__toggle" class="contextual-links__toggle superhidden">
                 <label class="contextual-links__link" for="contextual-links__toggle">
                     <svg viewBox="0 0 24 24">
@@ -182,7 +182,7 @@
             {call region region='footer'}
         </footer>
 
-        {if isset($widgets.flyout)}
+        {if isset($widgets['flyout'])}
             <div class="flyout region" id="flyout">
                 <button class="btn flyout__close">
                     <i class="icon icon--times"></i> {'label.close'|translate}
@@ -200,5 +200,5 @@
 {/block}
 
 {block 'scripts_polyfills'}
-    <!--[if lt IE 9]><script type="text/javascript" src="{$app.url.base}/js/selectivizr.min.js"></script><![endif]-->
+    <!--[if lt IE 9]><script type="text/javascript" src="{$app['url']['base']}/js/selectivizr.min.js"></script><![endif]-->
 {/block}

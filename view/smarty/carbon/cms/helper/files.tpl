@@ -1,10 +1,12 @@
 <ul class="list--border{if isset($class)} $class{/if}">
     {foreach $files as $file}
-        {$fileOptions = $app.system->getFileSystem()->getFile($file)}
+        {$fileOptions = $app['system'] ? $app['system']->getFileSystem()->getFile($file) : null}
         <li>
-          <a href="{$file.url}" class="download">
+          <a href="{$file['url']}" class="download">
             {$file.label}
-             <span class="download__meta">({$fileOptions->getExtension()} {$fileOptions->getSize()|decorate:'storage.size'})</span>
+              {if $fileOptions}
+                <span class="download__meta">({$fileOptions->getExtension()} {$fileOptions->getSize()|decorate:'storage.size'})</span>
+              {/if}
           </a>
         </li>
     {/foreach}
