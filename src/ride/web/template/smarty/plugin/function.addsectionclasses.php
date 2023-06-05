@@ -8,8 +8,8 @@ function smarty_function_addSectionClasses($params, &$smarty) {
     $sectionStyles = $app['cms']['node']->getSectionStyle($region, $section);
     $addedSectionClasses = $params['classes'];
 
-    if (!strstr($sectionStyles, $addedSectionClasses)) {
-        $sectionStyles = $sectionStyles . ' ' . $addedSectionClasses;
+    if ($sectionStyles && $addedSectionClasses && !str_contains($sectionStyles, $addedSectionClasses)) {
+        $sectionStyles .= ' ' . $addedSectionClasses;
         $app['cms']['node']->setSectionStyle($region, $section, $sectionStyles);
     }
 }
