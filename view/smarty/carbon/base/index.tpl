@@ -1,4 +1,4 @@
-{$documentLang = {$app['locale']|replace:'_':'-'}}
+{$documentLang = {str_replace('_', '-',$app['locale'])}}
 <!doctype html>
 <!--[if IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie10" lang="{$documentLang}"> <![endif]-->
 <!--[if IE 8]> <html class="no-js lt-ie9 lt-ie10" lang="{$documentLang}"> <![endif]-->
@@ -81,7 +81,7 @@
                                 </button>
                                 <div class="container">
                                     {if $_messages|count == 1}
-                                        {$_message = $_messages|array_pop}
+                                        {$_message = array_pop($_messages)}
                                         <p>{$_message->getMessage()}</p>
                                     {else}
                                         <ul>
@@ -125,7 +125,7 @@
                 {strip}
                 <script type="text/javascript">
                     $(function() {
-                        {''|implode:$app['inlineJavascripts']}
+                        {implode('', $app['inlineJavascripts'])}
                     });
                 </script>
                 {/strip}

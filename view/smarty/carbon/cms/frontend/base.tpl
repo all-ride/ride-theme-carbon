@@ -73,7 +73,7 @@
     {$webfont = isset($app['system']) ? $app['system']->getConfig()->get('webfont') : null}
     {if $webfont}
         <script type="text/javascript">
-            WebFontConfig = {$webfont|json_encode};
+            WebFontConfig = {json_encode($webfont)};
             (function() {
                 var wf = document.createElement('script');
                 wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +

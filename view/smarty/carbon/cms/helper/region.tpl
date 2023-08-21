@@ -1,12 +1,17 @@
 {function region region=null class=null role=null element='div'}
     {if isset($widgets[$region])}
-    {* <{$element} class="region {$class}"{if $role} role="{$role}"{/if}> *}
+        {* <{$element} class="region {$class}"{if $role} role="{$role}"{/if}> *}
         {foreach $regions[$region] as $section => $layout}
             {if isset($widgets[$region][$section])}
                 {$functionName = "layout-$layout"|replace:'-':'_'}
-                {$style = isset($app['cms']['node']) ? $app['cms']['node']->getSectionStyle($region, $section) : null}
-                {$title = isset($app['cms']['node']) ? $app['cms']['node']->getSectionTitle($region, $section, $app['locale']) : null}
-                {$isFullWidth = isset($app['cms']['node']) ? $app['cms']['node']->isSectionFullWidth($region, $section) : null}
+                {$style = null}
+                {$title = null}
+                {$isFullWidth = null}
+                {if $app['cms']['node']}
+                    {$style = $app['cms']['node']->getSectionStyle($region, $section)}
+                    {$title = $app['cms']['node']->getSectionTitle($region, $section, $app['locale'])}
+                    {$isFullWidth = $app['cms']['node']->isSectionFullWidth($region, $section)}
+                {/if}
                 <div class="section section--{$region} {if $style}{$style}{else}section--default{/if}">
                     {if $isFullWidth}
                         {if $title}
@@ -26,33 +31,37 @@
                 </div>
             {/if}
         {/foreach}
-    {* </{$element}> *}
+        {* </{$element}> *}
     {/if}
 {/function}
 
 {function regionSimple region=null class=null role=null element='div'}
     {if isset($widgets[$region])}
-    {* <{$element} class="region {$class}"{if $role} role="{$role}"{/if}> *}
+        {* <{$element} class="region {$class}"{if $role} role="{$role}"{/if}> *}
         {foreach $regions[$region] as $section => $layout}
             {if isset($widgets[$region][$section])}
                 {$functionName = "layout-$layout"|replace:'-':'_'}
-                {$style = isset($app['cms']['node']) ? $app['cms']['node']->getSectionStyle($region, $section) : null}
-                {$isFullWidth = isset($app['cms']['node']) ? $app['cms']['node']->isSectionFullWidth($region, $section) : null}
+                {$style = null}
+                {$isFullWidth = null}
+                {if $app['cms']['node']}
+                    {$style = $app['cms']['node']->getSectionStyle($region, $section)}
+                    {$isFullWidth = $app['cms']['node']->isSectionFullWidth($region, $section)}
+                {/if}
                 {if $style}<div class="{$style}">{/if}
-                    {if $isFullWidth}
+                {if $isFullWidth}
+                    <div class="{$class}__content">
+                        {call $functionName section=$section widgets=$widgets[$region][$section] style=$style}
+                    </div>
+                {else}
+                    <div class="container">
                         <div class="{$class}__content">
                             {call $functionName section=$section widgets=$widgets[$region][$section] style=$style}
                         </div>
-                    {else}
-                        <div class="container">
-                            <div class="{$class}__content">
-                                {call $functionName section=$section widgets=$widgets[$region][$section] style=$style}
-                            </div>
-                        </div>
-                    {/if}
+                    </div>
+                {/if}
                 {if $style}</div>{/if}
             {/if}
         {/foreach}
-    {* </{$element}> *}
+        {* </{$element}> *}
     {/if}
 {/function}

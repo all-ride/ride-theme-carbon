@@ -1,3 +1,6 @@
+## [2.6.0] - 2023-08-21
+### Updated
+- Made changes to adding section classes
 ## [2.5.2] - 2020-11-16
 ### Updated
 - Changed all the dot notations to php array ['value'] notation + added the needed isset()
