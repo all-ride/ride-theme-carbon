@@ -1,7 +1,7 @@
 {* widget: assets action: index; translation: template.assets.downloads *}
 
 {if $assets}
-<div class="widget widget-assets widget-assets--files clearfix {if isset($app['cms']['properties'])}{$app['cms']['properties']->getWidgetProperty('style.container')}{/if}" {if isset($app['cms']['widget'])}{/if}id="widget-{$app['cms']['widget']}"{/if}>
+<div class="widget widget-assets widget-assets--files clearfix {if isset($app['cms']['properties'])}{$app['cms']['properties']->getWidgetProperty('style.container')}{/if}" {if isset($app['cms']['widget'])}id="widget-{$app['cms']['widget']}"{/if}>
     {if $title}
         <h2 class="{if isset($app['cms']['properties'])}{$app['cms']['properties']->getWidgetProperty('style.title')}"{/if}>{$title}</h2>
     {/if}
