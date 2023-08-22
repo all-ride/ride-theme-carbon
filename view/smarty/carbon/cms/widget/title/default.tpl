@@ -5,8 +5,8 @@
     {$heading = 1}
 {/if}
 
-{if !isset($title) || $title === null}
-    {$title = isset($app['cms']['context']['title']['node']) ? $app['cms']['context']['title']['node'] : null}
+{if (!isset($title) || $title === null) && isset($app['cms']['context']['title']['node'])}
+    {$title = $app['cms']['context']['title']['node']}
 {/if}
 
 {if isset($anchor) && $anchor}
