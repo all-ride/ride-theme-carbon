@@ -1,16 +1,16 @@
 {function renderTitles}
     {if $title}
         {$title = $title|text}
-        <h2 class="card__title {if isset($titleClass)}{$titleClass}{/if} {$app.cms.properties->getWidgetProperty('style.title')}" id="{$title|safe}">{$title}</h2>
+        <h2 class="card__title {if isset($titleClass)}{$titleClass}{/if} {if isset($app['cms']['properties'])}{$app['cms']['properties']->getWidgetProperty('style.title')}{/if}" id="{$title|safe}">{$title}</h2>
     {/if}
     {if $subtitle}
         {$subtitle = $subtitle|text}
-        <h3 class="card__subtitle {$app.cms.properties->getWidgetProperty('style.subtitle')}" id="{$subtitle|safe}">{$subtitle}</h3>
+        <h3 class="card__subtitle {if isset($app['cms']['properties'])}{$app['cms']['properties']->getWidgetProperty('style.subtitle')}{/if}" id="{$subtitle|safe}">{$subtitle}</h3>
     {/if}
 {/function}
 
 {function renderCTA cta=null element='a'}
-    {$class = "card__link `$cta->getType()` `$app.cms.properties->getWidgetProperty('style.cta')`"}
+    {$class = "card__link `$cta->getType()` `$app['cms']['properties']->getWidgetProperty('style.cta')`"}
     {if $cta->getType() == 'btn--ext'}
         {$class = "$class btn"}
     {/if}

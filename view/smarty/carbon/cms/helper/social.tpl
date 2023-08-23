@@ -1,14 +1,14 @@
 {function renderSocialMediaNav title=null socialMedia=null}
-    {$nodeTitle = $app.cms.context.title.node|text}
-    {$url = $app.url.request}
+    {$nodeTitle = isset($app['cms']['context']['title']['node']) ? ($app['cms']['context']['title']['node']|text) : null}
+    {$url = $app['url']['request']}
     {if empty($socialMedia)}
-        {$socialMedia = $app.system->getConfig()->get('socialshare.default')}
+        {$socialMedia = isset($app['system']) ? $app['system']->getConfig()->get('socialshare.default') : null}
     {/if}
 
     {if $socialMedia}
-        <div class="block nav nav--social nav--social-share {$app.cms.properties->getWidgetProperty('style.container')}">
+        <div class="block nav nav--social nav--social-share {if isset($app['cms']['properties'])}{$app['cms']['properties']->getWidgetProperty('style.container')}{/if}">
             {if $title}
-                <h2 class="{$app.cms.properties->getWidgetProperty('style.title')}">{$title}</h2>
+                <h2 class="{if isset($app['cms']['properties'])}{$app['cms']['properties']->getWidgetProperty('style.title')}{/if}">{$title}</h2>
             {/if}
 
             <ul>
@@ -41,7 +41,7 @@
             'email' => "mailto:?Body={$url}"
         ]}
 
-        {if isset($links.$media)}
+        {if isset($links[$media])}
             <a href="{$links.$media}" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=450,width=600'); return false;" target="_blank" class="nav__link nav__link--{$media}" title="Share on {$label}">
                 {if $media == 'email'}
                     <i class="icon icon--envelope"></i>

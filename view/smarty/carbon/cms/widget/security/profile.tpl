@@ -2,8 +2,8 @@
 
 {include 'base/form.prototype'}
 
-<div class="block" id="widget-{$app.cms.widget}">
-    <form id="{$form->getId()}" class="form" action="{$app.url.request}" method="post" enctype="multipart/form-data" role="form">
+<div class="block" {if isset($app['cms']['widget'])}id="widget-{$app['cms']['widget']}"{/if}>
+    <form id="{$form->getId()}" class="form" action="{$app['url']['request']}" method="post" enctype="multipart/form-data" role="form">
         <div class="form__group">
             <div class="tabbable">
             <ul class="tabs">

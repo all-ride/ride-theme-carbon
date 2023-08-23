@@ -2,7 +2,7 @@
 
 {include 'cms/helper/assets'}
 
-{$data = $app.cms.context.content->data}
+{$data = isset($app['cms']['context']['content']) ? $app['cms']['context']['content']->data : null}
 
 {if isset($data->media) && $data->getMedia()}
     {call renderAssets assets=$data->getMedia()}

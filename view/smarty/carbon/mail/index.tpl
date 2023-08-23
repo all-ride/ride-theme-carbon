@@ -92,7 +92,7 @@
                                         <td height="20"></td>
                                     </tr>
                                     <tr>
-                                        <td class="center"><a href="{$app.url.base}"><img src="{$app.url.base}/img/svg/fallback/logo.png" alt="Logo" style="display: inline;"/></a></td>
+                                        <td class="center"><a href="{$app['url']['base']}"><img src="{$app['url']['base']}/img/svg/fallback/logo.png" alt="Logo" style="display: inline;"/></a></td>
                                     </tr>
                                     <tr>
                                         <td class="hidden width-null" height="20"></td>
@@ -164,7 +164,7 @@
             </tr>      
             <tr>
                 <td width="46%" style="color: #828282; font-size: 12px; text-align: center;">
-                   &copy; <a href="{$app.url.base}">{if isset($app.taskbar)}{$app.taskbar->getTitle()}{/if}</a>
+                   &copy; <a href="{$app['url']['base']}">{if isset($app['taskbar'])}{$app['taskbar']->getTitle()}{/if}</a>
                 </td>
             </tr> 
             <tr>

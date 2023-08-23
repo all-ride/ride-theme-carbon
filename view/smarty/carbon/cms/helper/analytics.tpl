@@ -3,10 +3,10 @@
     # Function that returns the Google Tag Manager tag in <head>
  *}
 {function googleTagManagerHead id=false}
-    {if !$id && isset($app.cms.node)}
-        {$id = $app.cms.node->getLocalized($app.locale, 'analytics.gtm_id')}
-        {if !$id}
-            {$id = $app.system->getConfig()->get('google.tagmanager.id')}
+    {if !$id && isset($app['cms']['node'])}
+        {$id = $app['cms']['node']->getLocalized($app['locale'], 'analytics.gtm_id')}
+        {if !$id && isset($app['system'])}
+            {$id = $app['system']->getConfig()->get('google.tagmanager.id')}
         {/if}
     {/if}
     {if $id}
@@ -27,10 +27,10 @@
     # Function that returns the Google Tag Manager tag in <body>
  *}
 {function googleTagManagerBody id=false}
-    {if !$id && isset($app.cms.node)}
-        {$id = $app.cms.node->getLocalized($app.locale, 'analytics.gtm_id')}
-        {if !$id}
-            {$id = $app.system->getConfig()->get('google.tagmanager.id')}
+    {if !$id && isset($app['cms']['node'])}
+        {$id = $app['cms']['node']->getLocalized($app['locale'], 'analytics.gtm_id')}
+        {if !$id && isset($app['system'])}
+            {$id = $app['system']->getConfig()->get('google.tagmanager.id')}
         {/if}
     {/if}
     {if $id}
@@ -48,10 +48,10 @@
  * Function to return the Universal Analytics tag
  *}
 {function googleAnalytics id=false}
-    {if !$id && isset($app.cms.node)}
-        {$id = $app.cms.node->getLocalized($app.locale, 'analytics.ga_id')}
-        {if !$id}
-            {$id = $app.system->getConfig()->get('google.analytics.id')}
+    {if !$id && isset($app['cms']['node'])}
+        {$id = $app['cms']['node']->getLocalized($app['locale'], 'analytics.ga_id')}
+        {if !$id && isset($app['system'])}
+            {$id = $app['system']->getConfig()->get('google.analytics.id')}
         {/if}
     {/if}
 
