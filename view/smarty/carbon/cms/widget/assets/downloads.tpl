@@ -11,12 +11,14 @@
             <a href="{$asset->getValue()}" target="_blank">{$asset->getName()}</a>
         {else}
             {$fileObj = $asset->getValue()|decorate:'file'}
-            <a href="{url id="assets.value" parameters=["asset" => $asset->getSlug()]}" class="download">
-                {$asset->getName()}
-                {if is_object($fileObj)}
-                    <span class="download__meta">({$fileObj->getExtension()} {$fileObj->getSize()|decorate:'storage.size'})</span>
-                {/if}
-            </a>
+            {if is_object($fileObj)}
+                <a href="{url id="assets.value" parameters=["asset" => $asset->getSlug()]}" class="download">
+                    {$asset->getName()}
+                    {if is_object($fileObj)}
+                        <span class="download__meta">({$fileObj->getExtension()} {$fileObj->getSize()|decorate:'storage.size'})</span>
+                    {/if}
+                </a>
+           {/if}
         {/if}
     {/foreach}
     </div>
