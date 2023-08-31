@@ -15,10 +15,12 @@
             </div>
         {else}
             {$file = $asset->getValue()|decorate:'file'}
-            {url id='assets.value' parameters=['asset' => $asset->getId()] var='assetUrl'}
-            <div class="spacer--med">
-                <a href="{$assetUrl}" download>{$asset->getName()}</a> <small>({$file->getExtension()}, {$file->getSize()|decorate:'storage.size'})</small>
-            </div>
+            {if is_object($file)}
+                {url id='assets.value' parameters=['asset' => $asset->getId()] var='assetUrl'}
+                <div class="spacer--med">
+                    <a href="{$assetUrl}" download>{$asset->getName()}</a> <small>({$file->getExtension()}, {$file->getSize()|decorate:'storage.size'})</small>
+                </div>
+            {/if}
         {/if}
     {/foreach}
     </div>

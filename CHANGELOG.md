@@ -1,3 +1,6 @@
+## [2.6.1] - 2023-08-31
+### Updated
+- Check if asset file is indeed an object
 ## [2.6.0] - 2023-08-21
 ### Updated
 - Made changes to adding section classes
