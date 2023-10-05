@@ -1,3 +1,6 @@
+## [2.6.2] - 2023-10-05
+### Updated
+- Check if strcmp had value
 ## [2.6.1] - 2023-08-31
 ### Updated
 - Check if asset file is indeed an object

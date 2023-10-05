@@ -734,7 +734,7 @@
             <input type="{$type}"
                    name="{$widget->getName()}{if $type == 'checkbox'}[{$part}]{/if}"
                    value="{$part}"
-                   {if (!is_array($value) && strcmp($value, $part) == 0) || (is_array($value) && isset($value[$part]))}checked="checked"{/if}
+                   {if (!is_array($value) && ($value && strcmp($value, $part) == 0)) || (is_array($value) && isset($value[$part]))}checked="checked"{/if}
                    {foreach $attributes as $name => $attribute}
                        {if $name == 'id'}
                             {$attribute = "`$attribute`-`$part`"}
@@ -752,7 +752,7 @@
                             <input type="{$type}"
                                    name="{$widget->getName()}{if $part}[{$part}]{elseif $type == 'checkbox'}[]{/if}"
                                    value="{$option}"
-                                   {if (!is_array($value) && strcmp($value, $option) == 0) || (is_array($value) && isset($value[$option]))}checked="checked"{/if}
+                                   {if (!is_array($value) && ($value && strcmp($value, $option) == 0)) || (is_array($value) && isset($value[$option]))}checked="checked"{/if}
                                    {foreach $attributes as $name => $attribute}
                                        {if $name == 'id'}
                                             {$attribute = "$attribute-$option"}
@@ -820,11 +820,11 @@
                 {if is_array($label)}
                 <optgroup label="{$option|escape}">
                 {foreach $label as $o => $l}
-                    <option value="{$o|escape}"{if (!is_array($value) && strcmp($o, $value) == 0) || (is_array($value) && isset($value[$o]))} selected="selected"{/if}>{$l}</option>
+                    <option value="{$o|escape}"{if (!is_array($value) && ($value && strcmp($o, $value) == 0)) || (is_array($value) && isset($value[$o]))} selected="selected"{/if}>{$l}</option>
                 {/foreach}
                 </optgroup>
                 {else}
-                <option value="{$option|escape}"{if (!is_array($value) && strcmp($option, $value) == 0) || (is_array($value) && isset($value[$option]))} selected="selected"{/if}>{$label}</option>
+                <option value="{$option|escape}"{if (!is_array($value) && ($value && strcmp($option, $value) == 0)) || (is_array($value) && isset($value[$option]))} selected="selected"{/if}>{$label}</option>
                 {/if}
             {/foreach}
             </select>
