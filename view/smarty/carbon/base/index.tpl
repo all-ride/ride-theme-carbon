@@ -125,7 +125,7 @@
                 {strip}
                 <script type="text/javascript">
                     $(function() {
-                        {implode('', $app['inlineJavascripts'])}
+                        {join($app['inlineJavascripts'])}
                     });
                 </script>
                 {/strip}
